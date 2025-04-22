@@ -1,0 +1,42 @@
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage[top=30mm, left=20mm, text={170mm, 240mm}]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[slovak]{babel}
+\usepackage{times}
+\usepackage{tipa}
+\usepackage[hidelinks]{hyperref}
+\DeclareRobustCommand\CSTeX{\leavevmode{$\cal C$}\kern-.3em \lower .67ex\hbox{$\cal S$}\kern-.145em\TeX} %https://www.cstug.cz/bulletin/xml/documents/acronym.xml.html
+
+
+\begin{document}
+\begin{titlepage}
+	\begin{center}
+		{\Huge \textsc{Vysoké učení technické v Brně}\\}
+		{\huge \textsc{Fakulta informačních technologií}\\}
+		\vspace{\stretch{0.382}}
+		{\LARGE Typografie a publikovanie\,--\,4.\ projekt\\}
+		{\Huge Bibliografické citácie\\}
+		\vspace{\stretch{0.618}}
+		{\Large \today \hfill Hugo Bohácsek}
+	\end{center}
+\end{titlepage}
+
+\section{Úvod}
+Prvé čo zistí väčšina ľudí, ktorý sa nezaujímajú o oblasť typografie je, že \LaTeX\ v tejto oblasti neznamená tekutinu, ale nástroj na sádzanie dokumentov. Hneď druhým \uv{šokom} môže byť výslovnosť jeho názvu. Ako napísal sám tvorca \TeX\ v jeho knihe \cite{knuth1986texbook} správna výslovnosť je \textipa{[leI.teks]}. Vďaka rodine nástrojov \TeX\ vieme vytvoriť dokumenty s veľmi vysokou typografickou kvalitou. Samozrejme nie všetko za nás spraví nejaký nástroj, základy typografie musíme ovládať aj my.
+
+\section{Začiatky}
+Vytváranie dokumentov s \LaTeX om sa vôbec nepodobá na aplikácie ako Word. V podstate ide skôr\\o \uv{programovanie} toho, čo chceme aby sa vo výsledku zobrazilo. Technicky je písanie dokumentov pomocou \LaTeX u bližšie k \uv{jazyku} HTML ako k nástrojom podobným Wordu. Ich detailné porovnanie, vrátanie výhod a nevýhod je dostupné na stránke \cite{porovnanie2007}. Pre úplné začiatky nám isto postačia knihy ako je \cite{rybička1995latex}, alebo pre ľudí, ktorý radi vidia čo sa učia \cite{goossens1997latex}. \LaTeX\ má zároveň aj veľké množstvo skupín, ktoré sa snažia vzdelávať svoje okolie pomocou publikácií, pravidelných stretnutí, či kurzov. Príkladom takejto skupiny je napsíklad \uv{The \TeX\\Users Group (TUG)} \cite{DuckBoat}.
+\section{Využitie}
+\LaTeX\ je veľmi verzatilným nástrojom. Dá sa použiť na čokoľvek - teda až na zopár vecí \dots \cite{article2010}\\V oblasti pedagogiky môže byť užitočný pri tvorbe dokumentov so vzorcami, či inými matematickými symbolmi \cite{online2009}. Častým využitím, najmä na fakultách s technickým zameraním, je písanie záverečných prác. Mnohé z nich ponúkajú šablóny, ktoré pomáhajú dodržať očakávaný štýl. Postupne sa však pridávajú aj iné fakulty \cite{Bartlik2017thesis}.
+
+
+
+\section{Rozšírenia}
+Systém \LaTeX\ sa dá rozšíriť mnohými tzv. \uv{balíkmi}. Ako príklad uvediem Acro\TeX, ktorý sa dá využiť na vytváranie interaktívnch testov \cite{online2010}. Iné je priam nutné použiť, ak chceme dodržiavať normy. Príkladom takéhoto rozšírenia je \uv{BiBTeX styl pro ČSN ISO 690 a ČSN ISO 690-2} \cite{FITBT7848}. Jedným z najdôležitejších rozšírení pre Československo bol \CSTeX{}. Jeho cieľom bolo ponúknuť \TeX\ širšej verejnoti, vtedy na systém DOS \cite{CSTUG}.
+
+\newpage
+\bibliographystyle{czplain}
+\bibliography{citacie}
+\end{document}

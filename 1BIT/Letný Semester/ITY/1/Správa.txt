@@ -1,0 +1,2 @@
+-0.1:špatná úprava - chybí vyznačení slova 'vlna'
+-0.25:Odkazy na referenční body sázeny 'na tvrdo' nebo nestandardním způsobem (správně: \ref)

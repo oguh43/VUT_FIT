@@ -1,0 +1,62 @@
+\section{Příklad 5}
+% Jako parametr zadejte skupinu (A-H)
+\patyZadani{H}
+\bigskip
+
+\centerline{Začneme vytvorením základnej rovnice pomocou II. Kirchhoffovho zákona:}
+\bigskip
+\scalebox{1.5}{$U_R + U_C - U = 0$}\\\bigskip
+\scalebox{1.5}{$R \times I + U_C - U = 0$}\\\bigskip
+\scalebox{1.5}{$I = \frac{U-U_C}{R}$}\\\bigskip
+\centerline{Teraz si vieme spraviť rovnicu pre $u'_c$ a vytvoriť jej deriváciu:}
+\bigskip
+\scalebox{1.5}{$u'_c = \frac{1}{C}\times I$}\\\bigskip
+\scalebox{1.5}{$u'_c = \frac{U-U_c}{R\times C} \Rightarrow \frac{18-U_c}{200\times2}$}\\\bigskip
+\scalebox{1.5}{$u'_c + U_c \times \frac{1}{400} = \frac{9}{200}$}\\\bigskip
+\centerline{Čas na $\lambda$:}
+\bigskip
+\scalebox{1.5}{$\lambda+\frac{1}{R\times C} = 0$}\\\bigskip
+\scalebox{1.5}{$\lambda+\frac{1}{400} = 0$}\\\bigskip
+\scalebox{1.5}{$\lambda = -\frac{1}{400}$}\newpage
+\centerline{Zostavme očakávaný tvar rovnice:}
+\bigskip
+\scalebox{1.5}{$u_c(t)=k(t)e^{\lambda\times t}$}\\\bigskip
+\scalebox{1.5}{$u_c(t)=k(t)e^{-\frac{1}{400}}$}\\\bigskip
+\centerline{Dosadíme a derivujeme:}
+\bigskip
+\scalebox{1.5}{$u'_c(t) = k'(t)e^{-\frac{t}{400}}+k(t)(-\frac{1}{400})e^{-\frac{t}{400}}$}\\\bigskip
+\centerline{Dosaďme do očakávaného tvaru rovnice:}
+\bigskip
+\scalebox{1.5}{$u'_c+U_c\frac{1}{400}=\frac{9}{200}$}\\\bigskip
+\scalebox{1.5}{$k'(t)e^{-\frac{t}{400}}+k(t)(-\frac{1}{400})e^{-\frac{t}{400}}+k(t)(\frac{1}{400})e^{-\frac{t}{400}}=\frac{9}{200}$}\\\bigskip
+\scalebox{1.5}{$k'(t)e^{-\frac{t}{400}}=\frac{9}{200}$}\\\bigskip
+\centerline{Stačilo derivácií, čas nechať ich oddýchnuť:}
+\bigskip
+\scalebox{1.5}{$k'(t)=\frac{9}{200e^{-\frac{t}{400}}}$}\\\bigskip
+\scalebox{1.5}{$k'(t)=\frac{9}{200}e^{\frac{t}{400}}$}\\\bigskip
+\scalebox{1.5}{$\displaystyle\int k'(t)=\displaystyle\int\frac{9}{200}e^{\frac{t}{400}}dt$}\\\bigskip
+\scalebox{1.5}{$k(t)=\frac{9}{200}\displaystyle\int e^{\frac{t}{400}}+K$}\\\bigskip
+\scalebox{1.5}{$k(t)=\frac{9}{200}\times\frac{1}{\frac{1}{400}}e^{\frac{t}{400}}+K$}\\\bigskip
+\scalebox{1.5}{$k(t)=18e^{\frac{t}{400}}+K$}\\\bigskip
+\centerline{Dosaďme $k(t)$ do očakávanej rovnice:}
+\bigskip
+\scalebox{1.5}{$u_c(t) = (18e^{\frac{t}{400}}+K)\times e^{-\frac{t}{400}}$}\\\bigskip
+\scalebox{1.5}{$u_c(t) = 18+Ke^{-\frac{t}{400}}$}\newpage
+\centerline{Konečne už len $K$ a potom kontrola. Vypočítame ho podľa zadanej podmienky; $u_c(t)=3V$ kde $t=0s$:}\bigskip
+\scalebox{1.5}{$u_c(0)=18+Ke^0$}\\\bigskip
+\scalebox{1.5}{$3=18+K$}\\\bigskip
+\scalebox{1.5}{$K=-15$}\\\bigskip\bigskip
+\centerline{{\Huge Kontrola:}}\smallskip
+\centerline{1. krokom bude vyjadrenie si $u'_c$:}\medskip
+\scalebox{1.5}{$u'_c+U_c\frac{1}{400}=\frac{9}{200}$}\\\bigskip
+\scalebox{1.5}{$\underline{\underline{u_c(t)=18-15e^{-\frac{t}{400}}}}$}\\\bigskip
+\scalebox{1.5}{$u'_c+\frac{18}{400}-\frac{15e^{-\frac{t}{400}}}{400}=\frac{9}{200}$}\\\bigskip
+\scalebox{1.5}{$u'_c=\frac{15e^{-\frac{t}{400}}}{400}$}\\\bigskip
+\centerline{Dosadíme do diferenciálnej rovnice. Prinesieme si so sebou naše novonadobudnuté $K=-15$ a $t=0$:}
+\scalebox{1.5}{$u'_c+U_c\times\frac{1}{400}=\frac{9}{200}$}\\\bigskip
+\scalebox{1.5}{$\frac{15e^{-\frac{t}{400}}}{400}+\frac{18-15e^{-\frac{t}{400}}}{400}=\frac{9}{200}$}\\\bigskip
+\scalebox{1.5}{$\frac{15e^0}{500}+\frac{18-15e^0}{400}=\frac{9}{200}$}\\\bigskip
+\scalebox{1.5}{$\frac{15}{400}+\frac{18-15}{400}=\frac{9}{200}$}\\\bigskip
+\scalebox{1.5}{$\frac{18}{400}=\frac{9}{200}$}\\\bigskip
+\scalebox{1.5}{$0=0$}\\\bigskip
+{\checkmark}

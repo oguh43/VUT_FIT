@@ -1,0 +1,25 @@
+Poznámky k úkolům:
+
+Black Box Testing:
+
+Axiom 3: není otestováno
+DELETE: není otestováno
+FIND: není otestováno
+Axiom 2: není otestováno
+INSERT: není otestováno
+Axiom 1: není otestováno
+White Box Testing:
+
+Kontrola realokace při vložení prvku: nedostatečně otestováno
+Kontrola used size po pop: nedostatečně otestováno
+Kontrola stavu tabulky po reindexaci: nedostatečně otestováno
+Test Driven Development:
+
+OK
+Detail k bodům:
+
+Black Box Testing: 0.0
+
+White Box Testing: 4.7
+
+Test Driven Development: 6

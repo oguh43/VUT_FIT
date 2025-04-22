@@ -1,0 +1,6 @@
+-0.8:chybějí nezlomitelné mezery (tildy, vlnky) pro předložky nebo spojky --> V této úloze si v
+-0.5:chybějí nezlomitelné mezery před \ref, \eqref nebo \pageref --> 34:říklad Definice \ref{def:definice1}
+-0.2:Odkaz na referenční bod 1 sázen 'natvrdo' nebo nestandardním způsobem (správně: \ref nebo \eqref) --> 89:V rovnici (1) jsou tři typy
+-0.1:nesprávně vysázená log. funkce, chybí symbol \log
+-0.1:chybí \oplus
+-0.5:Jiné než předepsané jméno souboru ==> nutná manuální úprava

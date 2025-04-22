@@ -1,0 +1,111 @@
+\section{Příklad 3}
+% Jako parametr zadejte skupinu (A-H)
+\tretiZadani{A}
+\bigskip
+\centerline{\Large{Poďme rátať!}}
+\centerline{Zostavíme matice:}
+\bigskip
+\centering
+\[
+\begin{pmatrix}
+
+-\frac{1}{R_1} - \frac{1}{R_2} & \frac{1}{R_2} & 0\\
+\frac{1}{R_2} & -\frac{1}{R_2} - \frac{1}{R_3} & \frac{1}{R_3}\\
+0 & \frac{1}{R_3} & -\frac{1}{R_3} - \frac{1}{R_4} - \frac{1}{R_5}
+
+\end{pmatrix}^{-1}
+\begin{pmatrix}
+    -I_1\\
+    -I_2\\
+    I_2 - \frac{U}{R_5}
+\end{pmatrix}
+=
+\begin{pmatrix}
+    U_a\\
+    U_b\\
+    U_c
+\end{pmatrix}
+\]\\
+\bigskip
+\centerline{Dosadíme do matice:}
+\bigskip
+\centering
+\[
+\begin{pmatrix}
+
+-\frac{1}{53} - \frac{1}{49} & \frac{1}{49} & 0\\
+\frac{1}{49} & -\frac{1}{49} - \frac{1}{65} & \frac{1}{65}\\
+0 & \frac{1}{65} & -\frac{1}{65} - \frac{1}{39} - \frac{1}{32}
+
+\end{pmatrix}^{-1}
+\begin{pmatrix}
+    -0.9\\
+    -0.7\\
+    0.7 - \frac{120}{32}
+\end{pmatrix}
+=
+\begin{pmatrix}
+    U_a\\
+    U_b\\
+    U_c
+\end{pmatrix}
+\]\\
+\bigskip
+\centerline{Spravíme inverziu pomocou determinantu:}
+\bigskip
+\centering
+\[
+\begin{pmatrix}
+
+-\frac{\num{495126}}{\num{13105}} & -\frac{\num{310739}}{\num{13105}} & -\frac{\num{66144}}{\num{13105}}\\
+-\frac{\num{310739}}{\num{13105}} & -\frac{\num{598026}}{\num{13105}} & -\frac{\num{127296}}{\num{13105}}\\
+-\frac{66144}{\num{13105}} & -\frac{127296}{\num{13105}} & -\frac{208416}{\num{13105}}
+
+\end{pmatrix}
+\begin{pmatrix}
+    -0.9\\
+    -0.7\\
+    -3.05
+\end{pmatrix}
+=
+\begin{pmatrix}
+    U_a\\
+    U_b\\
+    U_c
+\end{pmatrix}
+\]\\
+
+
+\newpage
+\centerline{Vynásobíme matice:}
+\centering
+\[
+\begin{pmatrix}
+    \frac{\num{8648699}}{\num{131050}}\\
+    \frac{\num{10865361}}{\num{131050}}\\
+    \frac{\num{3921528}}{\num{65525}}
+\end{pmatrix}
+=
+\begin{pmatrix}
+    U_a\\
+    U_b\\
+    U_c
+\end{pmatrix}
+\]\\
+\centerline{Vyčítame z tejto matice hodnoty prúdov}
+\bigskip
+\centering
+\scalebox{1.5}{$U_a = \frac{\num{8648699}}{\num{131050}}V\hspace{2em}$}
+\scalebox{1.5}{$U_b = \frac{\num{10865361}}{\num{131050}}V\hspace{2em}$}
+\scalebox{1.5}{$U_c = \frac{\num{3921528}}{\num{65525}}V\hspace{2em}$}
+\\
+\bigskip
+\centerline{Prúd $U_{R_4}$ je vlastne $U_c$, dorátejme si teda $I_{R_4}$}
+\bigskip
+\centering
+\scalebox{1.5}{$U_{R_4} = U_c = \frac{\num{3921528}}{\num{65525}}V \approx \underline{\underline{59.8478V}}$}\\
+\centering
+\bigskip
+\scalebox{1.5}{$I_{R_4} = \frac{U_{R_4}}{R_4} = \frac{\frac{\num{3921528}}{\num{65525}}}{39} = \frac{\num{100 552}}{\num{65 525}}A \approx \underline{\underline{1.5346A}}$}
+
+

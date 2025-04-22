@@ -1,0 +1,87 @@
+11.95: celkem bodu
+
+====== Prehled hodnoceni ==========
+0.5: Hlavička
+0.5: Odsadenie
+1.8: Modularita kódu
+1.3: Celková prehľadnosť kódu
+1: Komentáre
+1: Pomenovanie identifikátorov
+0.45: Konzistentná programovacia konvencia
+-2: pouzito volani fseek
+0.8:ok: test validniho bludiste
+0.8:ok: test spatneho bludiste
+1.0:ok: test lpath na malem bludisti
+0.5:ok: test lpath na vetsim bludisti (vchod shora)
+0.5:ok: test lpath na vetsim bludisti (vchod zprava)
+0.1:ok: test lpath na jedinem ohranicenem policku
+1.0:ok: test rpath na malem bludisti
+0.5:ok: test rpath na vetsim bludisti (vchod shora)
+0.5:ok: test rpath na vetsim bludisti (vchod zprava)
+0.1:ok: test rpath na jedinem ohranicenem policku
+0.05:ok: reakce na napovedu
+0.05:ok: reakce na stderr kvuli zadnym argumentum
+0: segmentation fault
+0:chyba: reakce na stderr na chybejici jmeno souboru (lpath)
+0: segmentation fault
+0:chyba: reakce na stderr na chybejici jmeno souboru (rpath)
+0.5:ok: reakce na stderr na nepovedeny fopen
+0.5:ok: reakce na stderr na nepovedenou alokaci
+1.5:ok: test shortest z okraje jinym vychodem
+-1:chyba: pametove chyby
+
+====== Log z prekladu =============
+Ok
+
+====== Analyza kodu ===============
+-2: pouzito volani fseek
+
+====== Log z jednotlivych testu ===
+0.8:ok: test validniho bludiste
+0.8:ok: test spatneho bludiste
+1.0:ok: test lpath na malem bludisti
+0.5:ok: test lpath na vetsim bludisti (vchod shora)
+0.5:ok: test lpath na vetsim bludisti (vchod zprava)
+0.1:ok: test lpath na jedinem ohranicenem policku
+1.0:ok: test rpath na malem bludisti
+0.5:ok: test rpath na vetsim bludisti (vchod shora)
+0.5:ok: test rpath na vetsim bludisti (vchod zprava)
+0.1:ok: test rpath na jedinem ohranicenem policku
+0.05:ok: reakce na napovedu
+# This is a program to find a path through a maze. Usage:
+# --help -> Prints this help message.
+# --test [file] -> Validates maze stored in [file]. Prints 'Valid' on success, otherwise 'Invalid'
+# --lpath [r] [c] [file] Finds a path through the maze stored in [file] using the left hand rule. Enters via cell at [r] [c].
+# --rpath [r] [c] [file] Finds a path through the maze stored in [file] using the right hand rule. Enters via cell at [r] [c].
+0.05:ok: reakce na stderr kvuli zadnym argumentum
+# Error, no arguments were given!
+0: segmentation fault
+0:chyba: reakce na stderr na chybejici jmeno souboru (lpath)
+# Segmentation fault
+0: segmentation fault
+0:chyba: reakce na stderr na chybejici jmeno souboru (rpath)
+# Segmentation fault
+0.5:ok: reakce na stderr na nepovedeny fopen
+# Error reading file!
+0.5:ok: reakce na stderr na nepovedenou alokaci
+# malloc has failed!
+1.5:ok: test shortest z okraje jinym vychodem
+-1:chyba: pametove chyby
+# test_errargs1.valgrind:==22217== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+# test_errargs2.valgrind:==22222== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+# test_errperm.valgrind:==22228== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+# test_lpath1.valgrind:==22123== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+# test_lpath2.valgrind:==22131== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+# test_lpath3.valgrind:==22139== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+# test_lpath4.valgrind:==22151== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+# test_rpath1.valgrind:==22159== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+# test_rpath2.valgrind:==22168== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+# test_rpath3.valgrind:==22186== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+# test_rpath4.valgrind:==22198== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+# test_shortest1.valgrind:==22245== ERROR SUMMARY: 6 errors from 4 contexts (suppressed: 0 from 0)
+# test_shortest3.valgrind:==22254== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+# test_valid1.valgrind:==22092== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+# test_valid2.valgrind:==22116== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+
+====== Uprava kodu vyucujicim ======
+#

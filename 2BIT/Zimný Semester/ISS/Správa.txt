@@ -1,0 +1,10 @@
+--------
+
+
+xbohach00
+ Approach 8 z 8 : Vhodně zvolená reprezentace i metrika
+ Explanation/description 5 z 7 : Projekt se na tři odstavečky textu. I když by se dalo říct, že odůvosnění zde je , tak určitě chybí popis toho, jak funguji. Tedy postup výpočtu MFCC koeficientů, zdůvodnění proč sjou, nebo proč si myslíte že jsou, odolné vůči šumu (je to potřeba? na nahrávce je jen zvuk motoru). DTW není zmíněno vůbec, aní celý název metody. Proč je DTW použité? nedalo by se to bez nej?
+ Formal aspects 1 z 3 : nění členění do sekcí, výsledky jsou v bloku programu - přoč nejsou v tabulce? Chybí úvod i závěr. Kde je v přednáškách ISS MDFF nebo DTW?
+ přiřazení: s = Subaru, k = VW, l = BMW , o = nic
+ -------------------------
+ total points = 14, evaluated by completed/grezl.txt

@@ -1,0 +1,47 @@
+10: celkem bodu
+1.4: premie
+
+====== Prehled hodnoceni ==========
+0.6:ok: jedno mesto na vstupu
+0.6:ok: jedno mesto na vstupu (mala pismena)
+0.5:ok: prazdny prefix
+0.5:ok: prazdny prefix (mala pismena)
+0.4:ok: prazdny prefix (serazeno)
+0.4:ok: prazdny prefix (serazeno, mala pismena)
+0.5:ok: nalezeni pri neprazdnem prefixu
+0.5:ok: nalezeni pri neprazdnem prefixu (mala pismena)
+0.7:ok: povoleni klaves pri neprazdnem prefixu (jedna adresa)
+0.7:ok: povoleni klaves pri neprazdnem prefixu (jedna adresa, mala pismena)
+0.7:ok: povoleni klaves pri neprazdnem prefixu (vice adres)
+0.7:ok: povoleni klaves pri neprazdnem prefixu (vice adres, mala pismena)
+0.9:spatne: podporovana velikost vstupnich dat
+1.4:ok: podporovana velikost vstupnich dat (delka)
+0.4:ok: nenalezeno
+0.4:ok: nenalezeno (mala pismena)
+1.5:ok: proudove zpracovani dat (nepovinne)
+
+====== Log z prekladu =============
+Ok
+
+====== Analyza kodu ===============
+Ok
+
+====== Log z jednotlivych testu ===
+0.6:ok: jedno mesto na vstupu
+0.6:ok: jedno mesto na vstupu (mala pismena)
+0.5:ok: prazdny prefix
+0.5:ok: prazdny prefix (mala pismena)
+0.4:ok: prazdny prefix (serazeno)
+0.4:ok: prazdny prefix (serazeno, mala pismena)
+0.5:ok: nalezeni pri neprazdnem prefixu
+0.5:ok: nalezeni pri neprazdnem prefixu (mala pismena)
+0.7:ok: povoleni klaves pri neprazdnem prefixu (jedna adresa)
+0.7:ok: povoleni klaves pri neprazdnem prefixu (jedna adresa, mala pismena)
+0.7:ok: povoleni klaves pri neprazdnem prefixu (vice adres)
+0.7:ok: povoleni klaves pri neprazdnem prefixu (vice adres, mala pismena)
+0.9:spatne: podporovana velikost vstupnich dat
+# Vystup ma chybu v koncich radku
+1.4:ok: podporovana velikost vstupnich dat (delka)
+0.4:ok: nenalezeno
+0.4:ok: nenalezeno (mala pismena)
+1.5:ok: proudove zpracovani dat (nepovinne)

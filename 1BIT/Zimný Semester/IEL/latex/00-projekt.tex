@@ -1,0 +1,37 @@
+%%%%% Projekt z předmětu IEL %%%% 
+%% Autor: Hugo Bohácsek (xbohach00)
+
+\documentclass[slovak]{fitiel} % odkomentujte pro dokumenty ve slovenštině
+\usepackage{tikz}
+\def\checkmark{\tikz\fill[scale=1.5](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+\usepackage[math]{cellspace}
+\cellspacetoplimit 3pt
+\cellspacebottomlimit 3pt
+\setlength{\arraycolsep}{4pt}
+% implicitní cesta k obrázkům
+\graphicspath{{fig/}}
+
+% hlavička 
+% příkaz logo - vkládá logo fakulty dle zvoleného jazyka
+\title{\logo\\IEL -- protokol k projektu}
+\author{Hugo, Bohácsek \\ xbohach00}
+\date{\today} % today - dnešní datum
+
+\begin{document}
+	\maketitle
+	
+	\tableofcontents
+	
+	\newpage
+
+	%% vložení jednotlivých příkladů
+	\input{01-pr1.tex} \newpage
+	\input{02-pr2.tex} \newpage
+	\input{03-pr3.tex} \newpage
+	\input{04-pr4.tex} \newpage
+	\input{05-pr5.tex} \newpage
+	
+	%% vložení tabulky s přehledem výsledků
+	\input{06-tab.tex}
+	
+\end{document}

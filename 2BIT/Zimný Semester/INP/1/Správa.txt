@@ -1,0 +1,7 @@
+login.b: 3b
+počet instrukcí: 85, tj. o 68 více než nejkompaktnější odevzdané řešení
+login.png: 3b
+cpu.vhd: 15b
+jednoduché smyčky: 4b
+vnořené smyčky: 5b
+penalizace: kód nelze vysyntetizovat, obsahuje latch nebo po syntéze nefunguje korektně, -2b

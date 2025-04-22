@@ -1,0 +1,128 @@
+\documentclass[11pt, a4paper, twocolumn]{article}
+\usepackage[left=14mm,text={183mm, 252mm},top=23mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{lmodern}
+
+\hyphenation{Mea-ly-ho}
+
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\thispagestyle{empty}
+%\Huge
+\textsc{\Huge Vysoké učení technické v Brně}\huge\\[0.5em]
+\textsc{\huge Fakulta informačních technologií}\\
+\vspace{\stretch{0.382}}
+{\LARGE Typografie a publikování – 2. projekt}\large\\[0.6em]
+{\LARGE Sazba dokumentů a matematických výrazů}\\
+\vspace{\stretch{0.618}}
+
+\end{center}
+{\Large 2024 \hfill Hugo Bohácsek (xbohach00)}
+\end{titlepage}
+\newpage
+%\label{strana1}
+\setcounter{page}{1}
+%\twocolumn
+\section*{Úvod}
+V této úloze si vysázíme titulní stranu a kousek matematického textu, v němž se vyskytují například Definice \ref{def:definice1} nebo rovnice (\ref{rovnica2}) na straně \pageref{def:definice1}. Pro vytvoření
+těchto odkazů používáme kombinace příkazů \verb|\label|,
+\verb|\ref|, \verb|\eqref| a \verb|\pageref|. Před odkazy patří nezlomitelná mezera. Pro zvýrazňování textu se používají
+příkazy \verb|\verb| a \verb|\emph|.
+
+Titulní strana je vysázena prostředím \texttt{titlepage}
+a~nadpis je v optickém středu s využitím \textit{přesného} zlatého řezu, který byl probrán na přednášce. Dále jsou
+na titulní straně čtyři různé velikosti písma a mezi
+dvojicemi řádků textu je použito řádkování se zadanou relativní velikostí 0,5\,em a 0,6\,em\footnote{Použijte správný typ mezery mezi číslem a jednotkou.}.
+\section{Matematický text}
+Matematické symboly a výrazy v plynulém textu jsou
+v prostředí \texttt{math}. Definice a věty sázíme v prostředí
+definovaném příkazem \verb|\newtheorem| z balíku \texttt{amsthm}.
+Tato prostředí obracejí význam \verb|\emph|: uvnitř textu
+sázeného kurzívou se zvýrazňuje písmem v základním řezu. Někdy je vhodné použít konstrukci \verb|${}$|
+nebo \verb|\mbox{}|, která zabrání zalomení (matematického) textu. Pozor také na tvar i sklon řeckých písmen:
+srovnejte \verb|\epsilon| a \verb|\varepsilon|, \verb|\Xi| a \verb|\varXi|.
+\newtheorem{defn}{Definice}
+\begin{defn}\label{def:definice1}
+v\emph{Konečný přepisovací stroj} neboli \emph{Mealyho automat} je definován jako uspořádaná pětice tvaru $M = \mathrm{(}Q,\varSigma,\varGamma,\delta,q_0\mathrm{)}$, kde:
+\begin{itemize}
+    \item[$\bullet$] Q je konečná množina \emph{stavů},
+    \item[$\bullet$] $\varSigma$ je konečná \emph{vstupní abeceda},
+    \item[$\bullet$] $\varGamma$ je konečná \emph{výstupní abeceda},
+    \item[$\bullet$] $\delta$ \emph{:} $Q \times \varSigma \rightarrow Q \times \varGamma$ je totální \emph{přechodová funkce},
+    \item[$\bullet$] $q_0 \in Q$ je \emph{počáteční stav}.
+    %δ : Q × Σ → Q × Γ je totální přechodová funkce,
+\end{itemize}
+%tvaru M = (Q, Σ, Γ, δ, q0), kde:
+\end{defn}
+\subsection{Podsekce s definicí}
+Pomocí přechodové funkce $\delta$ zavedeme novou funkci $\delta^\ast$
+pro překlad vstupních slov $u \in \Sigma^\ast$ do výstupních slov $w \in \Gamma^\ast$.
+%\newtheorem{defn2}{Definice}
+\begin{defn}
+Nechť $M = \mathrm{(}Q, \varSigma, \varGamma, \delta, q_0\mathrm{)}$ je Mealyho automat. \emph{Překládací funkce} $\delta^\ast : Q \times \varSigma^\ast \times \varGamma^\ast \rightarrow \varGamma^\ast$ je pro každý stav $q \in Q$, symbol $x \in \varSigma$, slova $u \in \varSigma^\ast$, $w \in \varGamma^\ast$ definována rekurentním předpisem:
+\begin{itemize}
+    \item[$\bullet$] $\delta^\ast(q, \varepsilon, w) = w$
+    \item[$\bullet$] $\delta^\ast(q, xu, w) = \delta^\ast(q^\prime, u, wy)$, kde $(q^\prime, y) = \delta(q,x)$
+\end{itemize}
+\end{defn}
+
+\vfill\eject % remove meeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+\subsection{Rovnice}
+Složitější matematické formule sázíme mimo plynulý
+text pomocí prostředí \texttt{displaymath}. Lze umístit i více
+výrazů na jeden řádek, ale pak je třeba tyto vhodně
+oddělit, například pomocí \verb|\quad|, při dostatku místa i~\verb|\qquad|.
+$$g^{a_n} \notin A^{B^n}\qquad y^1_0 - \sqrt[5]{x + \sqrt[7]{y}}\qquad x \ge y^2 \geq y^3$$
+
+Velikost závorek a svislých čar je potřeba přizpůsobit jejich obsahu. Velikost lze stanovit explicitně, anebo pomocí \verb|\left| a \verb|\right|. Kombinační čísla sázejte makrem \verb|\binom|.
+$$\left| \bigcup P \right| = \sum\limits _{\emptyset \neq X\subseteq P} (-1)^{\left|X\right|-1}\left|\bigcap X\right|$$\bigskip
+$$F_{n+1}=\binom{n}{0} + \binom{n-1}{1} + \binom{n-2}{2} + \cdots + \binom{\left\lceil \frac{n}{2} \right\rceil}{\left\lfloor \frac{n}{2} \right\rfloor}$$
+
+V rovnici (1) jsou tři typy závorek s různou \emph{explicitně} definovanou velikostí. Obě rovnice mají svisle zarovnaná rovnítka. Použijte k tomu vhodné prostředí.
+\setcounter{equation}{0}
+\begin{eqnarray}
+\biggl(\Bigl\{b\otimes [c_1 \otimes c_2] \circ a\Bigl\}^{\frac{2}{3}}\biggr) & = & log_zx \\
+\label{rovnica2}\int_{a}^{b} f(x)\,\mathrm{d}x & = & -\int_{b}^{a}f(x)\,\mathrm{d}y
+\end{eqnarray}
+V této větě vidíme, jak se vysází proměnná určující limitu v běžném textu: $\lim_{x\rightarrow\infty}f(m)$. Podobně je to i s dalšími symboly jako $\bigcup_{N\in \mathcal{M}}N$ či $\sum_{i=1}^{m}x_{i}^{2}$. S vynucením méně úsporné sazby příkazem \verb|\limits| budou vzorce vysázeny v podobě $\displaystyle{\lim_{m\rightarrow\infty}f(m)}$ a $\sum\limits_{i=1}^{m}x_{i}^{2}$.
+
+\section{Matice}
+Pro sázení matic se používa prostředí \texttt{array} a závorky s výškou nastavitelnou pomocí \verb|\left|, \verb|\right|.
+\[
+D=
+ \left| 
+\begin{array}{cccc}
+     a_{11} & a_{12} & \cdots & a_{1n}\\
+     a_{21} & a_{22} & \cdots & a_{2n}\\
+     \vdots & \vdots & \ddots & \vdots\\
+     a_{m1} & a_{m2} & \cdots & a_{mn} 
+\end{array}
+\right|
+=
+\left|
+\begin{array}{cc}
+    x & y\\
+    t & w
+\end{array}
+\right|
+= xw - yt
+\]
+
+Prostředí \texttt{array} lze úspěšně využít i jinde, například na pravé straně následujíci rovnosti.
+\[
+\binom{n}{k} = 
+\Biggl\{
+\begin{array}{ll}
+    \frac{n!}{k!(n-k)!} & \text{pro }0 \leq k \leq n\\
+    0 & \text{jinak}
+\end{array}
+\]
+\end{document}
