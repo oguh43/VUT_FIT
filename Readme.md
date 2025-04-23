@@ -6,7 +6,10 @@
 | 2BIT | 2024 - 2025      |
 
 # Odkazy po predmetoch
-// todo
+| BIT / Semester | Predmet | Projekt                 |
+|----------------|---------|-------------------------|
+| 1BIT / ZS      |         |                         |
+|                | IEL     | Celosemestrálny projekt |
 
 # Vysvetlivky
 | Vec              | Vysvetlenie                    |
