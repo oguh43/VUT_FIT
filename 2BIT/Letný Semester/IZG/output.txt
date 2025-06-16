@@ -1,0 +1,2851 @@
+00 - bind framebuffer
+00 - bind program
+00 - bind vertex array
+00 - blockWrites
+00 - setBackfaceCulling
+00 - setFrontFace
+00 - setStencil
+00 - setDrawId
+00 - clear commands
+00 - clear commands, partial framebuffer
+00 - clear multiple framebuffers
+00 - user
+00 - drawID_no_program
+
+  TEST SELHAL!
+
+  Tento test zkouší, zda kreslící příkazy mají správné gl_DrawID.
+  Příkaz student_GPU_run je v tomto testu zavolán několikrát.
+  Při každém zavolání by se mělo gl_DrawID nastavit zpět na 0.
+  
+
+  ==========================
+  === DETAILNÍ INFORMACE ===
+  ==========================
+  
+  Command buffer v tomto testu vypadá takto:
+  
+[1;90m  CommandBuffer::nofCommands = 3
+  CommandBuffer::commands = {
+    0:
+      Command::type = DRAW                        
+      DrawCommand::nofVertices = 3
+    1:
+      Command::type = DRAW                        
+      DrawCommand::nofVertices = 3
+    2:
+      Command::type = DRAW                        
+      DrawCommand::nofVertices = 3
+  }
+[0m
+  Jak se liší vaše změny nad pamětí od těch, co se měly provést:
+  
+mem.gl_DrawID = 6;//vaše    
+mem.gl_DrawID = 3;//mělo být
+
+
+  Jaké změny jste nad pamětí provedli vy:
+[1;90m  GPUMemory::gl_DrawID            = 6
+[0m
+  Jaké změny se nad pamětí měly provést:
+[1;90m  GPUMemory::gl_DrawID            = 3
+[0m
+  Jaké změny byly nad pamětí provedeny ještě před spuštěním:
+[1;90m  Počáteční pamět byla nastavena defaultně
+[0m00 - sub command tests
+00 - vertex shader, gl_VertexID (no indexing)
+00 - drawID_empty_program
+00 - mixed clear and draw commands
+00 - vertex shader, shader interface
+00 - vertex shader, gl_VertexID (indexing)
+  (32bit indexing)
+  (16bit indexing)
+  (8bit indexing)
+00 - vertex shader, attributes
+  (offset=0,stride=4)
+  (offset=12,stride=4)
+  (offset=0,stride=16)
+  (offset=8,stride=16)
+00 - vertex shader, attributes, offset, stride, multiple buffers
+00 - vertex shader, attributes, offset, stride, indexing
+00 - Raterization: basic rasterization to check primitive assembly unit and viewport transformation
+  raster test: 0 - ok.
+00 - Rasterization: out of window tests
+  raster test: 0 - ok.
+  raster test: 1 - ok.
+  raster test: 2 - ok.
+  raster test: 3 - ok.
+  raster test: 4 - ok.
+  raster test: 5 - ok.
+00 - rasterization should produce correct number of fragments
+  raster test: 0 - ok.
+  raster test: 1 - ok.
+  raster test: 2 - ok.
+  raster test: 3 - ok.
+  raster test: 4 - ok.
+  raster test: 5 - ok.
+  raster test: 6 - ok.
+  raster test: 7 - ok.
+  raster test: 8 - ok.
+  raster test: 9 - ok.
+  raster test: 10 - ok.
+  raster test: 11 - ok.
+  raster test: 12 - ok.
+  raster test: 13 - ok.
+  raster test: 14 - ok.
+  raster test: 15 - ok.
+  raster test: 16 - ok.
+  raster test: 17 - ok.
+  raster test: 18 - ok.
+  raster test: 19 - ok.
+  raster test: 20 - ok.
+  raster test: 21 - ok.
+  raster test: 22 - ok.
+  raster test: 23 - ok.
+  raster test: 24 - ok.
+  raster test: 25 - ok.
+  raster test: 26 - ok.
+  raster test: 27 - ok.
+  raster test: 28 - ok.
+  raster test: 29 - ok.
+  raster test: 30 - ok.
+  raster test: 31 - ok.
+  raster test: 32 - ok.
+  raster test: 33 - ok.
+  raster test: 34 - ok.
+  raster test: 35 - ok.
+  raster test: 36 - ok.
+  raster test: 37 - ok.
+  raster test: 38 - ok.
+  raster test: 39 - ok.
+  raster test: 40 - ok.
+  raster test: 41 - ok.
+  raster test: 42 - ok.
+  raster test: 43 - ok.
+  raster test: 44 - ok.
+  raster test: 45 - ok.
+  raster test: 46 - ok.
+  raster test: 47 - ok.
+  raster test: 48 - ok.
+  raster test: 49 - ok.
+  raster test: 50 - ok.
+  raster test: 51 - ok.
+  raster test: 52 - ok.
+  raster test: 53 - ok.
+  raster test: 54 - ok.
+  raster test: 55 - ok.
+  raster test: 56 - ok.
+  raster test: 57 - ok.
+  raster test: 58 - ok.
+  raster test: 59 - ok.
+  raster test: 60 - ok.
+  raster test: 61 - ok.
+  raster test: 62 - ok.
+  raster test: 63 - ok.
+  raster test: 64 - ok.
+  raster test: 65 - ok.
+  raster test: 66 - ok.
+  raster test: 67 - ok.
+  raster test: 68 - ok.
+  raster test: 69 - ok.
+  raster test: 70 - ok.
+  raster test: 71 - ok.
+  raster test: 72 - ok.
+  raster test: 73 - ok.
+  raster test: 74 - ok.
+  raster test: 75 - ok.
+  raster test: 76 - ok.
+  raster test: 77 - ok.
+  raster test: 78 - ok.
+  raster test: 79 - ok.
+  raster test: 80 - ok.
+  raster test: 81 - ok.
+  raster test: 82 - ok.
+  raster test: 83 - ok.
+  raster test: 84 - ok.
+  raster test: 85 - ok.
+  raster test: 86 - ok.
+  raster test: 87 - ok.
+  raster test: 88 - ok.
+  raster test: 89 - ok.
+  raster test: 90 - ok.
+  raster test: 91 - ok.
+  raster test: 92 - ok.
+  raster test: 93 - ok.
+  raster test: 94 - ok.
+  raster test: 95 - ok.
+  raster test: 96 - ok.
+  raster test: 97 - ok.
+  raster test: 98 - ok.
+  raster test: 99 - ok.
+  raster test: 100 - ok.
+  raster test: 101 - ok.
+  raster test: 102 - ok.
+  raster test: 103 - ok.
+  raster test: 104 - ok.
+  raster test: 105 - ok.
+  raster test: 106 - ok.
+  raster test: 107 - ok.
+  raster test: 108 - ok.
+  raster test: 109 - ok.
+  raster test: 110 - ok.
+  raster test: 111 - ok.
+  raster test: 112 - ok.
+  raster test: 113 - ok.
+  raster test: 114 - ok.
+  raster test: 115 - ok.
+  raster test: 116 - ok.
+  raster test: 117 - ok.
+  raster test: 118 - ok.
+  raster test: 119 - ok.
+  raster test: 120 - ok.
+  raster test: 121 - ok.
+  raster test: 122 - ok.
+  raster test: 123 - ok.
+  raster test: 124 - ok.
+  raster test: 125 - ok.
+  raster test: 126 - ok.
+  raster test: 127 - ok.
+  raster test: 128 - ok.
+  raster test: 129 - ok.
+  raster test: 130 - ok.
+  raster test: 131 - ok.
+  raster test: 132 - ok.
+  raster test: 133 - ok.
+  raster test: 134 - ok.
+  raster test: 135 - ok.
+  raster test: 136 - ok.
+  raster test: 137 - ok.
+  raster test: 138 - ok.
+  raster test: 139 - ok.
+  raster test: 140 - ok.
+  raster test: 141 - ok.
+  raster test: 142 - ok.
+  raster test: 143 - ok.
+  raster test: 144 - ok.
+  raster test: 145 - ok.
+  raster test: 146 - ok.
+  raster test: 147 - ok.
+  raster test: 148 - ok.
+  raster test: 149 - ok.
+  raster test: 150 - ok.
+  raster test: 151 - ok.
+  raster test: 152 - ok.
+  raster test: 153 - ok.
+  raster test: 154 - ok.
+  raster test: 155 - ok.
+  raster test: 156 - ok.
+  raster test: 157 - ok.
+  raster test: 158 - ok.
+  raster test: 159 - ok.
+  raster test: 160 - ok.
+  raster test: 161 - ok.
+  raster test: 162 - ok.
+  raster test: 163 - ok.
+  raster test: 164 - ok.
+  raster test: 165 - ok.
+  raster test: 166 - ok.
+  raster test: 167 - ok.
+  raster test: 168 - ok.
+  raster test: 169 - ok.
+  raster test: 170 - ok.
+  raster test: 171 - ok.
+  raster test: 172 - ok.
+  raster test: 173 - ok.
+  raster test: 174 - ok.
+  raster test: 175 - ok.
+  raster test: 176 - ok.
+  raster test: 177 - ok.
+  raster test: 178 - ok.
+  raster test: 179 - ok.
+  raster test: 180 - ok.
+  raster test: 181 - ok.
+  raster test: 182 - ok.
+  raster test: 183 - ok.
+  raster test: 184 - ok.
+  raster test: 185 - ok.
+  raster test: 186 - ok.
+  raster test: 187 - ok.
+  raster test: 188 - ok.
+  raster test: 189 - ok.
+  raster test: 190 - ok.
+  raster test: 191 - ok.
+  raster test: 192 - ok.
+  raster test: 193 - ok.
+  raster test: 194 - ok.
+  raster test: 195 - ok.
+  raster test: 196 - ok.
+  raster test: 197 - ok.
+  raster test: 198 - ok.
+  raster test: 199 - ok.
+  raster test: 200 - ok.
+  raster test: 201 - ok.
+  raster test: 202 - ok.
+  raster test: 203 - ok.
+  raster test: 204 - ok.
+  raster test: 205 - ok.
+  raster test: 206 - ok.
+  raster test: 207 - ok.
+  raster test: 208 - ok.
+  raster test: 209 - ok.
+  raster test: 210 - ok.
+  raster test: 211 - ok.
+  raster test: 212 - ok.
+  raster test: 213 - ok.
+  raster test: 214 - ok.
+  raster test: 215 - ok.
+  raster test: 216 - ok.
+  raster test: 217 - ok.
+  raster test: 218 - ok.
+  raster test: 219 - ok.
+  raster test: 220 - ok.
+  raster test: 221 - ok.
+  raster test: 222 - ok.
+  raster test: 223 - ok.
+  raster test: 224 - ok.
+  raster test: 225 - ok.
+  raster test: 226 - ok.
+  raster test: 227 - ok.
+  raster test: 228 - ok.
+  raster test: 229 - ok.
+  raster test: 230 - ok.
+  raster test: 231 - ok.
+  raster test: 232 - ok.
+  raster test: 233 - ok.
+  raster test: 234 - ok.
+  raster test: 235 - ok.
+  raster test: 236 - ok.
+  raster test: 237 - ok.
+  raster test: 238 - ok.
+  raster test: 239 - ok.
+  raster test: 240 - ok.
+  raster test: 241 - ok.
+  raster test: 242 - ok.
+  raster test: 243 - ok.
+  raster test: 244 - ok.
+  raster test: 245 - ok.
+  raster test: 246 - ok.
+  raster test: 247 - ok.
+  raster test: 248 - ok.
+  raster test: 249 - ok.
+  raster test: 250 - ok.
+  raster test: 251 - ok.
+  raster test: 252 - ok.
+  raster test: 253 - ok.
+  raster test: 254 - ok.
+  raster test: 255 - ok.
+  raster test: 256 - ok.
+  raster test: 257 - ok.
+  raster test: 258 - ok.
+  raster test: 259 - ok.
+  raster test: 260 - ok.
+  raster test: 261 - ok.
+  raster test: 262 - ok.
+  raster test: 263 - ok.
+  raster test: 264 - ok.
+  raster test: 265 - ok.
+  raster test: 266 - ok.
+  raster test: 267 - ok.
+  raster test: 268 - ok.
+  raster test: 269 - ok.
+  raster test: 270 - ok.
+  raster test: 271 - ok.
+  raster test: 272 - ok.
+  raster test: 273 - ok.
+  raster test: 274 - ok.
+  raster test: 275 - ok.
+  raster test: 276 - ok.
+  raster test: 277 - ok.
+  raster test: 278 - ok.
+  raster test: 279 - ok.
+  raster test: 280 - ok.
+  raster test: 281 - ok.
+  raster test: 282 - ok.
+  raster test: 283 - ok.
+  raster test: 284 - ok.
+  raster test: 285 - ok.
+  raster test: 286 - ok.
+  raster test: 287 - ok.
+  raster test: 288 - ok.
+  raster test: 289 - ok.
+  raster test: 290 - ok.
+  raster test: 291 - ok.
+  raster test: 292 - ok.
+  raster test: 293 - ok.
+  raster test: 294 - ok.
+  raster test: 295 - ok.
+  raster test: 296 - ok.
+  raster test: 297 - ok.
+  raster test: 298 - ok.
+  raster test: 299 - ok.
+  raster test: 300 - ok.
+  raster test: 301 - ok.
+  raster test: 302 - ok.
+  raster test: 303 - ok.
+  raster test: 304 - ok.
+  raster test: 305 - ok.
+  raster test: 306 - ok.
+  raster test: 307 - ok.
+  raster test: 308 - ok.
+  raster test: 309 - ok.
+  raster test: 310 - ok.
+  raster test: 311 - ok.
+00 - Rasterization: perspective division
+  raster test: 0 - ok.
+00 - Rasterization: backface culling tests
+  raster test: 0 - ok.
+  raster test: 1 - ok.
+  raster test: 2 - ok.
+  raster test: 3 - ok.
+  raster test: 4 - ok.
+  raster test: 5 - ok.
+  raster test: 6 - ok.
+  raster test: 7 - ok.
+00 - depth interpolation
+  raster test: 0 - ok.
+00 - vertex attributes interpolated to fragment attributes
+  raster test: 0 - ok.
+00 - perspective correct interpolation of vertex attributes to fragment attributes
+  raster test: 0 - ok.
+00 - All Stencil Tests and stencil operations invert on sfail
+  raster test: 0 - ok.
+  raster test: 1 - ok.
+  raster test: 2 - ok.
+  raster test: 3 - ok.
+  raster test: 4 - ok.
+  raster test: 5 - ok.
+  raster test: 6 - ok.
+  raster test: 7 - ok.
+  raster test: 8 - ok.
+  raster test: 9 - ok.
+  raster test: 10 - ok.
+  raster test: 11 - ok.
+  raster test: 12 - ok.
+  raster test: 13 - ok.
+  raster test: 14 - ok.
+  raster test: 15 - ok.
+  raster test: 16 - ok.
+  raster test: 17 - ok.
+  raster test: 18 - ok.
+  raster test: 19 - ok.
+  raster test: 20 - ok.
+  raster test: 21 - ok.
+  raster test: 22 - ok.
+  raster test: 23 - ok.
+
+  Tento test kontroluje, zda správně funguje rastrová část grafické karty.
+
+  Práce nad stencilovým bufferem je komplexní.
+  Zápis do stencilového bufferu je prováděn rasterizací.
+  Je několik druhů modifikací stencilového bufferu - viz struktura StencilOp.
+  Operace se může lišit pro přivrácené a odvrácené strany frontOps / backOps.
+  A operace se může lišit podle toho, zda selže stencilový test (sfail).
+  Nebo zda selže depth test (dpfail).
+  Nebo zda všechny testy projdou (dppass).
+
+  
+  Něco je špatně...
+  CHYBA! Rastrová část GPU nefunguje správně!
+Raterizuje se trojúhelník: A=(-1,-1,0,1)B=(-1,1,0,1)C=(1,-1,0,1)
+Při rozlišení: (10,10)
+
+    Což odpovídá rasterizaci trojúhelníků v NDC (po perspektivním dělení):
+    A = vec3(-1,-1,0);
+    B = vec3(-1,1,0);
+    C = vec3(1,-1,0);
+
+    Což odpovídá rasterizaci trojúhelníků ve view-space:
+    A = vec3(0,0,0);
+    B = vec3(0,10,0);
+    C = vec3(10,0,0);
+    trojúhelník je CW
+Barevný    buffer: není
+Hloubkový  buffer: není
+Stencilový buffer byl inicializován na: 0
+Nastavení stencilu: 
+StencilSettings::enabled         = true
+StencilSettings::refValue        = 0
+StencilSettings::func            = NEVER   
+Stencilsettings::backOps.sfail   = INVERT   
+Stencilsettings::backOps.dpfail  = KEEP     
+Stencilsettings::backOps.dppass  = KEEP     
+Stencilsettings::frontOps.sfail  = INVERT   
+Stencilsettings::frontOps.dpfail = KEEP     
+Stencilsettings::frontOps.dppass = KEEP     
+
+    Stencil test je před depth testem a operuje nad stencilovým bufferem.
+
+    V OpenGL řídí stencilové operace funkce:
+    glEnable(GL_STENCIL_TEST) - povoluje stencilový test a operace
+    glDisable(GL_STENCIL_TEST) - povoluje stencilový test a operace
+    glStencilOpSeparate - nastavuje stencilovou operaci
+    glStencilFunc - nastavuje funkci stencilového testu
+
+    https://registry.khronos.org/OpenGL-Refpages/gl4/html/glEnable.xhtml
+    https://registry.khronos.org/OpenGL-Refpages/gl4/html/glDisable.xhtml
+    https://registry.khronos.org/OpenGL-Refpages/gl4/html/glStencilFunc.xhtml
+    https://registry.khronos.org/OpenGL-Refpages/gl4/html/glStencilOpSeparate.xhtml
+    CHYBA!
+
+  ==========================
+  === DETAILNÍ INFORMACE ===
+  ==========================
+  
+  Command buffer v tomto testu vypadá takto:
+  
+[1;90m  CommandBuffer::nofCommands = 8
+  CommandBuffer::commands = {
+    0:
+      Command::type = CLEAR_COLOR                 
+      ClearColorCommand::value = (0,0,0,0)
+    1:
+      Command::type = CLEAR_DEPTH                 
+      ClearDepthCommand::value = 1e+11
+    2:
+      Command::type = CLEAR_STENCIL               
+      ClearStencilCommand::value = 0
+    3:
+      Command::type = BLOCK_WRITES_COMMAND        
+      BlockWritesCommand::blockWrites = {
+        BlockWrites::color   = false
+        BlockWrites::depth   = false
+        BlockWrites::stencil = false
+      }
+    4:
+      Command::type = SET_BACKFACE_CULLING_COMMAND
+      SetBackfaceCullingCommand::enabled = false
+    5:
+      Command::type = SET_FRONT_FACE_COMMAND      
+      SetFrontFaceCommand::frontFaceIsCounterClockWise = true
+    6:
+      Command::type = SET_STENCIL_COMMAND         
+      SetStencilCommand::settings = {
+        StencilSettings::enabled         = true
+        StencilSettings::refValue        = 0
+        StencilSettings::func            = NEVER   
+        Stencilsettings::backOps.sfail   = INVERT   
+        Stencilsettings::backOps.dpfail  = KEEP     
+        Stencilsettings::backOps.dppass  = KEEP     
+        Stencilsettings::frontOps.sfail  = INVERT   
+        Stencilsettings::frontOps.dpfail = KEEP     
+        Stencilsettings::frontOps.dppass = KEEP     
+      }
+    7:
+      Command::type = DRAW                        
+      DrawCommand::nofVertices = 3
+  }
+[0m
+  Jak se liší vaše změny nad pamětí od těch, co se měly provést:
+  
+mem.framebuffers[0].stencil.data = Image::bytesPerPixel = 1
+Image::channels      = 1
+Image::pitch         = 10
+Image::format        = U8 
+Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+Image::data[] = {ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff 00 ff ff ff ff ff ff ff ff 00 00 ff ff ff ff ff ff ff 00 00 00 ff ff ff ff ff ff 00 00 00 00 ff ff ff ff ff 00 00 00 00 00 ff ff ff ff 00 00 00 00 00 00 ff ff ff 00 00 00 00 00 00 00 ff ff 00 00 00 00 00 00 00 00 ff 00 00 00 00 00 00 00 00 00 
+}
+;//vaše    
+mem.framebuffers[0].stencil.data = Image::bytesPerPixel = 1
+Image::channels      = 1
+Image::pitch         = 10
+Image::format        = U8 
+Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+Image::data[] = {ff ff ff ff ff ff ff ff ff 00 ff ff ff ff ff ff ff ff 00 00 ff ff ff ff ff ff ff 00 00 00 ff ff ff ff ff ff 00 00 00 00 ff ff ff ff ff 00 00 00 00 00 ff ff ff ff 00 00 00 00 00 00 ff ff ff 00 00 00 00 00 00 00 ff ff 00 00 00 00 00 00 00 00 ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+}
+;//mělo být
+
+
+  Jaké změny jste nad pamětí provedli vy:
+[1;90m  float vertexBuffer0[12] = {
+    -1,    -1,    0,    1,    -1,    1,    0,    1,    1,    -1,    0,    1,
+  };
+  float vertexBuffer1[12] = {
+    1,    0,    0,    1,    0,    0,    1,    1,    0,    1,    0,    1,
+  };
+  GPUMemory::gl_DrawID            = 1
+  GPUMemory::stencilSettings = {
+    StencilSettings::enabled         = true
+    StencilSettings::refValue        = 0
+    StencilSettings::func            = NEVER   
+    Stencilsettings::backOps.sfail   = INVERT   
+    Stencilsettings::backOps.dpfail  = KEEP     
+    Stencilsettings::backOps.dppass  = KEEP     
+    Stencilsettings::frontOps.sfail  = INVERT   
+    Stencilsettings::frontOps.dpfail = KEEP     
+    Stencilsettings::frontOps.dppass = KEEP     
+  }
+  GPUMemory::framebuffers[10] = {
+    0:
+      Framebuffer::width     = 10
+      Framebuffer::height    = 10
+      Framebuffer::yReversed = 0
+      Framebuffer::color = {
+        Image::bytesPerPixel = 3
+        Image::channels      = 3
+        Image::pitch         = 30
+        Image::format        = U8 
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data = 0
+      }
+      Framebuffer::depth = {
+        Image::bytesPerPixel = 4
+        Image::channels      = 1
+        Image::pitch         = 40
+        Image::format        = F32
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data = 0
+      }
+      Framebuffer::stencil = {
+        Image::bytesPerPixel = 1
+        Image::channels      = 1
+        Image::pitch         = 10
+        Image::format        = U8 
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data[] = {ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff 00 ff ff ff ff ff ff ff ff 00 00 ff ff ff ff ff ff ff 00 00 00 ff ff ff ff ff ff 00 00 00 00 ff ff ff ff ff 00 00 00 00 00 ff ff ff ff 00 00 00 00 00 00 ff ff ff 00 00 00 00 00 00 00 ff ff 00 00 00 00 00 00 00 00 ff 00 00 00 00 00 00 00 00 00 
+        }
+      }
+  }
+  GPUMemory::programs[100] = {
+    0:
+      Program::fragmentShader = shader
+      Program::vertexShader   = shader
+      Program::vs2fs[0]   = VEC4 
+      Program::vs2fs[1]   = EMPTY
+      Program::vs2fs[2]   = EMPTY
+      Program::vs2fs[3]   = EMPTY
+  }
+  GPUMemory::buffers[100] = {
+    0:
+      Buffer::data = vertexBuffer0
+      Buffer::size = 48
+    1:
+      Buffer::data = vertexBuffer1
+      Buffer::size = 48
+  }
+  GPUMemory::vertexArrays[10000] = {
+    0:
+      VertexArray::indexBufferID = -1
+      VertexArray::indexOffset   = 0
+      VertexArray::indexType     = U32
+      VertexArray::vertexAttrib[0].bufferID = 0
+      VertexArray::vertexAttrib[0].offset   = 0
+      VertexArray::vertexAttrib[0].stride   = 16
+      VertexArray::vertexAttrib[0].type     = VEC4 
+      VertexArray::vertexAttrib[1].bufferID = 1
+      VertexArray::vertexAttrib[1].offset   = 0
+      VertexArray::vertexAttrib[1].stride   = 16
+      VertexArray::vertexAttrib[1].type     = VEC4 
+  }
+[0m
+  Jaké změny se nad pamětí měly provést:
+[1;90m  float vertexBuffer0[12] = {
+    -1,    -1,    0,    1,    -1,    1,    0,    1,    1,    -1,    0,    1,
+  };
+  float vertexBuffer1[12] = {
+    1,    0,    0,    1,    0,    0,    1,    1,    0,    1,    0,    1,
+  };
+  GPUMemory::gl_DrawID            = 1
+  GPUMemory::stencilSettings = {
+    StencilSettings::enabled         = true
+    StencilSettings::refValue        = 0
+    StencilSettings::func            = NEVER   
+    Stencilsettings::backOps.sfail   = INVERT   
+    Stencilsettings::backOps.dpfail  = KEEP     
+    Stencilsettings::backOps.dppass  = KEEP     
+    Stencilsettings::frontOps.sfail  = INVERT   
+    Stencilsettings::frontOps.dpfail = KEEP     
+    Stencilsettings::frontOps.dppass = KEEP     
+  }
+  GPUMemory::framebuffers[10] = {
+    0:
+      Framebuffer::width     = 10
+      Framebuffer::height    = 10
+      Framebuffer::yReversed = 0
+      Framebuffer::color = {
+        Image::bytesPerPixel = 3
+        Image::channels      = 3
+        Image::pitch         = 30
+        Image::format        = U8 
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data = 0
+      }
+      Framebuffer::depth = {
+        Image::bytesPerPixel = 4
+        Image::channels      = 1
+        Image::pitch         = 40
+        Image::format        = F32
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data = 0
+      }
+      Framebuffer::stencil = {
+        Image::bytesPerPixel = 1
+        Image::channels      = 1
+        Image::pitch         = 10
+        Image::format        = U8 
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data[] = {ff ff ff ff ff ff ff ff ff 00 ff ff ff ff ff ff ff ff 00 00 ff ff ff ff ff ff ff 00 00 00 ff ff ff ff ff ff 00 00 00 00 ff ff ff ff ff 00 00 00 00 00 ff ff ff ff 00 00 00 00 00 00 ff ff ff 00 00 00 00 00 00 00 ff ff 00 00 00 00 00 00 00 00 ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        }
+      }
+  }
+  GPUMemory::programs[100] = {
+    0:
+      Program::fragmentShader = shader
+      Program::vertexShader   = shader
+      Program::vs2fs[0]   = VEC4 
+      Program::vs2fs[1]   = EMPTY
+      Program::vs2fs[2]   = EMPTY
+      Program::vs2fs[3]   = EMPTY
+  }
+  GPUMemory::buffers[100] = {
+    0:
+      Buffer::data = vertexBuffer0
+      Buffer::size = 48
+    1:
+      Buffer::data = vertexBuffer1
+      Buffer::size = 48
+  }
+  GPUMemory::vertexArrays[10000] = {
+    0:
+      VertexArray::indexBufferID = -1
+      VertexArray::indexOffset   = 0
+      VertexArray::indexType     = U32
+      VertexArray::vertexAttrib[0].bufferID = 0
+      VertexArray::vertexAttrib[0].offset   = 0
+      VertexArray::vertexAttrib[0].stride   = 16
+      VertexArray::vertexAttrib[0].type     = VEC4 
+      VertexArray::vertexAttrib[1].bufferID = 1
+      VertexArray::vertexAttrib[1].offset   = 0
+      VertexArray::vertexAttrib[1].stride   = 16
+      VertexArray::vertexAttrib[1].type     = VEC4 
+  }
+[0m
+  Jaké změny byly nad pamětí provedeny ještě před spuštěním:
+[1;90m  float vertexBuffer0[12] = {
+    -1,    -1,    0,    1,    -1,    1,    0,    1,    1,    -1,    0,    1,
+  };
+  float vertexBuffer1[12] = {
+    1,    0,    0,    1,    0,    0,    1,    1,    0,    1,    0,    1,
+  };
+  GPUMemory::framebuffers[10] = {
+    0:
+      Framebuffer::width     = 10
+      Framebuffer::height    = 10
+      Framebuffer::yReversed = 0
+      Framebuffer::color = {
+        Image::bytesPerPixel = 3
+        Image::channels      = 3
+        Image::pitch         = 30
+        Image::format        = U8 
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data = 0
+      }
+      Framebuffer::depth = {
+        Image::bytesPerPixel = 4
+        Image::channels      = 1
+        Image::pitch         = 40
+        Image::format        = F32
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data = 0
+      }
+      Framebuffer::stencil = {
+        Image::bytesPerPixel = 1
+        Image::channels      = 1
+        Image::pitch         = 10
+        Image::format        = U8 
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data[] = {00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        }
+      }
+  }
+  GPUMemory::programs[100] = {
+    0:
+      Program::fragmentShader = shader
+      Program::vertexShader   = shader
+      Program::vs2fs[0]   = VEC4 
+      Program::vs2fs[1]   = EMPTY
+      Program::vs2fs[2]   = EMPTY
+      Program::vs2fs[3]   = EMPTY
+  }
+  GPUMemory::buffers[100] = {
+    0:
+      Buffer::data = vertexBuffer0
+      Buffer::size = 48
+    1:
+      Buffer::data = vertexBuffer1
+      Buffer::size = 48
+  }
+  GPUMemory::vertexArrays[10000] = {
+    0:
+      VertexArray::indexBufferID = -1
+      VertexArray::indexOffset   = 0
+      VertexArray::indexType     = U32
+      VertexArray::vertexAttrib[0].bufferID = 0
+      VertexArray::vertexAttrib[0].offset   = 0
+      VertexArray::vertexAttrib[0].stride   = 16
+      VertexArray::vertexAttrib[0].type     = VEC4 
+      VertexArray::vertexAttrib[1].bufferID = 1
+      VertexArray::vertexAttrib[1].offset   = 0
+      VertexArray::vertexAttrib[1].stride   = 16
+      VertexArray::vertexAttrib[1].type     = VEC4 
+  }
+[0m00 - All Stencil operations on sfail
+  raster test: 0 - ok.
+  raster test: 1 - ok.
+  raster test: 2 - ok.
+  raster test: 3 - ok.
+  raster test: 4 - ok.
+  raster test: 5 - ok.
+  raster test: 6 - ok.
+  raster test: 7 - ok.
+  raster test: 8 - ok.
+  raster test: 9 - ok.
+  raster test: 10 - ok.
+  raster test: 11 - ok.
+  raster test: 12 - ok.
+  raster test: 13 - ok.
+  raster test: 14 - ok.
+  raster test: 15 - ok.
+  raster test: 16 - ok.
+  raster test: 17 - ok.
+  raster test: 18 - ok.
+  raster test: 19 - ok.
+  raster test: 20 - ok.
+  raster test: 21 - ok.
+  raster test: 22 - ok.
+  raster test: 23 - ok.
+  raster test: 24 - ok.
+  raster test: 25 - ok.
+  raster test: 26 - ok.
+  raster test: 27 - ok.
+  raster test: 28 - ok.
+  raster test: 29 - ok.
+  raster test: 30 - ok.
+  raster test: 31 - ok.
+  raster test: 32 - ok.
+  raster test: 33 - ok.
+  raster test: 34 - ok.
+  raster test: 35 - ok.
+  raster test: 36 - ok.
+  raster test: 37 - ok.
+  raster test: 38 - ok.
+  raster test: 39 - ok.
+  raster test: 40 - ok.
+  raster test: 41 - ok.
+  raster test: 42 - ok.
+  raster test: 43 - ok.
+  raster test: 44 - ok.
+  raster test: 45 - ok.
+  raster test: 46 - ok.
+  raster test: 47 - ok.
+  raster test: 48 - ok.
+  raster test: 49 - ok.
+  raster test: 50 - ok.
+  raster test: 51 - ok.
+  raster test: 52 - ok.
+  raster test: 53 - ok.
+  raster test: 54 - ok.
+  raster test: 55 - ok.
+  raster test: 56 - ok.
+  raster test: 57 - ok.
+  raster test: 58 - ok.
+  raster test: 59 - ok.
+  raster test: 60 - ok.
+  raster test: 61 - ok.
+  raster test: 62 - ok.
+  raster test: 63 - ok.
+  raster test: 64 - ok.
+  raster test: 65 - ok.
+  raster test: 66 - ok.
+  raster test: 67 - ok.
+  raster test: 68 - ok.
+  raster test: 69 - ok.
+  raster test: 70 - ok.
+  raster test: 71 - ok.
+  raster test: 72 - ok.
+  raster test: 73 - ok.
+  raster test: 74 - ok.
+  raster test: 75 - ok.
+  raster test: 76 - ok.
+  raster test: 77 - ok.
+  raster test: 78 - ok.
+  raster test: 79 - ok.
+  raster test: 80 - ok.
+  raster test: 81 - ok.
+  raster test: 82 - ok.
+  raster test: 83 - ok.
+  raster test: 84 - ok.
+  raster test: 85 - ok.
+  raster test: 86 - ok.
+  raster test: 87 - ok.
+  raster test: 88 - ok.
+  raster test: 89 - ok.
+  raster test: 90 - ok.
+  raster test: 91 - ok.
+  raster test: 92 - ok.
+  raster test: 93 - ok.
+  raster test: 94 - ok.
+  raster test: 95 - ok.
+  raster test: 96 - ok.
+  raster test: 97 - ok.
+  raster test: 98 - ok.
+  raster test: 99 - ok.
+  raster test: 100 - ok.
+  raster test: 101 - ok.
+  raster test: 102 - ok.
+  raster test: 103 - ok.
+  raster test: 104 - ok.
+  raster test: 105 - ok.
+  raster test: 106 - ok.
+  raster test: 107 - ok.
+  raster test: 108 - ok.
+  raster test: 109 - ok.
+  raster test: 110 - ok.
+  raster test: 111 - ok.
+  raster test: 112 - ok.
+  raster test: 113 - ok.
+  raster test: 114 - ok.
+  raster test: 115 - ok.
+  raster test: 116 - ok.
+  raster test: 117 - ok.
+  raster test: 118 - ok.
+  raster test: 119 - ok.
+  raster test: 120 - ok.
+  raster test: 121 - ok.
+  raster test: 122 - ok.
+  raster test: 123 - ok.
+  raster test: 124 - ok.
+  raster test: 125 - ok.
+  raster test: 126 - ok.
+  raster test: 127 - ok.
+  raster test: 128 - ok.
+  raster test: 129 - ok.
+  raster test: 130 - ok.
+  raster test: 131 - ok.
+  raster test: 132 - ok.
+  raster test: 133 - ok.
+  raster test: 134 - ok.
+  raster test: 135 - ok.
+  raster test: 136 - ok.
+  raster test: 137 - ok.
+  raster test: 138 - ok.
+  raster test: 139 - ok.
+  raster test: 140 - ok.
+  raster test: 141 - ok.
+  raster test: 142 - ok.
+  raster test: 143 - ok.
+00 - All Depth Tests
+  raster test: 0 - ok.
+  raster test: 1 - ok.
+
+  Tento test kontroluje, zda správně funguje rastrová část grafické karty.
+
+  Práce nad stencilovým bufferem je komplexní.
+  Zápis do stencilového bufferu je prováděn rasterizací.
+  Je několik druhů modifikací stencilového bufferu - viz struktura StencilOp.
+  Operace se může lišit pro přivrácené a odvrácené strany frontOps / backOps.
+  A operace se může lišit podle toho, zda selže stencilový test (sfail).
+  Nebo zda selže depth test (dpfail).
+  Nebo zda všechny testy projdou (dppass).
+
+  
+  Něco je špatně...
+  CHYBA! Rastrová část GPU nefunguje správně!
+Raterizuje se trojúhelník: A=(-1,-1,0,1)B=(-1,1,0,1)C=(1,-1,0,1)
+Při rozlišení: (10,10)
+
+    Což odpovídá rasterizaci trojúhelníků v NDC (po perspektivním dělení):
+    A = vec3(-1,-1,0);
+    B = vec3(-1,1,0);
+    C = vec3(1,-1,0);
+
+    Což odpovídá rasterizaci trojúhelníků ve view-space:
+    A = vec3(0,0,0);
+    B = vec3(0,10,0);
+    C = vec3(10,0,0);
+    trojúhelník je CW
+Barevný    buffer: není
+Stencilový buffer: není
+Hloubkový  buffer byl inicializován na: 0.9
+CHYBA!
+
+  ==========================
+  === DETAILNÍ INFORMACE ===
+  ==========================
+  
+  Command buffer v tomto testu vypadá takto:
+  
+[1;90m  CommandBuffer::nofCommands = 8
+  CommandBuffer::commands = {
+    0:
+      Command::type = CLEAR_COLOR                 
+      ClearColorCommand::value = (0,0,0,0)
+    1:
+      Command::type = CLEAR_DEPTH                 
+      ClearDepthCommand::value = 0.9
+    2:
+      Command::type = CLEAR_STENCIL               
+      ClearStencilCommand::value = 0
+    3:
+      Command::type = BLOCK_WRITES_COMMAND        
+      BlockWritesCommand::blockWrites = {
+        BlockWrites::color   = false
+        BlockWrites::depth   = false
+        BlockWrites::stencil = false
+      }
+    4:
+      Command::type = SET_BACKFACE_CULLING_COMMAND
+      SetBackfaceCullingCommand::enabled = false
+    5:
+      Command::type = SET_FRONT_FACE_COMMAND      
+      SetFrontFaceCommand::frontFaceIsCounterClockWise = true
+    6:
+      Command::type = SET_STENCIL_COMMAND         
+      SetStencilCommand::settings = {
+        StencilSettings::enabled         = false
+        StencilSettings::refValue        = 0
+        StencilSettings::func            = ALWAYS  
+        Stencilsettings::backOps.sfail   = KEEP     
+        Stencilsettings::backOps.dpfail  = KEEP     
+        Stencilsettings::backOps.dppass  = KEEP     
+        Stencilsettings::frontOps.sfail  = KEEP     
+        Stencilsettings::frontOps.dpfail = KEEP     
+        Stencilsettings::frontOps.dppass = KEEP     
+      }
+    7:
+      Command::type = DRAW                        
+      DrawCommand::nofVertices = 3
+  }
+[0m
+  Jak se liší vaše změny nad pamětí od těch, co se měly provést:
+  
+mem.framebuffers[0].depth.data = Image::bytesPerPixel = 4
+Image::channels      = 1
+Image::pitch         = 40
+Image::format        = F32
+Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+Image::data[] = {0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9 0 0 0 0 0 0 0 0 0.9 0.9 0 0 0 0 0 0 0 0.9 0.9 0.9 0 0 0 0 0 0 0.9 0.9 0.9 0.9 0 0 0 0 0 0.9 0.9 0.9 0.9 0.9 0 0 0 0 0.9 0.9 0.9 0.9 0.9 0.9 0 0 0 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0 0 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 
+}
+;//vaše    
+mem.framebuffers[0].depth.data = Image::bytesPerPixel = 4
+Image::channels      = 1
+Image::pitch         = 40
+Image::format        = F32
+Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+Image::data[] = {0 0 0 0 0 0 0 0 0 0.9 0 0 0 0 0 0 0 0 0.9 0.9 0 0 0 0 0 0 0 0.9 0.9 0.9 0 0 0 0 0 0 0.9 0.9 0.9 0.9 0 0 0 0 0 0.9 0.9 0.9 0.9 0.9 0 0 0 0 0.9 0.9 0.9 0.9 0.9 0.9 0 0 0 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0 0 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 
+}
+;//mělo být
+
+
+  Jaké změny jste nad pamětí provedli vy:
+[1;90m  float vertexBuffer0[12] = {
+    -1,    -1,    0,    1,    -1,    1,    0,    1,    1,    -1,    0,    1,
+  };
+  float vertexBuffer1[12] = {
+    1,    0,    0,    1,    0,    0,    1,    1,    0,    1,    0,    1,
+  };
+  GPUMemory::gl_DrawID            = 1
+  GPUMemory::framebuffers[10] = {
+    0:
+      Framebuffer::width     = 10
+      Framebuffer::height    = 10
+      Framebuffer::yReversed = 0
+      Framebuffer::color = {
+        Image::bytesPerPixel = 3
+        Image::channels      = 3
+        Image::pitch         = 30
+        Image::format        = U8 
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data = 0
+      }
+      Framebuffer::depth = {
+        Image::bytesPerPixel = 4
+        Image::channels      = 1
+        Image::pitch         = 40
+        Image::format        = F32
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data[] = {0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9 0 0 0 0 0 0 0 0 0.9 0.9 0 0 0 0 0 0 0 0.9 0.9 0.9 0 0 0 0 0 0 0.9 0.9 0.9 0.9 0 0 0 0 0 0.9 0.9 0.9 0.9 0.9 0 0 0 0 0.9 0.9 0.9 0.9 0.9 0.9 0 0 0 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0 0 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 
+        }
+      }
+      Framebuffer::stencil = {
+        Image::bytesPerPixel = 1
+        Image::channels      = 1
+        Image::pitch         = 10
+        Image::format        = U8 
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data = 0
+      }
+  }
+  GPUMemory::programs[100] = {
+    0:
+      Program::fragmentShader = shader
+      Program::vertexShader   = shader
+      Program::vs2fs[0]   = VEC4 
+      Program::vs2fs[1]   = EMPTY
+      Program::vs2fs[2]   = EMPTY
+      Program::vs2fs[3]   = EMPTY
+  }
+  GPUMemory::buffers[100] = {
+    0:
+      Buffer::data = vertexBuffer0
+      Buffer::size = 48
+    1:
+      Buffer::data = vertexBuffer1
+      Buffer::size = 48
+  }
+  GPUMemory::vertexArrays[10000] = {
+    0:
+      VertexArray::indexBufferID = -1
+      VertexArray::indexOffset   = 0
+      VertexArray::indexType     = U32
+      VertexArray::vertexAttrib[0].bufferID = 0
+      VertexArray::vertexAttrib[0].offset   = 0
+      VertexArray::vertexAttrib[0].stride   = 16
+      VertexArray::vertexAttrib[0].type     = VEC4 
+      VertexArray::vertexAttrib[1].bufferID = 1
+      VertexArray::vertexAttrib[1].offset   = 0
+      VertexArray::vertexAttrib[1].stride   = 16
+      VertexArray::vertexAttrib[1].type     = VEC4 
+  }
+[0m
+  Jaké změny se nad pamětí měly provést:
+[1;90m  float vertexBuffer0[12] = {
+    -1,    -1,    0,    1,    -1,    1,    0,    1,    1,    -1,    0,    1,
+  };
+  float vertexBuffer1[12] = {
+    1,    0,    0,    1,    0,    0,    1,    1,    0,    1,    0,    1,
+  };
+  GPUMemory::gl_DrawID            = 1
+  GPUMemory::framebuffers[10] = {
+    0:
+      Framebuffer::width     = 10
+      Framebuffer::height    = 10
+      Framebuffer::yReversed = 0
+      Framebuffer::color = {
+        Image::bytesPerPixel = 3
+        Image::channels      = 3
+        Image::pitch         = 30
+        Image::format        = U8 
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data = 0
+      }
+      Framebuffer::depth = {
+        Image::bytesPerPixel = 4
+        Image::channels      = 1
+        Image::pitch         = 40
+        Image::format        = F32
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data[] = {0 0 0 0 0 0 0 0 0 0.9 0 0 0 0 0 0 0 0 0.9 0.9 0 0 0 0 0 0 0 0.9 0.9 0.9 0 0 0 0 0 0 0.9 0.9 0.9 0.9 0 0 0 0 0 0.9 0.9 0.9 0.9 0.9 0 0 0 0 0.9 0.9 0.9 0.9 0.9 0.9 0 0 0 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0 0 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 
+        }
+      }
+      Framebuffer::stencil = {
+        Image::bytesPerPixel = 1
+        Image::channels      = 1
+        Image::pitch         = 10
+        Image::format        = U8 
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data = 0
+      }
+  }
+  GPUMemory::programs[100] = {
+    0:
+      Program::fragmentShader = shader
+      Program::vertexShader   = shader
+      Program::vs2fs[0]   = VEC4 
+      Program::vs2fs[1]   = EMPTY
+      Program::vs2fs[2]   = EMPTY
+      Program::vs2fs[3]   = EMPTY
+  }
+  GPUMemory::buffers[100] = {
+    0:
+      Buffer::data = vertexBuffer0
+      Buffer::size = 48
+    1:
+      Buffer::data = vertexBuffer1
+      Buffer::size = 48
+  }
+  GPUMemory::vertexArrays[10000] = {
+    0:
+      VertexArray::indexBufferID = -1
+      VertexArray::indexOffset   = 0
+      VertexArray::indexType     = U32
+      VertexArray::vertexAttrib[0].bufferID = 0
+      VertexArray::vertexAttrib[0].offset   = 0
+      VertexArray::vertexAttrib[0].stride   = 16
+      VertexArray::vertexAttrib[0].type     = VEC4 
+      VertexArray::vertexAttrib[1].bufferID = 1
+      VertexArray::vertexAttrib[1].offset   = 0
+      VertexArray::vertexAttrib[1].stride   = 16
+      VertexArray::vertexAttrib[1].type     = VEC4 
+  }
+[0m
+  Jaké změny byly nad pamětí provedeny ještě před spuštěním:
+[1;90m  float vertexBuffer0[12] = {
+    -1,    -1,    0,    1,    -1,    1,    0,    1,    1,    -1,    0,    1,
+  };
+  float vertexBuffer1[12] = {
+    1,    0,    0,    1,    0,    0,    1,    1,    0,    1,    0,    1,
+  };
+  GPUMemory::framebuffers[10] = {
+    0:
+      Framebuffer::width     = 10
+      Framebuffer::height    = 10
+      Framebuffer::yReversed = 0
+      Framebuffer::color = {
+        Image::bytesPerPixel = 3
+        Image::channels      = 3
+        Image::pitch         = 30
+        Image::format        = U8 
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data = 0
+      }
+      Framebuffer::depth = {
+        Image::bytesPerPixel = 4
+        Image::channels      = 1
+        Image::pitch         = 40
+        Image::format        = F32
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data[] = {0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+        }
+      }
+      Framebuffer::stencil = {
+        Image::bytesPerPixel = 1
+        Image::channels      = 1
+        Image::pitch         = 10
+        Image::format        = U8 
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data = 0
+      }
+  }
+  GPUMemory::programs[100] = {
+    0:
+      Program::fragmentShader = shader
+      Program::vertexShader   = shader
+      Program::vs2fs[0]   = VEC4 
+      Program::vs2fs[1]   = EMPTY
+      Program::vs2fs[2]   = EMPTY
+      Program::vs2fs[3]   = EMPTY
+  }
+  GPUMemory::buffers[100] = {
+    0:
+      Buffer::data = vertexBuffer0
+      Buffer::size = 48
+    1:
+      Buffer::data = vertexBuffer1
+      Buffer::size = 48
+  }
+  GPUMemory::vertexArrays[10000] = {
+    0:
+      VertexArray::indexBufferID = -1
+      VertexArray::indexOffset   = 0
+      VertexArray::indexType     = U32
+      VertexArray::vertexAttrib[0].bufferID = 0
+      VertexArray::vertexAttrib[0].offset   = 0
+      VertexArray::vertexAttrib[0].stride   = 16
+      VertexArray::vertexAttrib[0].type     = VEC4 
+      VertexArray::vertexAttrib[1].bufferID = 1
+      VertexArray::vertexAttrib[1].offset   = 0
+      VertexArray::vertexAttrib[1].stride   = 16
+      VertexArray::vertexAttrib[1].type     = VEC4 
+  }
+[0m00 - All Stencil operations on dpfail
+  raster test: 0 - ok.
+  raster test: 1 - ok.
+  raster test: 2 - ok.
+  raster test: 3 - ok.
+  raster test: 4 - ok.
+  raster test: 5 - ok.
+  raster test: 6 - ok.
+  raster test: 7 - ok.
+  raster test: 8 - ok.
+  raster test: 9 - ok.
+  raster test: 10 - ok.
+  raster test: 11 - ok.
+  raster test: 12 - ok.
+  raster test: 13 - ok.
+  raster test: 14 - ok.
+  raster test: 15 - ok.
+  raster test: 16 - ok.
+  raster test: 17 - ok.
+  raster test: 18 - ok.
+  raster test: 19 - ok.
+  raster test: 20 - ok.
+  raster test: 21 - ok.
+  raster test: 22 - ok.
+  raster test: 23 - ok.
+  raster test: 24 - ok.
+  raster test: 25 - ok.
+  raster test: 26 - ok.
+  raster test: 27 - ok.
+  raster test: 28 - ok.
+  raster test: 29 - ok.
+  raster test: 30 - ok.
+  raster test: 31 - ok.
+  raster test: 32 - ok.
+  raster test: 33 - ok.
+  raster test: 34 - ok.
+  raster test: 35 - ok.
+  raster test: 36 - ok.
+  raster test: 37 - ok.
+  raster test: 38 - ok.
+  raster test: 39 - ok.
+  raster test: 40 - ok.
+  raster test: 41 - ok.
+  raster test: 42 - ok.
+  raster test: 43 - ok.
+  raster test: 44 - ok.
+  raster test: 45 - ok.
+  raster test: 46 - ok.
+  raster test: 47 - ok.
+  raster test: 48 - ok.
+  raster test: 49 - ok.
+  raster test: 50 - ok.
+  raster test: 51 - ok.
+  raster test: 52 - ok.
+  raster test: 53 - ok.
+  raster test: 54 - ok.
+  raster test: 55 - ok.
+  raster test: 56 - ok.
+  raster test: 57 - ok.
+  raster test: 58 - ok.
+  raster test: 59 - ok.
+  raster test: 60 - ok.
+  raster test: 61 - ok.
+  raster test: 62 - ok.
+  raster test: 63 - ok.
+  raster test: 64 - ok.
+  raster test: 65 - ok.
+  raster test: 66 - ok.
+  raster test: 67 - ok.
+  raster test: 68 - ok.
+  raster test: 69 - ok.
+  raster test: 70 - ok.
+  raster test: 71 - ok.
+  raster test: 72 - ok.
+  raster test: 73 - ok.
+  raster test: 74 - ok.
+  raster test: 75 - ok.
+  raster test: 76 - ok.
+  raster test: 77 - ok.
+  raster test: 78 - ok.
+  raster test: 79 - ok.
+  raster test: 80 - ok.
+  raster test: 81 - ok.
+  raster test: 82 - ok.
+  raster test: 83 - ok.
+  raster test: 84 - ok.
+  raster test: 85 - ok.
+  raster test: 86 - ok.
+  raster test: 87 - ok.
+  raster test: 88 - ok.
+  raster test: 89 - ok.
+  raster test: 90 - ok.
+  raster test: 91 - ok.
+  raster test: 92 - ok.
+  raster test: 93 - ok.
+  raster test: 94 - ok.
+  raster test: 95 - ok.
+  raster test: 96 - ok.
+  raster test: 97 - ok.
+  raster test: 98 - ok.
+  raster test: 99 - ok.
+  raster test: 100 - ok.
+  raster test: 101 - ok.
+  raster test: 102 - ok.
+  raster test: 103 - ok.
+  raster test: 104 - ok.
+  raster test: 105 - ok.
+  raster test: 106 - ok.
+  raster test: 107 - ok.
+  raster test: 108 - ok.
+  raster test: 109 - ok.
+  raster test: 110 - ok.
+  raster test: 111 - ok.
+  raster test: 112 - ok.
+  raster test: 113 - ok.
+  raster test: 114 - ok.
+  raster test: 115 - ok.
+  raster test: 116 - ok.
+  raster test: 117 - ok.
+  raster test: 118 - ok.
+  raster test: 119 - ok.
+  raster test: 120 - ok.
+  raster test: 121 - ok.
+  raster test: 122 - ok.
+  raster test: 123 - ok.
+  raster test: 124 - ok.
+  raster test: 125 - ok.
+  raster test: 126 - ok.
+  raster test: 127 - ok.
+  raster test: 128 - ok.
+  raster test: 129 - ok.
+  raster test: 130 - ok.
+  raster test: 131 - ok.
+  raster test: 132 - ok.
+  raster test: 133 - ok.
+  raster test: 134 - ok.
+  raster test: 135 - ok.
+  raster test: 136 - ok.
+  raster test: 137 - ok.
+  raster test: 138 - ok.
+  raster test: 139 - ok.
+  raster test: 140 - ok.
+  raster test: 141 - ok.
+  raster test: 142 - ok.
+  raster test: 143 - ok.
+00 - discard test
+
+  Tento test kontroluje, zda správně funguje rastrová část grafické karty.
+
+  Práce nad stencilovým bufferem je komplexní.
+  Zápis do stencilového bufferu je prováděn rasterizací.
+  Je několik druhů modifikací stencilového bufferu - viz struktura StencilOp.
+  Operace se může lišit pro přivrácené a odvrácené strany frontOps / backOps.
+  A operace se může lišit podle toho, zda selže stencilový test (sfail).
+  Nebo zda selže depth test (dpfail).
+  Nebo zda všechny testy projdou (dppass).
+
+  
+  Něco je špatně...
+  CHYBA! Rastrová část GPU nefunguje správně!
+Raterizuje se trojúhelník: A=(-1,-1,0,1)B=(-1,1,0,1)C=(1,-1,0,1)
+S barvami: CA=(1,0,0,1)CB=(0,0,1,1)CC=(0,1,0,1)
+Při rozlišení: (10,10)
+Fragment shader šachovnicově zahazuje fragmenty (nastavuje discard = true)
+
+    Což odpovídá rasterizaci trojúhelníků v NDC (po perspektivním dělení):
+    A = vec3(-1,-1,0);
+    B = vec3(-1,1,0);
+    C = vec3(1,-1,0);
+
+    Což odpovídá rasterizaci trojúhelníků ve view-space:
+    A = vec3(0,0,0);
+    B = vec3(0,10,0);
+    C = vec3(10,0,0);
+    trojúhelník je CW
+Hloubkový  buffer: není
+Stencilový buffer: není
+Barevný    buffer byl inicializován na: (0,0,0,0)
+CHYBA!
+
+  ==========================
+  === DETAILNÍ INFORMACE ===
+  ==========================
+  
+  Command buffer v tomto testu vypadá takto:
+  
+[1;90m  CommandBuffer::nofCommands = 8
+  CommandBuffer::commands = {
+    0:
+      Command::type = CLEAR_COLOR                 
+      ClearColorCommand::value = (0,0,0,0)
+    1:
+      Command::type = CLEAR_DEPTH                 
+      ClearDepthCommand::value = 1e+11
+    2:
+      Command::type = CLEAR_STENCIL               
+      ClearStencilCommand::value = 0
+    3:
+      Command::type = BLOCK_WRITES_COMMAND        
+      BlockWritesCommand::blockWrites = {
+        BlockWrites::color   = false
+        BlockWrites::depth   = false
+        BlockWrites::stencil = false
+      }
+    4:
+      Command::type = SET_BACKFACE_CULLING_COMMAND
+      SetBackfaceCullingCommand::enabled = false
+    5:
+      Command::type = SET_FRONT_FACE_COMMAND      
+      SetFrontFaceCommand::frontFaceIsCounterClockWise = true
+    6:
+      Command::type = SET_STENCIL_COMMAND         
+      SetStencilCommand::settings = {
+        StencilSettings::enabled         = false
+        StencilSettings::refValue        = 0
+        StencilSettings::func            = ALWAYS  
+        Stencilsettings::backOps.sfail   = KEEP     
+        Stencilsettings::backOps.dpfail  = KEEP     
+        Stencilsettings::backOps.dppass  = KEEP     
+        Stencilsettings::frontOps.sfail  = KEEP     
+        Stencilsettings::frontOps.dpfail = KEEP     
+        Stencilsettings::frontOps.dppass = KEEP     
+      }
+    7:
+      Command::type = DRAW                        
+      DrawCommand::nofVertices = 3
+  }
+[0m
+  Jak se liší vaše změny nad pamětí od těch, co se měly provést:
+  
+mem.framebuffers[0].color.data = Image::bytesPerPixel = 3
+Image::channels      = 3
+Image::pitch         = 30
+Image::format        = U8 
+Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+Image::data[] = {00 00 00 cc 26 0c 00 00 00 98 59 0c 00 00 00 65 8c 0c 00 00 00 33 bf 0c 00 00 00 00 f2 0c cc 0c 26 00 00 00 99 3f 26 00 00 00 66 72 26 00 00 00 33 a5 26 00 00 00 00 d8 26 00 00 00 00 00 00 99 26 3f 00 00 00 65 59 3f 00 00 00 32 8c 3f 00 00 00 00 bf 3f 00 00 00 00 00 00 99 0c 59 00 00 00 66 3f 59 00 00 00 33 72 59 00 00 00 00 a5 59 00 00 00 00 00 00 00 00 00 00 00 00 66 26 72 00 00 00 32 59 72 00 00 00 00 8c 72 00 00 00 00 00 00 00 00 00 00 00 00 65 0c 8c 00 00 00 32 3f 8c 00 00 00 00 72 8c 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 33 26 a5 00 00 00 00 59 a5 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 32 0c bf 00 00 00 00 3f bf 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 26 d8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0c f2 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+}
+;//vaše    
+mem.framebuffers[0].color.data = Image::bytesPerPixel = 3
+Image::channels      = 3
+Image::pitch         = 30
+Image::format        = U8 
+Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+Image::data[] = {00 00 00 cc 26 0c 00 00 00 98 59 0c 00 00 00 65 8c 0c 00 00 00 32 bf 0c 00 00 00 00 00 00 cc 0c 26 00 00 00 99 3f 26 00 00 00 66 72 26 00 00 00 33 a5 26 00 00 00 00 00 00 00 00 00 00 00 00 99 26 3f 00 00 00 65 59 3f 00 00 00 32 8c 3f 00 00 00 00 00 00 00 00 00 00 00 00 99 0c 59 00 00 00 65 3f 59 00 00 00 33 72 59 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 66 26 72 00 00 00 32 59 72 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 65 0c 8c 00 00 00 32 3f 8c 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 33 26 a5 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 32 0c bf 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+}
+;//mělo být
+
+
+  Jaké změny jste nad pamětí provedli vy:
+[1;90m  float vertexBuffer0[12] = {
+    -1,    -1,    0,    1,    -1,    1,    0,    1,    1,    -1,    0,    1,
+  };
+  float vertexBuffer1[12] = {
+    1,    0,    0,    1,    0,    0,    1,    1,    0,    1,    0,    1,
+  };
+  GPUMemory::gl_DrawID            = 1
+  GPUMemory::framebuffers[10] = {
+    0:
+      Framebuffer::width     = 10
+      Framebuffer::height    = 10
+      Framebuffer::yReversed = 0
+      Framebuffer::color = {
+        Image::bytesPerPixel = 3
+        Image::channels      = 3
+        Image::pitch         = 30
+        Image::format        = U8 
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data[] = {00 00 00 cc 26 0c 00 00 00 98 59 0c 00 00 00 65 8c 0c 00 00 00 33 bf 0c 00 00 00 00 f2 0c cc 0c 26 00 00 00 99 3f 26 00 00 00 66 72 26 00 00 00 33 a5 26 00 00 00 00 d8 26 00 00 00 00 00 00 99 26 3f 00 00 00 65 59 3f 00 00 00 32 8c 3f 00 00 00 00 bf 3f 00 00 00 00 00 00 99 0c 59 00 00 00 66 3f 59 00 00 00 33 72 59 00 00 00 00 a5 59 00 00 00 00 00 00 00 00 00 00 00 00 66 26 72 00 00 00 32 59 72 00 00 00 00 8c 72 00 00 00 00 00 00 00 00 00 00 00 00 65 0c 8c 00 00 00 32 3f 8c 00 00 00 00 72 8c 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 33 26 a5 00 00 00 00 59 a5 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 32 0c bf 00 00 00 00 3f bf 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 26 d8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0c f2 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        }
+      }
+      Framebuffer::depth = {
+        Image::bytesPerPixel = 4
+        Image::channels      = 1
+        Image::pitch         = 40
+        Image::format        = F32
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data = 0
+      }
+      Framebuffer::stencil = {
+        Image::bytesPerPixel = 1
+        Image::channels      = 1
+        Image::pitch         = 10
+        Image::format        = U8 
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data = 0
+      }
+  }
+  GPUMemory::programs[100] = {
+    0:
+      Program::fragmentShader = shader
+      Program::vertexShader   = shader
+      Program::vs2fs[0]   = VEC4 
+      Program::vs2fs[1]   = EMPTY
+      Program::vs2fs[2]   = EMPTY
+      Program::vs2fs[3]   = EMPTY
+  }
+  GPUMemory::buffers[100] = {
+    0:
+      Buffer::data = vertexBuffer0
+      Buffer::size = 48
+    1:
+      Buffer::data = vertexBuffer1
+      Buffer::size = 48
+  }
+  GPUMemory::vertexArrays[10000] = {
+    0:
+      VertexArray::indexBufferID = -1
+      VertexArray::indexOffset   = 0
+      VertexArray::indexType     = U32
+      VertexArray::vertexAttrib[0].bufferID = 0
+      VertexArray::vertexAttrib[0].offset   = 0
+      VertexArray::vertexAttrib[0].stride   = 16
+      VertexArray::vertexAttrib[0].type     = VEC4 
+      VertexArray::vertexAttrib[1].bufferID = 1
+      VertexArray::vertexAttrib[1].offset   = 0
+      VertexArray::vertexAttrib[1].stride   = 16
+      VertexArray::vertexAttrib[1].type     = VEC4 
+  }
+[0m
+  Jaké změny se nad pamětí měly provést:
+[1;90m  float vertexBuffer0[12] = {
+    -1,    -1,    0,    1,    -1,    1,    0,    1,    1,    -1,    0,    1,
+  };
+  float vertexBuffer1[12] = {
+    1,    0,    0,    1,    0,    0,    1,    1,    0,    1,    0,    1,
+  };
+  GPUMemory::gl_DrawID            = 1
+  GPUMemory::framebuffers[10] = {
+    0:
+      Framebuffer::width     = 10
+      Framebuffer::height    = 10
+      Framebuffer::yReversed = 0
+      Framebuffer::color = {
+        Image::bytesPerPixel = 3
+        Image::channels      = 3
+        Image::pitch         = 30
+        Image::format        = U8 
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data[] = {00 00 00 cc 26 0c 00 00 00 98 59 0c 00 00 00 65 8c 0c 00 00 00 32 bf 0c 00 00 00 00 00 00 cc 0c 26 00 00 00 99 3f 26 00 00 00 66 72 26 00 00 00 33 a5 26 00 00 00 00 00 00 00 00 00 00 00 00 99 26 3f 00 00 00 65 59 3f 00 00 00 32 8c 3f 00 00 00 00 00 00 00 00 00 00 00 00 99 0c 59 00 00 00 65 3f 59 00 00 00 33 72 59 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 66 26 72 00 00 00 32 59 72 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 65 0c 8c 00 00 00 32 3f 8c 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 33 26 a5 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 32 0c bf 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        }
+      }
+      Framebuffer::depth = {
+        Image::bytesPerPixel = 4
+        Image::channels      = 1
+        Image::pitch         = 40
+        Image::format        = F32
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data = 0
+      }
+      Framebuffer::stencil = {
+        Image::bytesPerPixel = 1
+        Image::channels      = 1
+        Image::pitch         = 10
+        Image::format        = U8 
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data = 0
+      }
+  }
+  GPUMemory::programs[100] = {
+    0:
+      Program::fragmentShader = shader
+      Program::vertexShader   = shader
+      Program::vs2fs[0]   = VEC4 
+      Program::vs2fs[1]   = EMPTY
+      Program::vs2fs[2]   = EMPTY
+      Program::vs2fs[3]   = EMPTY
+  }
+  GPUMemory::buffers[100] = {
+    0:
+      Buffer::data = vertexBuffer0
+      Buffer::size = 48
+    1:
+      Buffer::data = vertexBuffer1
+      Buffer::size = 48
+  }
+  GPUMemory::vertexArrays[10000] = {
+    0:
+      VertexArray::indexBufferID = -1
+      VertexArray::indexOffset   = 0
+      VertexArray::indexType     = U32
+      VertexArray::vertexAttrib[0].bufferID = 0
+      VertexArray::vertexAttrib[0].offset   = 0
+      VertexArray::vertexAttrib[0].stride   = 16
+      VertexArray::vertexAttrib[0].type     = VEC4 
+      VertexArray::vertexAttrib[1].bufferID = 1
+      VertexArray::vertexAttrib[1].offset   = 0
+      VertexArray::vertexAttrib[1].stride   = 16
+      VertexArray::vertexAttrib[1].type     = VEC4 
+  }
+[0m
+  Jaké změny byly nad pamětí provedeny ještě před spuštěním:
+[1;90m  float vertexBuffer0[12] = {
+    -1,    -1,    0,    1,    -1,    1,    0,    1,    1,    -1,    0,    1,
+  };
+  float vertexBuffer1[12] = {
+    1,    0,    0,    1,    0,    0,    1,    1,    0,    1,    0,    1,
+  };
+  GPUMemory::framebuffers[10] = {
+    0:
+      Framebuffer::width     = 10
+      Framebuffer::height    = 10
+      Framebuffer::yReversed = 0
+      Framebuffer::color = {
+        Image::bytesPerPixel = 3
+        Image::channels      = 3
+        Image::pitch         = 30
+        Image::format        = U8 
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data[] = {00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        }
+      }
+      Framebuffer::depth = {
+        Image::bytesPerPixel = 4
+        Image::channels      = 1
+        Image::pitch         = 40
+        Image::format        = F32
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data = 0
+      }
+      Framebuffer::stencil = {
+        Image::bytesPerPixel = 1
+        Image::channels      = 1
+        Image::pitch         = 10
+        Image::format        = U8 
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data = 0
+      }
+  }
+  GPUMemory::programs[100] = {
+    0:
+      Program::fragmentShader = shader
+      Program::vertexShader   = shader
+      Program::vs2fs[0]   = VEC4 
+      Program::vs2fs[1]   = EMPTY
+      Program::vs2fs[2]   = EMPTY
+      Program::vs2fs[3]   = EMPTY
+  }
+  GPUMemory::buffers[100] = {
+    0:
+      Buffer::data = vertexBuffer0
+      Buffer::size = 48
+    1:
+      Buffer::data = vertexBuffer1
+      Buffer::size = 48
+  }
+  GPUMemory::vertexArrays[10000] = {
+    0:
+      VertexArray::indexBufferID = -1
+      VertexArray::indexOffset   = 0
+      VertexArray::indexType     = U32
+      VertexArray::vertexAttrib[0].bufferID = 0
+      VertexArray::vertexAttrib[0].offset   = 0
+      VertexArray::vertexAttrib[0].stride   = 16
+      VertexArray::vertexAttrib[0].type     = VEC4 
+      VertexArray::vertexAttrib[1].bufferID = 1
+      VertexArray::vertexAttrib[1].offset   = 0
+      VertexArray::vertexAttrib[1].stride   = 16
+      VertexArray::vertexAttrib[1].type     = VEC4 
+  }
+[0m00 - All Stencil operations on dppass
+  raster test: 0 - ok.
+  raster test: 1 - ok.
+  raster test: 2 - ok.
+  raster test: 3 - ok.
+  raster test: 4 - ok.
+  raster test: 5 - ok.
+  raster test: 6 - ok.
+  raster test: 7 - ok.
+  raster test: 8 - ok.
+  raster test: 9 - ok.
+  raster test: 10 - ok.
+  raster test: 11 - ok.
+  raster test: 12 - ok.
+  raster test: 13 - ok.
+  raster test: 14 - ok.
+  raster test: 15 - ok.
+  raster test: 16 - ok.
+  raster test: 17 - ok.
+  raster test: 18 - ok.
+  raster test: 19 - ok.
+  raster test: 20 - ok.
+  raster test: 21 - ok.
+  raster test: 22 - ok.
+  raster test: 23 - ok.
+  raster test: 24 - ok.
+  raster test: 25 - ok.
+  raster test: 26 - ok.
+  raster test: 27 - ok.
+  raster test: 28 - ok.
+  raster test: 29 - ok.
+  raster test: 30 - ok.
+  raster test: 31 - ok.
+  raster test: 32 - ok.
+  raster test: 33 - ok.
+  raster test: 34 - ok.
+  raster test: 35 - ok.
+  raster test: 36 - ok.
+  raster test: 37 - ok.
+  raster test: 38 - ok.
+  raster test: 39 - ok.
+  raster test: 40 - ok.
+  raster test: 41 - ok.
+  raster test: 42 - ok.
+  raster test: 43 - ok.
+  raster test: 44 - ok.
+  raster test: 45 - ok.
+  raster test: 46 - ok.
+  raster test: 47 - ok.
+  raster test: 48 - ok.
+  raster test: 49 - ok.
+  raster test: 50 - ok.
+  raster test: 51 - ok.
+  raster test: 52 - ok.
+  raster test: 53 - ok.
+  raster test: 54 - ok.
+  raster test: 55 - ok.
+  raster test: 56 - ok.
+  raster test: 57 - ok.
+  raster test: 58 - ok.
+  raster test: 59 - ok.
+  raster test: 60 - ok.
+  raster test: 61 - ok.
+  raster test: 62 - ok.
+  raster test: 63 - ok.
+  raster test: 64 - ok.
+  raster test: 65 - ok.
+  raster test: 66 - ok.
+  raster test: 67 - ok.
+  raster test: 68 - ok.
+  raster test: 69 - ok.
+  raster test: 70 - ok.
+  raster test: 71 - ok.
+  raster test: 72 - ok.
+  raster test: 73 - ok.
+  raster test: 74 - ok.
+  raster test: 75 - ok.
+  raster test: 76 - ok.
+  raster test: 77 - ok.
+  raster test: 78 - ok.
+  raster test: 79 - ok.
+  raster test: 80 - ok.
+  raster test: 81 - ok.
+  raster test: 82 - ok.
+  raster test: 83 - ok.
+  raster test: 84 - ok.
+  raster test: 85 - ok.
+  raster test: 86 - ok.
+  raster test: 87 - ok.
+  raster test: 88 - ok.
+  raster test: 89 - ok.
+  raster test: 90 - ok.
+  raster test: 91 - ok.
+  raster test: 92 - ok.
+  raster test: 93 - ok.
+  raster test: 94 - ok.
+  raster test: 95 - ok.
+  raster test: 96 - ok.
+  raster test: 97 - ok.
+  raster test: 98 - ok.
+  raster test: 99 - ok.
+  raster test: 100 - ok.
+  raster test: 101 - ok.
+  raster test: 102 - ok.
+  raster test: 103 - ok.
+  raster test: 104 - ok.
+  raster test: 105 - ok.
+  raster test: 106 - ok.
+  raster test: 107 - ok.
+  raster test: 108 - ok.
+  raster test: 109 - ok.
+  raster test: 110 - ok.
+  raster test: 111 - ok.
+  raster test: 112 - ok.
+  raster test: 113 - ok.
+  raster test: 114 - ok.
+  raster test: 115 - ok.
+  raster test: 116 - ok.
+  raster test: 117 - ok.
+  raster test: 118 - ok.
+  raster test: 119 - ok.
+  raster test: 120 - ok.
+  raster test: 121 - ok.
+  raster test: 122 - ok.
+  raster test: 123 - ok.
+  raster test: 124 - ok.
+  raster test: 125 - ok.
+  raster test: 126 - ok.
+  raster test: 127 - ok.
+  raster test: 128 - ok.
+  raster test: 129 - ok.
+  raster test: 130 - ok.
+  raster test: 131 - ok.
+  raster test: 132 - ok.
+  raster test: 133 - ok.
+  raster test: 134 - ok.
+  raster test: 135 - ok.
+  raster test: 136 - ok.
+  raster test: 137 - ok.
+  raster test: 138 - ok.
+  raster test: 139 - ok.
+  raster test: 140 - ok.
+  raster test: 141 - ok.
+  raster test: 142 - ok.
+  raster test: 143 - ok.
+00 - Depth writes
+  raster test: 0 - ok.
+  raster test: 1 - ok.
+
+  Tento test kontroluje, zda správně funguje rastrová část grafické karty.
+
+  Práce nad stencilovým bufferem je komplexní.
+  Zápis do stencilového bufferu je prováděn rasterizací.
+  Je několik druhů modifikací stencilového bufferu - viz struktura StencilOp.
+  Operace se může lišit pro přivrácené a odvrácené strany frontOps / backOps.
+  A operace se může lišit podle toho, zda selže stencilový test (sfail).
+  Nebo zda selže depth test (dpfail).
+  Nebo zda všechny testy projdou (dppass).
+
+  
+  Něco je špatně...
+  CHYBA! Rastrová část GPU nefunguje správně!
+Raterizuje se trojúhelník: A=(-1,-1,0,1)B=(-1,1,0,1)C=(1,-1,0,1)
+Při rozlišení: (10,10)
+
+    Což odpovídá rasterizaci trojúhelníků v NDC (po perspektivním dělení):
+    A = vec3(-1,-1,0);
+    B = vec3(-1,1,0);
+    C = vec3(1,-1,0);
+
+    Což odpovídá rasterizaci trojúhelníků ve view-space:
+    A = vec3(0,0,0);
+    B = vec3(0,10,0);
+    C = vec3(10,0,0);
+    trojúhelník je CW
+Barevný    buffer: není
+Stencilový buffer: není
+Hloubkový  buffer byl inicializován na: 1e+11
+CHYBA!
+
+  ==========================
+  === DETAILNÍ INFORMACE ===
+  ==========================
+  
+  Command buffer v tomto testu vypadá takto:
+  
+[1;90m  CommandBuffer::nofCommands = 8
+  CommandBuffer::commands = {
+    0:
+      Command::type = CLEAR_COLOR                 
+      ClearColorCommand::value = (0,0,0,0)
+    1:
+      Command::type = CLEAR_DEPTH                 
+      ClearDepthCommand::value = 1e+11
+    2:
+      Command::type = CLEAR_STENCIL               
+      ClearStencilCommand::value = 0
+    3:
+      Command::type = BLOCK_WRITES_COMMAND        
+      BlockWritesCommand::blockWrites = {
+        BlockWrites::color   = false
+        BlockWrites::depth   = false
+        BlockWrites::stencil = false
+      }
+    4:
+      Command::type = SET_BACKFACE_CULLING_COMMAND
+      SetBackfaceCullingCommand::enabled = false
+    5:
+      Command::type = SET_FRONT_FACE_COMMAND      
+      SetFrontFaceCommand::frontFaceIsCounterClockWise = true
+    6:
+      Command::type = SET_STENCIL_COMMAND         
+      SetStencilCommand::settings = {
+        StencilSettings::enabled         = false
+        StencilSettings::refValue        = 0
+        StencilSettings::func            = ALWAYS  
+        Stencilsettings::backOps.sfail   = KEEP     
+        Stencilsettings::backOps.dpfail  = KEEP     
+        Stencilsettings::backOps.dppass  = KEEP     
+        Stencilsettings::frontOps.sfail  = KEEP     
+        Stencilsettings::frontOps.dpfail = KEEP     
+        Stencilsettings::frontOps.dppass = KEEP     
+      }
+    7:
+      Command::type = DRAW                        
+      DrawCommand::nofVertices = 3
+  }
+[0m
+  Jak se liší vaše změny nad pamětí od těch, co se měly provést:
+  
+mem.framebuffers[0].depth.data = Image::bytesPerPixel = 4
+Image::channels      = 1
+Image::pitch         = 40
+Image::format        = F32
+Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+Image::data[] = {0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1e+11 0 0 0 0 0 0 0 0 1e+11 1e+11 0 0 0 0 0 0 0 1e+11 1e+11 1e+11 0 0 0 0 0 0 1e+11 1e+11 1e+11 1e+11 0 0 0 0 0 1e+11 1e+11 1e+11 1e+11 1e+11 0 0 0 0 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 0 0 0 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 0 0 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 0 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 
+}
+;//vaše    
+mem.framebuffers[0].depth.data = Image::bytesPerPixel = 4
+Image::channels      = 1
+Image::pitch         = 40
+Image::format        = F32
+Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+Image::data[] = {0 0 0 0 0 0 0 0 0 1e+11 0 0 0 0 0 0 0 0 1e+11 1e+11 0 0 0 0 0 0 0 1e+11 1e+11 1e+11 0 0 0 0 0 0 1e+11 1e+11 1e+11 1e+11 0 0 0 0 0 1e+11 1e+11 1e+11 1e+11 1e+11 0 0 0 0 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 0 0 0 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 0 0 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 0 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 
+}
+;//mělo být
+
+
+  Jaké změny jste nad pamětí provedli vy:
+[1;90m  float vertexBuffer0[12] = {
+    -1,    -1,    0,    1,    -1,    1,    0,    1,    1,    -1,    0,    1,
+  };
+  float vertexBuffer1[12] = {
+    1,    0,    0,    1,    0,    0,    1,    1,    0,    1,    0,    1,
+  };
+  GPUMemory::gl_DrawID            = 1
+  GPUMemory::framebuffers[10] = {
+    0:
+      Framebuffer::width     = 10
+      Framebuffer::height    = 10
+      Framebuffer::yReversed = 0
+      Framebuffer::color = {
+        Image::bytesPerPixel = 3
+        Image::channels      = 3
+        Image::pitch         = 30
+        Image::format        = U8 
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data = 0
+      }
+      Framebuffer::depth = {
+        Image::bytesPerPixel = 4
+        Image::channels      = 1
+        Image::pitch         = 40
+        Image::format        = F32
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data[] = {0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1e+11 0 0 0 0 0 0 0 0 1e+11 1e+11 0 0 0 0 0 0 0 1e+11 1e+11 1e+11 0 0 0 0 0 0 1e+11 1e+11 1e+11 1e+11 0 0 0 0 0 1e+11 1e+11 1e+11 1e+11 1e+11 0 0 0 0 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 0 0 0 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 0 0 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 0 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 
+        }
+      }
+      Framebuffer::stencil = {
+        Image::bytesPerPixel = 1
+        Image::channels      = 1
+        Image::pitch         = 10
+        Image::format        = U8 
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data = 0
+      }
+  }
+  GPUMemory::programs[100] = {
+    0:
+      Program::fragmentShader = shader
+      Program::vertexShader   = shader
+      Program::vs2fs[0]   = VEC4 
+      Program::vs2fs[1]   = EMPTY
+      Program::vs2fs[2]   = EMPTY
+      Program::vs2fs[3]   = EMPTY
+  }
+  GPUMemory::buffers[100] = {
+    0:
+      Buffer::data = vertexBuffer0
+      Buffer::size = 48
+    1:
+      Buffer::data = vertexBuffer1
+      Buffer::size = 48
+  }
+  GPUMemory::vertexArrays[10000] = {
+    0:
+      VertexArray::indexBufferID = -1
+      VertexArray::indexOffset   = 0
+      VertexArray::indexType     = U32
+      VertexArray::vertexAttrib[0].bufferID = 0
+      VertexArray::vertexAttrib[0].offset   = 0
+      VertexArray::vertexAttrib[0].stride   = 16
+      VertexArray::vertexAttrib[0].type     = VEC4 
+      VertexArray::vertexAttrib[1].bufferID = 1
+      VertexArray::vertexAttrib[1].offset   = 0
+      VertexArray::vertexAttrib[1].stride   = 16
+      VertexArray::vertexAttrib[1].type     = VEC4 
+  }
+[0m
+  Jaké změny se nad pamětí měly provést:
+[1;90m  float vertexBuffer0[12] = {
+    -1,    -1,    0,    1,    -1,    1,    0,    1,    1,    -1,    0,    1,
+  };
+  float vertexBuffer1[12] = {
+    1,    0,    0,    1,    0,    0,    1,    1,    0,    1,    0,    1,
+  };
+  GPUMemory::gl_DrawID            = 1
+  GPUMemory::framebuffers[10] = {
+    0:
+      Framebuffer::width     = 10
+      Framebuffer::height    = 10
+      Framebuffer::yReversed = 0
+      Framebuffer::color = {
+        Image::bytesPerPixel = 3
+        Image::channels      = 3
+        Image::pitch         = 30
+        Image::format        = U8 
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data = 0
+      }
+      Framebuffer::depth = {
+        Image::bytesPerPixel = 4
+        Image::channels      = 1
+        Image::pitch         = 40
+        Image::format        = F32
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data[] = {0 0 0 0 0 0 0 0 0 1e+11 0 0 0 0 0 0 0 0 1e+11 1e+11 0 0 0 0 0 0 0 1e+11 1e+11 1e+11 0 0 0 0 0 0 1e+11 1e+11 1e+11 1e+11 0 0 0 0 0 1e+11 1e+11 1e+11 1e+11 1e+11 0 0 0 0 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 0 0 0 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 0 0 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 0 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 1e+11 
+        }
+      }
+      Framebuffer::stencil = {
+        Image::bytesPerPixel = 1
+        Image::channels      = 1
+        Image::pitch         = 10
+        Image::format        = U8 
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data = 0
+      }
+  }
+  GPUMemory::programs[100] = {
+    0:
+      Program::fragmentShader = shader
+      Program::vertexShader   = shader
+      Program::vs2fs[0]   = VEC4 
+      Program::vs2fs[1]   = EMPTY
+      Program::vs2fs[2]   = EMPTY
+      Program::vs2fs[3]   = EMPTY
+  }
+  GPUMemory::buffers[100] = {
+    0:
+      Buffer::data = vertexBuffer0
+      Buffer::size = 48
+    1:
+      Buffer::data = vertexBuffer1
+      Buffer::size = 48
+  }
+  GPUMemory::vertexArrays[10000] = {
+    0:
+      VertexArray::indexBufferID = -1
+      VertexArray::indexOffset   = 0
+      VertexArray::indexType     = U32
+      VertexArray::vertexAttrib[0].bufferID = 0
+      VertexArray::vertexAttrib[0].offset   = 0
+      VertexArray::vertexAttrib[0].stride   = 16
+      VertexArray::vertexAttrib[0].type     = VEC4 
+      VertexArray::vertexAttrib[1].bufferID = 1
+      VertexArray::vertexAttrib[1].offset   = 0
+      VertexArray::vertexAttrib[1].stride   = 16
+      VertexArray::vertexAttrib[1].type     = VEC4 
+  }
+[0m
+  Jaké změny byly nad pamětí provedeny ještě před spuštěním:
+[1;90m  float vertexBuffer0[12] = {
+    -1,    -1,    0,    1,    -1,    1,    0,    1,    1,    -1,    0,    1,
+  };
+  float vertexBuffer1[12] = {
+    1,    0,    0,    1,    0,    0,    1,    1,    0,    1,    0,    1,
+  };
+  GPUMemory::framebuffers[10] = {
+    0:
+      Framebuffer::width     = 10
+      Framebuffer::height    = 10
+      Framebuffer::yReversed = 0
+      Framebuffer::color = {
+        Image::bytesPerPixel = 3
+        Image::channels      = 3
+        Image::pitch         = 30
+        Image::format        = U8 
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data = 0
+      }
+      Framebuffer::depth = {
+        Image::bytesPerPixel = 4
+        Image::channels      = 1
+        Image::pitch         = 40
+        Image::format        = F32
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data[] = {0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+        }
+      }
+      Framebuffer::stencil = {
+        Image::bytesPerPixel = 1
+        Image::channels      = 1
+        Image::pitch         = 10
+        Image::format        = U8 
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data = 0
+      }
+  }
+  GPUMemory::programs[100] = {
+    0:
+      Program::fragmentShader = shader
+      Program::vertexShader   = shader
+      Program::vs2fs[0]   = VEC4 
+      Program::vs2fs[1]   = EMPTY
+      Program::vs2fs[2]   = EMPTY
+      Program::vs2fs[3]   = EMPTY
+  }
+  GPUMemory::buffers[100] = {
+    0:
+      Buffer::data = vertexBuffer0
+      Buffer::size = 48
+    1:
+      Buffer::data = vertexBuffer1
+      Buffer::size = 48
+  }
+  GPUMemory::vertexArrays[10000] = {
+    0:
+      VertexArray::indexBufferID = -1
+      VertexArray::indexOffset   = 0
+      VertexArray::indexType     = U32
+      VertexArray::vertexAttrib[0].bufferID = 0
+      VertexArray::vertexAttrib[0].offset   = 0
+      VertexArray::vertexAttrib[0].stride   = 16
+      VertexArray::vertexAttrib[0].type     = VEC4 
+      VertexArray::vertexAttrib[1].bufferID = 1
+      VertexArray::vertexAttrib[1].offset   = 0
+      VertexArray::vertexAttrib[1].stride   = 16
+      VertexArray::vertexAttrib[1].type     = VEC4 
+  }
+[0m00 - Color writes
+  raster test: 0 - ok.
+  raster test: 1 - ok.
+
+  Tento test kontroluje, zda správně funguje rastrová část grafické karty.
+
+  Práce nad stencilovým bufferem je komplexní.
+  Zápis do stencilového bufferu je prováděn rasterizací.
+  Je několik druhů modifikací stencilového bufferu - viz struktura StencilOp.
+  Operace se může lišit pro přivrácené a odvrácené strany frontOps / backOps.
+  A operace se může lišit podle toho, zda selže stencilový test (sfail).
+  Nebo zda selže depth test (dpfail).
+  Nebo zda všechny testy projdou (dppass).
+
+  
+  Něco je špatně...
+  CHYBA! Rastrová část GPU nefunguje správně!
+Raterizuje se trojúhelník: A=(-1,-1,0,1)B=(-1,1,0,1)C=(1,-1,0,1)
+S barvami: CA=(1,0,0,1)CB=(0,0,1,1)CC=(0,1,0,1)
+Při rozlišení: (10,10)
+
+    Což odpovídá rasterizaci trojúhelníků v NDC (po perspektivním dělení):
+    A = vec3(-1,-1,0);
+    B = vec3(-1,1,0);
+    C = vec3(1,-1,0);
+
+    Což odpovídá rasterizaci trojúhelníků ve view-space:
+    A = vec3(0,0,0);
+    B = vec3(0,10,0);
+    C = vec3(10,0,0);
+    trojúhelník je CW
+Hloubkový  buffer: není
+Stencilový buffer: není
+Barevný    buffer byl inicializován na: (0,0,0,0)
+CHYBA!
+
+  ==========================
+  === DETAILNÍ INFORMACE ===
+  ==========================
+  
+  Command buffer v tomto testu vypadá takto:
+  
+[1;90m  CommandBuffer::nofCommands = 8
+  CommandBuffer::commands = {
+    0:
+      Command::type = CLEAR_COLOR                 
+      ClearColorCommand::value = (0,0,0,0)
+    1:
+      Command::type = CLEAR_DEPTH                 
+      ClearDepthCommand::value = 1e+11
+    2:
+      Command::type = CLEAR_STENCIL               
+      ClearStencilCommand::value = 0
+    3:
+      Command::type = BLOCK_WRITES_COMMAND        
+      BlockWritesCommand::blockWrites = {
+        BlockWrites::color   = false
+        BlockWrites::depth   = false
+        BlockWrites::stencil = false
+      }
+    4:
+      Command::type = SET_BACKFACE_CULLING_COMMAND
+      SetBackfaceCullingCommand::enabled = false
+    5:
+      Command::type = SET_FRONT_FACE_COMMAND      
+      SetFrontFaceCommand::frontFaceIsCounterClockWise = true
+    6:
+      Command::type = SET_STENCIL_COMMAND         
+      SetStencilCommand::settings = {
+        StencilSettings::enabled         = false
+        StencilSettings::refValue        = 0
+        StencilSettings::func            = ALWAYS  
+        Stencilsettings::backOps.sfail   = KEEP     
+        Stencilsettings::backOps.dpfail  = KEEP     
+        Stencilsettings::backOps.dppass  = KEEP     
+        Stencilsettings::frontOps.sfail  = KEEP     
+        Stencilsettings::frontOps.dpfail = KEEP     
+        Stencilsettings::frontOps.dppass = KEEP     
+      }
+    7:
+      Command::type = DRAW                        
+      DrawCommand::nofVertices = 3
+  }
+[0m
+  Jak se liší vaše změny nad pamětí od těch, co se měly provést:
+  
+mem.framebuffers[0].color.data = Image::bytesPerPixel = 3
+Image::channels      = 3
+Image::pitch         = 30
+Image::format        = U8 
+Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+Image::data[] = {e5 0c 0c cc 26 0c b2 3f 0c 98 59 0c 7f 72 0c 65 8c 0c 4c a5 0c 33 bf 0c 19 d8 0c 00 f2 0c cc 0c 26 b2 26 26 99 3f 26 7f 59 26 66 72 26 4c 8c 26 33 a5 26 19 bf 26 00 d8 26 00 00 00 b2 0c 3f 99 26 3f 7f 3f 3f 65 59 3f 4c 72 3f 32 8c 3f 19 a5 3f 00 bf 3f 00 00 00 00 00 00 99 0c 59 7f 26 59 66 3f 59 4c 59 59 33 72 59 19 8c 59 00 a5 59 00 00 00 00 00 00 00 00 00 7f 0c 72 66 26 72 4c 3f 72 32 59 72 19 72 72 00 8c 72 00 00 00 00 00 00 00 00 00 00 00 00 65 0c 8c 4c 26 8c 32 3f 8c 19 59 8c 00 72 8c 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 4c 0c a5 33 26 a5 19 3f a5 00 59 a5 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 32 0c bf 19 26 bf 00 3f bf 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 19 0c d8 00 26 d8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0c f2 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+}
+;//vaše    
+mem.framebuffers[0].color.data = Image::bytesPerPixel = 3
+Image::channels      = 3
+Image::pitch         = 30
+Image::format        = U8 
+Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+Image::data[] = {e5 0c 0c cc 26 0c b2 3f 0c 98 59 0c 7f 72 0c 65 8c 0c 4c a5 0c 32 bf 0c 19 d8 0c 00 00 00 cc 0c 26 b2 26 26 99 3f 26 7f 59 26 66 72 26 4c 8c 26 33 a5 26 19 bf 26 00 00 00 00 00 00 b2 0c 3f 99 26 3f 7f 3f 3f 65 59 3f 4c 72 3f 32 8c 3f 19 a5 3f 00 00 00 00 00 00 00 00 00 99 0c 59 7f 26 59 65 3f 59 4c 59 59 33 72 59 19 8c 59 00 00 00 00 00 00 00 00 00 00 00 00 7f 0c 72 66 26 72 4c 3f 72 32 59 72 19 72 72 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 65 0c 8c 4c 26 8c 32 3f 8c 19 59 8c 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 4c 0c a5 33 26 a5 19 3f a5 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 32 0c bf 19 26 bf 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 19 0c d8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+}
+;//mělo být
+
+
+  Jaké změny jste nad pamětí provedli vy:
+[1;90m  float vertexBuffer0[12] = {
+    -1,    -1,    0,    1,    -1,    1,    0,    1,    1,    -1,    0,    1,
+  };
+  float vertexBuffer1[12] = {
+    1,    0,    0,    1,    0,    0,    1,    1,    0,    1,    0,    1,
+  };
+  GPUMemory::gl_DrawID            = 1
+  GPUMemory::framebuffers[10] = {
+    0:
+      Framebuffer::width     = 10
+      Framebuffer::height    = 10
+      Framebuffer::yReversed = 0
+      Framebuffer::color = {
+        Image::bytesPerPixel = 3
+        Image::channels      = 3
+        Image::pitch         = 30
+        Image::format        = U8 
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data[] = {e5 0c 0c cc 26 0c b2 3f 0c 98 59 0c 7f 72 0c 65 8c 0c 4c a5 0c 33 bf 0c 19 d8 0c 00 f2 0c cc 0c 26 b2 26 26 99 3f 26 7f 59 26 66 72 26 4c 8c 26 33 a5 26 19 bf 26 00 d8 26 00 00 00 b2 0c 3f 99 26 3f 7f 3f 3f 65 59 3f 4c 72 3f 32 8c 3f 19 a5 3f 00 bf 3f 00 00 00 00 00 00 99 0c 59 7f 26 59 66 3f 59 4c 59 59 33 72 59 19 8c 59 00 a5 59 00 00 00 00 00 00 00 00 00 7f 0c 72 66 26 72 4c 3f 72 32 59 72 19 72 72 00 8c 72 00 00 00 00 00 00 00 00 00 00 00 00 65 0c 8c 4c 26 8c 32 3f 8c 19 59 8c 00 72 8c 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 4c 0c a5 33 26 a5 19 3f a5 00 59 a5 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 32 0c bf 19 26 bf 00 3f bf 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 19 0c d8 00 26 d8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0c f2 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        }
+      }
+      Framebuffer::depth = {
+        Image::bytesPerPixel = 4
+        Image::channels      = 1
+        Image::pitch         = 40
+        Image::format        = F32
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data = 0
+      }
+      Framebuffer::stencil = {
+        Image::bytesPerPixel = 1
+        Image::channels      = 1
+        Image::pitch         = 10
+        Image::format        = U8 
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data = 0
+      }
+  }
+  GPUMemory::programs[100] = {
+    0:
+      Program::fragmentShader = shader
+      Program::vertexShader   = shader
+      Program::vs2fs[0]   = VEC4 
+      Program::vs2fs[1]   = EMPTY
+      Program::vs2fs[2]   = EMPTY
+      Program::vs2fs[3]   = EMPTY
+  }
+  GPUMemory::buffers[100] = {
+    0:
+      Buffer::data = vertexBuffer0
+      Buffer::size = 48
+    1:
+      Buffer::data = vertexBuffer1
+      Buffer::size = 48
+  }
+  GPUMemory::vertexArrays[10000] = {
+    0:
+      VertexArray::indexBufferID = -1
+      VertexArray::indexOffset   = 0
+      VertexArray::indexType     = U32
+      VertexArray::vertexAttrib[0].bufferID = 0
+      VertexArray::vertexAttrib[0].offset   = 0
+      VertexArray::vertexAttrib[0].stride   = 16
+      VertexArray::vertexAttrib[0].type     = VEC4 
+      VertexArray::vertexAttrib[1].bufferID = 1
+      VertexArray::vertexAttrib[1].offset   = 0
+      VertexArray::vertexAttrib[1].stride   = 16
+      VertexArray::vertexAttrib[1].type     = VEC4 
+  }
+[0m
+  Jaké změny se nad pamětí měly provést:
+[1;90m  float vertexBuffer0[12] = {
+    -1,    -1,    0,    1,    -1,    1,    0,    1,    1,    -1,    0,    1,
+  };
+  float vertexBuffer1[12] = {
+    1,    0,    0,    1,    0,    0,    1,    1,    0,    1,    0,    1,
+  };
+  GPUMemory::gl_DrawID            = 1
+  GPUMemory::framebuffers[10] = {
+    0:
+      Framebuffer::width     = 10
+      Framebuffer::height    = 10
+      Framebuffer::yReversed = 0
+      Framebuffer::color = {
+        Image::bytesPerPixel = 3
+        Image::channels      = 3
+        Image::pitch         = 30
+        Image::format        = U8 
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data[] = {e5 0c 0c cc 26 0c b2 3f 0c 98 59 0c 7f 72 0c 65 8c 0c 4c a5 0c 32 bf 0c 19 d8 0c 00 00 00 cc 0c 26 b2 26 26 99 3f 26 7f 59 26 66 72 26 4c 8c 26 33 a5 26 19 bf 26 00 00 00 00 00 00 b2 0c 3f 99 26 3f 7f 3f 3f 65 59 3f 4c 72 3f 32 8c 3f 19 a5 3f 00 00 00 00 00 00 00 00 00 99 0c 59 7f 26 59 65 3f 59 4c 59 59 33 72 59 19 8c 59 00 00 00 00 00 00 00 00 00 00 00 00 7f 0c 72 66 26 72 4c 3f 72 32 59 72 19 72 72 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 65 0c 8c 4c 26 8c 32 3f 8c 19 59 8c 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 4c 0c a5 33 26 a5 19 3f a5 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 32 0c bf 19 26 bf 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 19 0c d8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        }
+      }
+      Framebuffer::depth = {
+        Image::bytesPerPixel = 4
+        Image::channels      = 1
+        Image::pitch         = 40
+        Image::format        = F32
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data = 0
+      }
+      Framebuffer::stencil = {
+        Image::bytesPerPixel = 1
+        Image::channels      = 1
+        Image::pitch         = 10
+        Image::format        = U8 
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data = 0
+      }
+  }
+  GPUMemory::programs[100] = {
+    0:
+      Program::fragmentShader = shader
+      Program::vertexShader   = shader
+      Program::vs2fs[0]   = VEC4 
+      Program::vs2fs[1]   = EMPTY
+      Program::vs2fs[2]   = EMPTY
+      Program::vs2fs[3]   = EMPTY
+  }
+  GPUMemory::buffers[100] = {
+    0:
+      Buffer::data = vertexBuffer0
+      Buffer::size = 48
+    1:
+      Buffer::data = vertexBuffer1
+      Buffer::size = 48
+  }
+  GPUMemory::vertexArrays[10000] = {
+    0:
+      VertexArray::indexBufferID = -1
+      VertexArray::indexOffset   = 0
+      VertexArray::indexType     = U32
+      VertexArray::vertexAttrib[0].bufferID = 0
+      VertexArray::vertexAttrib[0].offset   = 0
+      VertexArray::vertexAttrib[0].stride   = 16
+      VertexArray::vertexAttrib[0].type     = VEC4 
+      VertexArray::vertexAttrib[1].bufferID = 1
+      VertexArray::vertexAttrib[1].offset   = 0
+      VertexArray::vertexAttrib[1].stride   = 16
+      VertexArray::vertexAttrib[1].type     = VEC4 
+  }
+[0m
+  Jaké změny byly nad pamětí provedeny ještě před spuštěním:
+[1;90m  float vertexBuffer0[12] = {
+    -1,    -1,    0,    1,    -1,    1,    0,    1,    1,    -1,    0,    1,
+  };
+  float vertexBuffer1[12] = {
+    1,    0,    0,    1,    0,    0,    1,    1,    0,    1,    0,    1,
+  };
+  GPUMemory::framebuffers[10] = {
+    0:
+      Framebuffer::width     = 10
+      Framebuffer::height    = 10
+      Framebuffer::yReversed = 0
+      Framebuffer::color = {
+        Image::bytesPerPixel = 3
+        Image::channels      = 3
+        Image::pitch         = 30
+        Image::format        = U8 
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data[] = {00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        }
+      }
+      Framebuffer::depth = {
+        Image::bytesPerPixel = 4
+        Image::channels      = 1
+        Image::pitch         = 40
+        Image::format        = F32
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data = 0
+      }
+      Framebuffer::stencil = {
+        Image::bytesPerPixel = 1
+        Image::channels      = 1
+        Image::pitch         = 10
+        Image::format        = U8 
+        Image::channelTypes  = {RED  ,GREEN,BLUE ,ALPHA}
+        Image::data = 0
+      }
+  }
+  GPUMemory::programs[100] = {
+    0:
+      Program::fragmentShader = shader
+      Program::vertexShader   = shader
+      Program::vs2fs[0]   = VEC4 
+      Program::vs2fs[1]   = EMPTY
+      Program::vs2fs[2]   = EMPTY
+      Program::vs2fs[3]   = EMPTY
+  }
+  GPUMemory::buffers[100] = {
+    0:
+      Buffer::data = vertexBuffer0
+      Buffer::size = 48
+    1:
+      Buffer::data = vertexBuffer1
+      Buffer::size = 48
+  }
+  GPUMemory::vertexArrays[10000] = {
+    0:
+      VertexArray::indexBufferID = -1
+      VertexArray::indexOffset   = 0
+      VertexArray::indexType     = U32
+      VertexArray::vertexAttrib[0].bufferID = 0
+      VertexArray::vertexAttrib[0].offset   = 0
+      VertexArray::vertexAttrib[0].stride   = 16
+      VertexArray::vertexAttrib[0].type     = VEC4 
+      VertexArray::vertexAttrib[1].bufferID = 1
+      VertexArray::vertexAttrib[1].offset   = 0
+      VertexArray::vertexAttrib[1].stride   = 16
+      VertexArray::vertexAttrib[1].type     = VEC4 
+  }
+[0m00 - clipping - CW triangle behind near plane
+  raster test: 0 - ok.
+00 - clipping - CCW triangle behind near plane
+  raster test: 0 - ok.
+00 - clipping - 1 vertex behind near plane
+  raster test: 0 - ok.
+00 - clipping - 2 vertices behind near plane
+  raster test: 0 - ok.
+00 - prepareModel - drawCommand - inserting roots
+prepareModel připravil CommandBuffer a GPUMemory špatným způsobem:
+
+  Tento test ověřuje funkcionalitu funkce prepareModel.
+  Je potřeba projít kořenové uzly (roots).
+  Pokud nemá uzel mesh (mesh<0), nevytváří se pro něj command buffer, protože není co vykreslit.
+  Je však nuté prozkoumat jeho potomky.
+  Strom modelu by se měly projít pre order přístupem:
+  https://en.wikipedia.org/wiki/Tree_traversal
+
+  Nejsnazší zpracování je rekurzí, pseudokód:
+
+  void prepareNode(Node const&node){
+    if(node.mesh>=0){
+      //mame mesh vkladame do command bufferu
+    }
+    for(size_t i=0;i<node.children.size();++i)
+      prepareNode(node.children[i]);
+  }
+
+  void prepare(Model const&model){
+    for(size_t i=0;i<model.roots.size();++i)
+      prepareNode(model.roots[i]);
+  }
+
+  Test zkouší zpracovat model, který vypadá takto:
+  
+  Model vypadá takto:
+  model{
+    meshes  [0]
+    roots   [1]
+    textures[0]
+  }
+  root0{
+    mesh = 0
+    modelMatrix = (1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1)
+    children[0] = {}
+  }
+
+  A zkoumá, jaký jste vytvořili command bufferu a jak naplnili pamět.
+  Ale něco se pokazilo...
+Rozdílný počet příkazů v command bufferu!
+Váš počet    : 0
+Správný počet: 3
+Váš command buffer obsahuje příliš málo příkazů!
+Command s číslem: 0vám chybí.
+Command::type = BIND_VERTEXARRAY            
+BindVertexArrayCommand::id = 0
+
+Váš command buffer obsahuje příliš málo příkazů!
+Command s číslem: 1vám chybí.
+Command::type = SET_BACKFACE_CULLING_COMMAND
+SetBackfaceCullingCommand::enabled = true
+
+Váš command buffer obsahuje příliš málo příkazů!
+Command s číslem: 2vám chybí.
+Command::type = DRAW                        
+DrawCommand::nofVertices = 3
+
+mem.uniforms[102] = m4 = (1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1);//vaše    
+mem.uniforms[102] = m4 = (1,1,1,1,0,1,0,0,0,0,1,0,0,0,0,1);//mělo být
+mem.uniforms[103] = m4 = (1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1);//vaše    
+mem.uniforms[103] = i4 = (-1,0,0,0);//mělo být
+mem.uniforms[104] = m4 = (1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1);//vaše    
+mem.uniforms[104] = m4 = (0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1);//mělo být
+
+  Tento test ověřuje funkcionalitu funkce prepareModel.
+
+  Test zkouší zpracovat model s jednim meshem (3 vertexy) a jedním root bez potomků.
+  Model vypadá takto:
+  model{
+    meshes  [0]
+    roots   [1]
+    textures[0]
+  }
+  root0{
+    mesh = 0
+    modelMatrix = (1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1)
+    children[0] = {}
+  }
+
+  Ale něco se pokazilo...
+
+  Model obsahuje položku roots.
+  To jsou kořeny stromové struktury modelu.
+  Položka roots je uložena ve std::vector.
+
+  počet roots se dá zjistit pomocí roots.size().
+  přistoupit k jednotlivých kořenům lze přes [] - roots[index].
+
+  můžete je projít třeba takto:
+  for(size_t i=0;i<roots.size();++i){
+    process(roots[i]...);
+  }
+
+  Nápověda k implementaci drawModel:
+
+  void prepareNode(GPUMemory&mem,CommandBuffer&cb,Node const&node,Model const&model,...){
+    if(node.mesh >= 0){ // ma tento node mesh?
+      Mesh const&mesh = model.meshes[node.mesh];
+
+      addDrawCommand(cb,...);
+      ...
+      
+    }
+    ...
+  }
+
+  void prepareModel(GPUMemory&mem,CommandBuffer&cb,Model const&model){
+    ...
+    for(size_t i=0;i<model.roots.size();++i)
+      prepareNode(mem,cb,model.roots[i],model,...);
+  }
+00 - prepareModel - drawCommand - mesh attributes & indexing
+prepareModel připravil CommandBuffer a GPUMemory špatným způsobem:
+
+  Tento test ověřuje funkcionalitu funkce prepareModel.
+  Je potřeba projít kořenové uzly (roots).
+  Pokud nemá uzel mesh (mesh<0), nevytváří se pro něj command buffer, protože není co vykreslit.
+  Je však nuté prozkoumat jeho potomky.
+  Strom modelu by se měly projít pre order přístupem:
+  https://en.wikipedia.org/wiki/Tree_traversal
+
+  Nejsnazší zpracování je rekurzí, pseudokód:
+
+  void prepareNode(Node const&node){
+    if(node.mesh>=0){
+      //mame mesh vkladame do command bufferu
+    }
+    for(size_t i=0;i<node.children.size();++i)
+      prepareNode(node.children[i]);
+  }
+
+  void prepare(Model const&model){
+    for(size_t i=0;i<model.roots.size();++i)
+      prepareNode(model.roots[i]);
+  }
+
+  Test zkouší zpracovat model, který vypadá takto:
+  
+  Model vypadá takto:
+  model{
+    meshes  [0]
+    roots   [1]
+    textures[0]
+  }
+  root0{
+    mesh = 0
+    modelMatrix = (1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1)
+    children[0] = {}
+  }
+
+  A zkoumá, jaký jste vytvořili command bufferu a jak naplnili pamět.
+  Ale něco se pokazilo...
+Rozdílný počet příkazů v command bufferu!
+Váš počet    : 0
+Správný počet: 3
+Váš command buffer obsahuje příliš málo příkazů!
+Command s číslem: 0vám chybí.
+Command::type = BIND_VERTEXARRAY            
+BindVertexArrayCommand::id = 0
+
+Váš command buffer obsahuje příliš málo příkazů!
+Command s číslem: 1vám chybí.
+Command::type = SET_BACKFACE_CULLING_COMMAND
+SetBackfaceCullingCommand::enabled = true
+
+Váš command buffer obsahuje příliš málo příkazů!
+Command s číslem: 2vám chybí.
+Command::type = DRAW                        
+DrawCommand::nofVertices = 3
+
+mem.uniforms[102] = m4 = (1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1);//vaše    
+mem.uniforms[102] = m4 = (1,1,1,1,0,1,0,0,0,0,1,0,0,0,0,1);//mělo být
+mem.uniforms[103] = m4 = (1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1);//vaše    
+mem.uniforms[103] = i4 = (-1,0,0,0);//mělo být
+mem.uniforms[104] = m4 = (1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1);//vaše    
+mem.uniforms[104] = m4 = (0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1);//mělo být
+mem.vertexArrays[0].indexBufferID = -1;//vaše    
+mem.vertexArrays[0].indexBufferID = 47;//mělo být
+mem.vertexArrays[0].indexOffset = 0;//vaše    
+mem.vertexArrays[0].indexOffset = 123;//mělo být
+mem.vertexArrays[0].indexType = U32;//vaše    
+mem.vertexArrays[0].indexType = U16;//mělo být
+mem.vertexArrays[0].vertexAttrib[0].bufferID = -1;//vaše    
+mem.vertexArrays[0].vertexAttrib[0].bufferID = 13;//mělo být
+mem.vertexArrays[0].vertexAttrib[0].stride = 0;//vaše    
+mem.vertexArrays[0].vertexAttrib[0].stride = 1334;//mělo být
+mem.vertexArrays[0].vertexAttrib[0].offset = 0;//vaše    
+mem.vertexArrays[0].vertexAttrib[0].offset = 32;//mělo být
+mem.vertexArrays[0].vertexAttrib[0].type = EMPTY;//vaše    
+mem.vertexArrays[0].vertexAttrib[0].type = VEC3 ;//mělo být
+mem.vertexArrays[0].vertexAttrib[1].bufferID = -1;//vaše    
+mem.vertexArrays[0].vertexAttrib[1].bufferID = 1;//mělo být
+mem.vertexArrays[0].vertexAttrib[1].stride = 0;//vaše    
+mem.vertexArrays[0].vertexAttrib[1].stride = 13;//mělo být
+mem.vertexArrays[0].vertexAttrib[1].offset = 0;//vaše    
+mem.vertexArrays[0].vertexAttrib[1].offset = 3423;//mělo být
+mem.vertexArrays[0].vertexAttrib[1].type = EMPTY;//vaše    
+mem.vertexArrays[0].vertexAttrib[1].type = VEC3 ;//mělo být
+mem.vertexArrays[0].vertexAttrib[2].bufferID = -1;//vaše    
+mem.vertexArrays[0].vertexAttrib[2].bufferID = 17;//mělo být
+mem.vertexArrays[0].vertexAttrib[2].stride = 0;//vaše    
+mem.vertexArrays[0].vertexAttrib[2].stride = 323;//mělo být
+mem.vertexArrays[0].vertexAttrib[2].offset = 0;//vaše    
+mem.vertexArrays[0].vertexAttrib[2].offset = 33;//mělo být
+mem.vertexArrays[0].vertexAttrib[2].type = EMPTY;//vaše    
+mem.vertexArrays[0].vertexAttrib[2].type = VEC2 ;//mělo být
+
+  Tento test ověřuje funkcionalitu funkce prepareModel.
+
+  Test zkouší zpracovat model s jednim meshem (3 vertexy) a jedním root a bez potomků.
+  Test zkoumá, jestli správně nastavujete attributy a indexing pro kreslení.
+  Konkrétně se jedná o nastavení VertexArray (vao).
+  Pozice,normaly,tex coord. by měly být nastavené na 0., 1. a 2. attributu vao.
+  
+  Ale něco se pokazilo...
+00 - prepareModel - traverse - check roots
+00 - prepareModel - traverse - node in node
+00 - prepareModel - traverse - binary tree
+00 - prepareModel - traverse - tree
+00 - prepareModel - memory - shaders
+00 - prepareModel - memory - vs2fs
+00 - prepareModel - memory - buffers
+00 - prepareModel - memory - textures
+00 - prepareModel - uniforms - diffuse color
+00 - prepareModel - uniforms - texture id
+00 - prepareModel - uniforms - model matrix
+00 - prepareModel - uniforms - inverse model matrix
+00 - drawModel_vertexShader
+00 - drawModel_fragmentShader - diffuse color
+00 - drawModel_fragmentShader - ambient light
+00 - drawModel_fragmentShader - diffuse light
+00 - drawModel_fragmentShader - general tests
+
+  Příznak discard měl být: outFrag.discard = true;
+  Ale byl                : outFrag.discard = false;
+
+  ===================================
+  ======== Vstupní fragment =========
+  ===================================
+
+  Vstupní fragment je tvořen čtyřmi atributy:
+   - pozice fragmentu ve world-space,
+   - normála ve world-space,
+   - texturovací souřadnice fragmentu,
+   - pozice fragmentu v clip-space stínové mapy.
+
+  inFragment.attributes[0].v3 = /* pozice                                                  */ (0,0,0);
+  inFragment.attributes[1].v3 = /* normala                                                 */ (0,-1,0);
+  inFragment.attributes[2].v2 = /* texturovaci souřadnice                                  */ (0.45,0.55);
+  inFragment.attributes[3].v4 = /* pozice zobrazovaného fragmentu v clip space shadow mapy */ (0.5,0.5,0.5,1);
+
+  Shader ma přístup k:
+   - uniformním proměnným,
+   - texturám
+   - číslu vykresovacího příkazu.
+
+  si.uniforms[getUniformLocation(drawID,LIGHT_POSITION     )].v3 = /* pozice světla                                                               */ (0,1,0); 
+  si.uniforms[getUniformLocation(drawID,CAMERA_POSITION    )].v3 = /* pozice kamery                                                               */ (0,-1,0); 
+  si.uniforms[getUniformLocation(drawID,SHADOWMAP_ID       )].i1 = /* číslo textury, která obsahuje stínovou mapu, nebo -1 pokud stíny nejsou     */ -1; 
+  si.uniforms[getUniformLocation(drawID,AMBIENT_LIGHT_COLOR)].v3 = /* barva ambientního světla                                                    */ (0.2,0.2,0.2); 
+  si.uniforms[getUniformLocation(drawID,LIGHT_COLOR        )].v3 = /* barva světla                                                                */ (0,0,0); 
+  si.uniforms[getUniformLocation(drawID,DIFFUSE_COLOR      )].v4 = /* difuzní barva materialu, - pokud není textura                               */ (0.4,0.4,0.4,0.4); 
+  si.uniforms[getUniformLocation(drawID,TEXTURE_ID         )].i1 = /* číslo textury s barvou nebo -1 pokud textura není.                          */ -1; 
+  si.uniforms[getUniformLocation(drawID,DOUBLE_SIDED       )].v1 = /* 0.f znamená, že je to jednostraný povrch, 1.f znamená, že je to doubleSided */ 0; 
+  si.textures[] = {...}; // textury
+  si.gl_DrawID  = 0    ; // číslo vykresovacího příkazu - obvykle pro výběr matic a materiálů
+  
+
+
+  ===================================
+  ========== Obecné info ============
+  ===================================
+
+  Tento test zkouší, zda je funkce drawModel_fragmentShader správně naimplementována.
+  Tato funkce reprezentuje fragment shader pro texturování, výpočet osvětlení a vrhání stínů z modelů.
+  Fragment shader by měl spočítat barvu pomocí lambertova osvětlovacího modelu:
+  https://en.wikipedia.org/wiki/Lambertian_reflectance
+  A stín pomocí shadow mappingu:
+  https://learnopengl.com/Advanced-Lighting/Shadows/Shadow-Mapping
+  Většina shadow-mappingu už je udělána, je jen potřeba stínovou mapu využít.
+
+  Vstupem FS je fragment a výstupem je fragment s vypočtenou barvou.
+  
+  Výstupní barva by měla být zapsána do proměnné outFragment.gl_FragColor.
+  Pokud je neprůhlednost fragmentu příliž nízka, shader by měl nastavit příznak discard.
+  V takovém případě na barvě nezáleží, protože se fragment stejně zahodí.
+
+  Lambertův osvětlovcí model počítá barvu ze dvou složek: ambientní a diffusní.
+
+  Ambietní složka je vypočítána jako součin barvy materiálu a ambientní barvy světla:
+  aL = dC * ambientLightColor; // součin po komponentách
+
+  Difuzní složka je vypočítána jako součin barvy materiálu s barvou světla
+  vynásobenou difuzním faktorem dF
+  dL = dC * lightColor * dF;
+
+  výsledná barva je:
+  vec4(aL+dL,dC.a);
+
+  dC je difuzní barva materiálu, je to buď hodnota z textury nebo z uniformní proměnné, když není textura k dispozici.
+  Pro čtení z textur použijte funkci read_texture(Texture const&tex,glm::vec2 const&coord);
+
+  ambientLightColor je barva ambientního světla.
+  dF je difuzní faktor.
+  Difuzní faktor je spočítán jako skalární součin vektoru
+  z fragmentu do světla a normály fragmentu ořezaný do nezáporných hodnot.
+  dF = glm::clamp(glm::dot(L,N),0.f,1.f)
+
+  Pozor oba vektory musí být normalizované!
+  pro normalizaci můžete využít funkci: glm::normalize()
+
+  Pokud je zapnutý příznak doubleSided, je potřeba otočit normálu, pokud směruje od kamery.
+  Tzn. vektor od kamery k povrchu má stejný směr jako normála.
+
+  dC.a je alpha - neprůhlednost
+
+  Pokud je neprůhlednost < 0.5, měl by se discard příznak nastavit na true,
+  tím se fragment zahodí.
+
+  Poslední věcí, co by měl shader řešit je výpočet stínu.
+  Ten je zajištěn tak, že pokud je fragment ve stínu, výsledná barva je pouze dána ambientním osvětlením (aL).
+
+  Pro zjištění, zda je fragment ve snímu je potřeba stínové mapy.
+
+  Stínová mapa je textura hloubky, kde je v každém texelu vzdálenost k nejbližšímu povrchu od světla.
+  Stínová mapa (shadow mapa) může a nemusí být využívána.
+  Pokud je číslo stínové mapy -1, pak není shadow-mapping využit.
+  Výpočet, jestli je stín nebo ne je zajištěn porovnáním vzdálenost fragmentu ke světlu
+  a nejbližší vzdálenosti povrchu od světla.
+  Pro zjištění, který texel stínové, je potřeba pro porovnání použít, je potřeba
+  z shadow mapu správně adresovat.
+  K tomu je potřeba využít souřadnici fragmentu v clip-space shadow mapy (4. atribut).
+  shadowPosition.xyzw
+  Ten je potřeba převést do kartézkých souřadnic podělením w.
+  shadowPosition /= shadowPosition.w
+  Tím vzniknou souřadnice do stínové mapy v komponentách x,y.
+
+  Poznámka: ty nejsou v rozsahu [-1,+1] jak jste zvyklí, ale v rozsahu [0,1].
+  Je to způsobeno tzn. bias maticí.
+
+  V případě, že osvětlovaný fragment padne mimo stínovou mapu < 0 || > 1,
+  pak neleží ve stínu.
+  Stínová mapa obecně nedokáže pokrýt celý svět, ale jen jeho podčást.
+
+  Když se xy souřadnice použijí pro vyčtení hodnoty ze stínové mapy pomocí
+  funkce read_texture, červený kanál obsahuje hloubku
+  read_Texture(shadowMap, shadowPosition.xy).r
+
+  Tu je potřeba porovnat se vzdáleností fragmentu od světla, což je
+  3. (z) komponenta shadowPosition.
+  if( shadowPosition.z < read_texture(...,...).r )
+    stín;
+
+  Něco se pokazilo...
+00 - drawModel_fragmentShader - shadow mapping
+00 - image to image comparison
+  Finální obrázek se moc liší od reference!
+  MSE je: 64.3609
+  Akceptovatelná chyba je: 40
