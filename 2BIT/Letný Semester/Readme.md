@@ -1,1 +1,10 @@
-# Bude zverejnené po ukončení semestra.
+| Predmet | Číslo / Názov projektu                                             | Počet bodov |
+|---------|--------------------------------------------------------------------|-------------|
+| IDS     | 1. časť                                                            | 5 / 5       |
+| IDS     | 2. časť                                                            | 5 / 5       |
+| IDS     | 3. časť                                                            | 5 / 5       |
+| IDS     | 4. časť                                                            | 19 / 19     |
+| IPK     | \[OMEGA\] Scanner síťových služeb                                  | 6.32 / 10   |
+| IPK     | Klientská aplikace pro chat server využívající protokol IPK25-CHAT | 20.16 / 30  |
+| ISS     | Motory                    | 14 / 18     |
+| ILI   v | Projekt                   | 15 / 20     |

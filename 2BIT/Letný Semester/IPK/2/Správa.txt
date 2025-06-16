@@ -1,0 +1,82 @@
+Pěkný den, níže naleznete sumarizaci hodnocení vašeho řešení druhého projektu z IPK. Celkově jste získali: 20.16(/18)b. Přílohou tohoto emailu je detailní protokol testování implementační části vašeho řešení (veškerý výstup vaší aplikace a referenčního serveru, záznam ze síťové komunikace obou stran a samotný testovací protokol s vlastními interními logy - všeobecně ten nejdůležitější soubor - protocol.txt). V případě, že testování trvalo příliš dlouho mohlo dojít k automatickému ukončení, některé logy proto mohou být nekompletní (často způsobeno aktivním čekáním).
+
+Detailní protokol hodnocení:
+GradingSection.IMPLEMENTATION
+=============================
+executable (1 tests,  0.4% weight,  1 /  1 = 100.00% =  0.06 /  0.06 b):
+	tests/features-client/client-exe-behaviour.feature          : 100.00%  =   0.1 /  0.1 b  (count =  1 /  1)
+tcp (49 tests, 39.4% weight, 37 / 49 =  79.43% =  5.64 /  7.10 b):
+	tests/features-client/tcp/auth.g.feature                    :  66.67%  =   0.2 /  0.3 b  (count =  2 /  3)
+		[TCP] authenticates incorrectly and subsequently correctly and reports (BehaveReportStatus.FAILED)
+	tests/features-client/tcp/bye.g.feature                     : 100.00%  =   0.2 /  0.2 b  (count =  3 /  3)
+	tests/features-client/tcp/client-exe-behaviour.g.feature    : 100.00%  =   0.2 /  0.2 b  (count =  1 /  1)
+	tests/features-client/tcp/client-exe-commands.g.feature     : 100.00%  =   0.2 /  0.2 b  (count =  3 /  3)
+	tests/features-client/tcp/edge-cases.g.feature              :  33.33%  =   0.1 /  0.2 b  (count =  2 /  6)
+		[TCP] receive message with too long display name (BehaveReportStatus.FAILED)
+		[TCP] receive message with unprintable display name (BehaveReportStatus.FAILED)
+		[TCP] receive message with invalid content (BehaveReportStatus.FAILED)
+		[TCP] receive error with invalid content (BehaveReportStatus.FAILED)
+	tests/features-client/tcp/err.g.feature                     :   0.00%  =   0.0 /  0.2 b  (count =  0 /  1)
+		[TCP] correctly terminates upon receiving ERR (BehaveReportStatus.FAILED)
+	tests/features-client/tcp/join.g.feature                    :  75.00%  =   0.1 /  0.2 b  (count =  3 /  4)
+		[TCP] tries joining channel with invalid ID and reports local error (BehaveReportStatus.FAILED)
+	tests/features-client/tcp/msg.g.feature                     : 100.00%  =   0.6 /  0.6 b  (count =  5 /  5)
+	tests/features-client/tcp/specific-invalid-advanced.feature :  50.00%  =   0.2 /  0.3 b  (count =  1 /  2)
+		[TCP] handles received error in auth state (BehaveReportStatus.FAILED)
+	tests/features-client/tcp/specific-invalid.feature          :  80.00%  =   1.8 /  2.3 b  (count = 12 / 15)
+		sends an error message when malformed message (extra spaces 2) -- @1.2  (BehaveReportStatus.FAILED)
+		sends an error message when malformed message (extra spaces 3) -- @1.3  (BehaveReportStatus.FAILED)
+		sends an error message when receives message with invalid characters (BehaveReportStatus.FAILED)
+	tests/features-client/tcp/specific-valid.feature            :  83.33%  =   2.2 /  2.6 b  (count =  5 /  6)
+		grammar is case insensitive (BehaveReportStatus.FAILED)
+udp (40 tests, 60.2% weight, 25 / 40 =  71.09% =  7.71 / 10.84 b):
+	tests/features-client/udp/auth.g.feature                    :  66.67%  =   0.5 /  0.7 b  (count =  2 /  3)
+		[UDP] authenticates incorrectly and subsequently correctly and reports (BehaveReportStatus.FAILED)
+	tests/features-client/udp/bye.g.feature                     : 100.00%  =   0.3 /  0.3 b  (count =  3 /  3)
+	tests/features-client/udp/client-exe-behaviour.g.feature    : 100.00%  =   0.3 /  0.3 b  (count =  1 /  1)
+	tests/features-client/udp/client-exe-commands.g.feature     : 100.00%  =   0.3 /  0.3 b  (count =  3 /  3)
+	tests/features-client/udp/edge-cases.g.feature              :  33.33%  =   0.1 /  0.3 b  (count =  2 /  6)
+		[UDP] receive message with too long display name (BehaveReportStatus.FAILED)
+		[UDP] receive message with unprintable display name (BehaveReportStatus.FAILED)
+		[UDP] receive message with invalid content (BehaveReportStatus.FAILED)
+		[UDP] receive error with invalid content (BehaveReportStatus.FAILED)
+	tests/features-client/udp/err.g.feature                     :   0.00%  =   0.0 /  0.3 b  (count =  0 /  1)
+		[UDP] correctly terminates upon receiving ERR (BehaveReportStatus.FAILED)
+	tests/features-client/udp/join.g.feature                    :  75.00%  =   0.3 /  0.3 b  (count =  3 /  4)
+		[UDP] tries joining channel with invalid ID and reports local error (BehaveReportStatus.FAILED)
+	tests/features-client/udp/msg.g.feature                     : 100.00%  =   1.4 /  1.4 b  (count =  5 /  5)
+	tests/features-client/udp/specific-invalid-advanced.feature :  66.67%  =   0.5 /  0.7 b  (count =  2 /  3)
+		[UDP] handles received error in auth state (BehaveReportStatus.FAILED)
+	tests/features-client/udp/specific-invalid.feature          :   0.00%  =   0.0 /  2.0 b  (count =  0 /  7)
+		sends an error message when receives an incomplete message (BehaveReportStatus.FAILED)
+		sends an error message when receives an unknown message type (BehaveReportStatus.FAILED)
+		sends an error message when receives a MSG without content (BehaveReportStatus.FAILED)
+		sends an error message when receives a MSG without valid display name termination (BehaveReportStatus.FAILED)
+		sends an error message when receives a MSG with trailing bytes (BehaveReportStatus.FAILED)
+		sends an error message when receives an unacceptable message (AUTH) -- @1.1  (BehaveReportStatus.FAILED)
+		sends an error message when receives an unacceptable message (JOIN) -- @1.2  (BehaveReportStatus.FAILED)
+	tests/features-client/udp/specific-valid.feature            : 100.00%  =   4.1 /  4.1 b  (count =  4 /  4)
+Graded xbohach00:  74.48%  =  13.4 / 18.0 b
+GradingSection.DOCUMENTATION
+============================
+Komentar hodnoceni: 
+doc     :  2.2 /  6.0
+ +0.00  : Teorie OK
+ -3.00  : Testování zcela chybí či je nepoužitelné. Očekáváno bylo explicitní uvedení jednotlivých testovaných situací, jejich charakterizace, vstupy, očekávané/skutečné výstupy, výstup z wireshark či tcpdump a zhodnocení.
+ -0.25  : Některé reference nejsou ukotveny v textu.
+ -0.50  : Chybí popis control flow, například krátkým popisem společně se sekvenčním diagramem.
+ +0.00  : 1 Dokumentace / CHAT GPT WARNING - Dokumentace
+GradingSection.CODE_QUALITY
+===========================
+code    :  3.5 /  4.0
+ +0.00  : Výborné využití možností programovacího jazyka/Kvalita a čitelnost kódu.
+ -0.50  : Přehnané zanořování v podmínkách/cyklech
+ +0.00  : Dostatečné rozdělení na moduly a funkce
+GradingSection.GIT
+==================
+git     :  1.0 /  2.0
+ -1.00  : Velká nekonzistence v popiscích některých commitů
+ +0.00  : Adresářová struktura repozitáře je v pořádku.
+
+Další chyby či opravy:
+Žádné další penalizace
