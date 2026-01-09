@@ -1,1 +1,0 @@
-# Doposiaľ nebol získaný súhlas všetkých členov týmu pre zverejnenie.
