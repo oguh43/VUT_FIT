@@ -1,0 +1,237 @@
+Dobrý den,
+
+tento e-mail obsahuje podrobné hodnocení Vašeho týmového projektu do IVS a poskytuje Vám tak zpětnou vazbu, ze které se můžete poučit. Pokud jste byli na obhajobách, spousta informací tam zazněla. Z obhajob byl pořízen i záznam, který můžete při studiu využít (cca do týdne bude k dispozici na video serveru). Zde jsou tedy uvedeny pouze detaily hodnocení (za co bylo kolik bodů), poznámky k hodnocení (doplnění informací o hodnocení), Vaše hodnocení (za co má Váš tým kolik bodů) a poznámky k Vašemu projektu (ty jsem využíval i při zhodnocení práce obhajujících týmů).
+
+Postup hodnocení byl následující:
+1. Stanovili jsme pravidla pro hodnocení plánů, která jsou kompletně uvedena níže v tomto e-mailu včetně poznámek (i když se některé netýkají Vašeho týmu, máte přehled, jak hodnocení probíhalo).
+2. Ohodnotili jsme plány. V tomto e-mailu naleznete poznámky, které se týkají statisticky významného počtu týmů, poznámky k Vašemu plánu a svoje bodové hodnocení.
+3. Stanovili jsme pravidla pro hodnocení produktů tak, aby každý tým, který něco zprovoznitelného (tedy ne nutně funkčního bez přidaného úsilí) odevzdá, dostal za své snažení odměnu ve formě bodů. Sice není příliš zohledněno to, že některé týmy udělaly práci navíc, ale tyto týmy byly odměněny získanými znalostmi a zkušenostmi, které jsou mnohem cennější, než nějaký ten bod (mohou jim zachránit desítky bodů v budoucím studiu a tisíce korun v budoucím zaměstnání).
+- Tento přístup při dalším studiu často neuvidíte. V drtivé většině případů platí pravidla, jako např. "Co nejde přeložit na merlinovi, automaticky 0 bodů.", "Co nefunguje, 0 bodů.", "Co se nechová přesně dle zadání či zvyklostí, výrazná ztráta bodů." apod. - obzvláště u individuálních projektů není prostor pro tolik práce s hodnocením.
+4. Ohodnotili jsme produkty, přičemž každý z hodnotitelů dostal přidělený 1 či více úkolů tak, aby stejnou věc vždy hodnotil stejný člověk nebo domluvená dvojice či trojice a hodnocení tak bylo pro všechny stejně přísné. Postup pro instalace u zákazníka byl velmi striktně stanoven, aby všichni zkoumali stejné věci. Obhajující týmy, které neměly plný počet bodů, měly určitou šanci svoje hodnocení zlepšit (obhájit svoje řešení), což se letos často podařilo. Hodnocení a poznámky ke svému řešení najdete v tomto e-mailu. Poznámky však neodpovídají "strženým" bodům, protože za některé drobnosti jsme body nestrhávali, nebo je strhávali jen za kombinaci více takových problémů. Nejčastější chyby zazněly na obhajobách ve zhodnocení obhajujících týmů.
+- Obdobně budete obhajovat i svoje bakalářské práce. Můžete přijít ke komisi s návrhem hodnocení (od oponenta a vedoucího) F a odejít s A (extrémní, nevím, jestli historicky někdy nastalo), ale může to být i naopak. Komise často mění známku o 1-2 stupně oproti návrhům a Vaše prezentace a Váš přístup u obhajoby je tak velmi důležitý. Pokud si myslíte, že recenzent (hodnotitel) nemá pravdu, můžete na jeho negativní hodnocení reagovat rozumnými argumenty a může se Vám jej podařit vyvrátit. Pokud prezentaci nezvládnete, můžete negativní hodnocení naopak podpořit.
+5. Ohodnotili jsme využívání systémů pro správu verzí: Zkontrolovali jsme repozitáře a dle počtu commitů určili, zda byl repozitář v průběhu práce využíván a kteří členové týmu jej využívali. Kontrolovali jsme rovněž vhodnost a smysluplnost commit messages, využívání větví, konfiguraci jmen a e-mailových adres apod., aby byla zpětná vazba co nejpodrobnější. Za alespoň 1 commit bylo 0,5 bodu, za alespoň 10 commitů dalšího 0,5 bodu, za rozumné commit messages 0,5 bodu, dalšího 0,5 bodu za použití alespoň jedné větve kromě master nebo za alespoň 1 pull request apod. Toto hodnocení však není zcela striktní - bylo přihlédnuto i k dalším aspektům využití repozitáře.
+6. Zkontrolovali jsme přítomnost a kompletnost souborů s vyhodnocením rozdílů oproti plánu. Pokud soubor obsahoval nějaké rozumné informace (např. o termínech) a nejednalo se jen o upravený plán, přidělili jsme každému členovi týmu, který nedostal nulové osobní ohodnocení, 1 bod.
+7. Ohodnotil jsem soubory s problémy, zhodnocením, zkušenostmi a dalšími informacemi, které jste do nich uvedli. Pokud byl soubor odevzdán v řádném termínu (případně o pár hodin později) a byly v něm min. 3 problémy či návrhy, nebo v něm byl alespoň rozumný obsah (tedy ne jen pár slov), přidělil jsem za něj 2 body. Za každý odevzdaný soubor, který nebyl prázdný, jsem přidělil nejméně 1 bod. Za všechny odevzdané soubory zde děkuji, protože některé informace z nich lze využít ke zlepšení výuky předmětu příští rok (varovat studenty před častými problémy, doplnit přednášky, ...). Soubor s anonymizovanými informacemi z těchto souborů z letošního roku bude k dispozici na stránkách předmětu do konce prázdnin.
+
+
+Pravidla pro hodnocení plánu:
+=============================
+
+3-členný tým
+------------
+Lze získat max. 9 bodů:
+1 bod za stanovení termínů,
+1 bod za rozdělení práce a přidělení úkolů
+1 bod za podrobné rozdělení práce
+1 bod za komunikační kanály
+1 bod za rozumné komunikační kanály
+1 bod za pravidla pro komunikaci
+1 bod za systém pro správu verzí
+1 bod za zamyšlení
+1 bod za kompletnost plánu (je z něj jasné, co kdo bude dělat a čím se bude komunikovat)
+1 (bonusový) bod za využití nějakého systému pro plánování a sledování projektu
+
+Poznámky:
+- Termíny mohou být stanoveny libovolně, ale musejí být obsaženy alespoň 2 termíny, které nejsou v zadání.
+- Rozdělení práce může být libovolné, ale musí být min. tolik úkolů, kolik je členů týmu. Přidělení úkolů může být libovolné, ale každý musí mít alespoň 1 úkol. Pokud někdo nemá žádný úkol a na konci nebude uvedeno, že něco dělal, může za plán dostat 0 bodů.
+- Rozdělení práce je zde považováno za podrobné, když je v něm min. 5 úkolů.
+- Pojmem "rozumné komunikační kanály" byl označen takový seznam kanálů, který obsahuje min. telefon, e-mail a nějakou formu fóra či multichatu s uchováním historie. Uznat lze i libovolnou kombinaci jiných kanálů, které umožní jak okamžité upozornění na akutní události, tak i současnou komunikaci všech členů týmu.
+- Výpis komunikačních kanálů ze slajdů, ze kterého je zjevné, že o něm tým nepřemýšlel, nebyl negativně hodnocen. Negativní dopad se projeví až při práci na projektu (tomto či jiném někdy v dalším průběhu studia).
+- Jako "zamyšlení" bylo označeno to, zda je v plánu něco, co není přímo v zadání či slajdech, nebo něco, co vypadá promyšleně (nejsou uvedeny pouze nejstručnější základní informace).
+- Bonusový bod lze získat pouze na doplnění do 9 bodů.
+
+4-členný tým
+------------
+Lze získat max. 12 bodů:
+1 bod za stanovení termínů,
+1 bod za rozdělení práce a přidělení úkolů
+2 body za podrobné rozdělení práce
+1 bod za komunikační kanály
+2 body za rozumné komunikační kanály
+1 bod za pravidla pro komunikaci
+1 bod za systém pro správu verzí
+2 body za zamyšlení
+1 bod za kompletnost plánu (je z něj jasné, co kdo bude dělat a čím se bude komunikovat)
+1 (bonusový) bod za využití nějakého systému pro plánování a sledování projektu
+
+Poznámky:
+- Termíny mohou být stanoveny libovolně, ale musejí být obsaženy alespoň 3 termíny, které nejsou v zadání.
+- Rozdělení práce může být libovolné, ale musí být min. tolik úkolů, kolik je členů týmu. Přidělení úkolů může být libovolné, ale každý musí mít alespoň 1 úkol. Pokud někdo nemá žádný úkol a na konci nebude uvedeno, že něco dělal, může za plán dostat 0 bodů.
+- Rozdělení práce je zde považováno za podrobné, když je v něm min. 7 úkolů.
+- Pojmem "rozumné komunikační kanály" byl označen takový seznam kanálů, který obsahuje min. telefon, e-mail a nějakou formu fóra či multichatu s uchováním historie. Uznat lze i libovolnou kombinaci jiných kanálů, které umožní jak okamžité upozornění na akutní události, tak i současnou komunikaci všech členů týmu.
+- Výpis komunikačních kanálů ze slajdů, ze kterého je zjevné, že o něm tým nepřemýšlel, nebyl negativně hodnocen. Negativní dopad se projeví až při práci na projektu (tomto či jiném někdy v dalším průběhu studia).
+- Jako "zamyšlení" bylo označeno to, zda je v plánu něco, co není přímo v zadání či slajdech, nebo něco, co vypadá promyšleně (nejsou uvedeny pouze nejstručnější základní informace).
+- Bonusový bod lze získat pouze na doplnění do 12 bodů.
+
+Souhrnné poznámky k hodnocení plánů:
+- Některé týmy si nestanovily pravidla pro komunikaci (členové některých z nich toho pak v souborech s problémy litovali).
+- Často se mezi komunikačními kanály neobjevil telefon ani jiný velmi rychlý komunikační kanál. Některé týmy si tak nastavily nejrychlejší odezvu na akutní události na 3 dny a více. Bez pravidel pro komunikaci je to ještě horší a komunikace může váznout.
+- Některé týmy přidělovaly 1 úkol 2 (a více) lidem bez jasně stanovené zodpovědnosti. Pokud se nejedná o párové programování, je toto rizikové.
+- Často nebyl uvažován instalátor, přitom jeho vytvoření nemusí být triviální. Fáze nasazení aplikace bývá často náročná.
+- V nemalém počtu případů nebyly uvažovány závislosti mezi úkoly - např. byl stejný termín pro testy i matematickou knihovnu, i když matematickou knihovnu bylo možné tvořit až po dokončení testů.
+- Obecně je strategické si předem stanovit i pravidla pro psaní kódu (odsazování, jazyk komentářů, ...).
+
+Pravidla pro hodnocení výsledného produktu:
+===========================================
+
+3-členný tým
+-------------
+3 b. za existující a snadno přístupný repozitář (při dodatečném zpřístupnění min. 1 bod)
+6 b. za korektní odevzdání všech požadovaných souborů (program, dokumentace, repozitář, instalátor, ...)
+9 b. za matematickou knihovnu (základ, faktoriál, umocnění, odmocnina, vlastní funkce, rozumné rozhraní, správnost implementace, ...)
+9 b. za testy k matematické knihovně (2 za přítomnost, 7 za kompletnost - testy hraničních hodnot apod.)
+18 b. za funkční program (3 za GUI, 3 za korektní chování, 4 za korektní ošetření chyb, 2 za ovládání klávesnicí, 6 za uživatelskou přívětivost)
+6 b. za instalátor a odinstalátor (za přítomnost, funkčnost, závislosti, ikonku v menu/na ploše, čistou odinstalaci, ...)
+6 b. za nápovědu (1 za přítomnost, 2 za smysluplnost, 3 za kompletnost)
+12 b. za komentáře a generovanou dokumentaci (funkce, metody, parametry, @file, @brief, rozumný Doxyfile, jazyk dokumentace odpovídá jazyku komentářů, ...)
+9 b. za uživatelskou příručku (ovládání, závislosti, instalace, odinstalace, přehlednost, vzhled, formální a jazyková úprava, ...)
+9 b. za Makefile (1 all, 1 pack, 1 clean, 1 test, 1 doc, 1 run, 1 za bezproblémovou kompilaci, 2 za automatické proměnné)
+3 b. za debugging (pokud je screenshot, ale jinak je kalkulačka plná bugů, byl debugging proveden špatně a je max. za 1 b.)
+9 b. za mockup (Splňuje zadání? Je jasné, jak to bude vypadat? Je jasné, jak to bude fungovat? Bude to uživatelsky přívětivé?)
+12 b. za profiling (2 za program, 2 za funkčnost programu, 8 za protokol s měřením)
+
+
+4-členný tým
+-------------
+4 b. za existující a snadno přístupný repozitář (při dodatečném zpřístupnění min. 1 bod)
+8 b. za korektní odevzdání všech požadovaných souborů (program, dokumentace, repozitář, instalátor, ...)
+12 b. za matematickou knihovnu bez závažných chyb (základ, faktoriál, umocnění, odmocnina, vlastní funkce, rozumné rozhraní, správnost implementace, ...)
+12 b. za testy k matematické knihovně (2 za přítomnost, 10 za kompletnost - testy hraničních hodnot apod.)
+24 b. za funkční program (3 za GUI, 4 za korektní chování, 4 za korektní ošetření chyb, 3 za ovládání klávesnicí, 10 za uživatelskou přívětivost)
+8 b. za instalátor a odinstalátor (za přítomnost, funkčnost, závislosti, ikonku v menu/na ploše, čistou odinstalaci, ...)
+8 b. za nápovědu (1 za přítomnost, 3 za smysluplnost, 4 za kompletnost)
+16 b. za komentáře a generovanou dokumentaci (funkce, metody, parametry, @file, @brief, rozumný Doxyfile, jazyk dokumentace odpovídá jazyku komentářů, ...)
+12 b. za uživatelskou příručku (ovládání, závislosti, instalace, odinstalace, přehlednost, vzhled, formální a jazyková úprava, ...)
+12 b. za Makefile (1 all, 2 pack, 1 clean, 1 test, 1 doc, 1 run, 3 za bezproblémovou kompilaci, 2 za automatické proměnné)
+4 b. za debugging (pokud je screenshot, ale jinak je kalkulačka plná bugů, byl debugging proveden špatně a je max. za 1 b.)
+12 b. za mockup (Splňuje zadání? Je jasné, jak to bude vypadat? Je jasné, jak to bude fungovat? Bude to uživatelsky přívětivé?)
+16 b. za profiling  (2 za program, 2 za funkčnost programu, 12 za protokol s měřením)
+
+Informace v závorkách jsou pouze orientační - při hodnocení bylo individuálně přihlédnuto k závažnosti nalezených chyb vzhledem ke správnosti a rozsahu zbytku řešení.
+
+Poznámky:
+- U matematické knihovny není vhodné, pokud provádí nějaké nezdokumentované operace, jako např. zaokrouhlování výsledků každé operace na hardkódovaný (ještě hůře na všech místech, tedy ani konstanta) počet desetinných míst. Při použití v cyklu pak roste kumulativní chyba. Za takové chování min. -1b, protože zaokrouhlení by mělo být až na úrovni GUI. Rovněž by knihovna neměla přímo zobrazovat chybová hlášení v GUI apod.
+-- V případě, kdy je při chybě vracena nějaká speciální hodnota (např. -1), je to potřeba dobře ošetřit a zdokumentovat na všech místech, aby bylo všude jasné, že je to chyba a ne normální výsledek. Obecně je však toto řešení nevhodné vždy, když tato hodnota může být korektní výstupní hodnotou některé z operací, protože pak je ošetření chyb pro jednotlivé operace nekonzistentní. Globální proměnná pro chyby rovněž není vhodná. Lepší je ošetřit chyby výjimkami nebo předávat přes nějaký výstupní parametr.
+- Testy by měly pokrývat hraniční hodnoty a testovat chybové stavy (dělení 0, modulo 0, faktoriál velkého čísla apod.). Také by měly být dostatečně komplexní (kombinovat kladná čísla, záporné a kladné, kladné a záporné, záporná apod.).
+- GUI musí být kompletní (nulovací tlačítko apod.)
+- Při hodnocení uživatelské přívětivosti programu jsou podstatné:
+-- intuitivnost (klasické ovládání, tedy např. "1+1=" a ne např. prefixová notace "+1,1=" apod.)
+-- ovládání klávesnicí
+-- intuitivní rozložení tlačítek (neměl bych hledat před každým kliknutím - např. "=" je většinou očekáváno vpravo dole)
+-- kombinace ovládání klávesnicí a tlačítky v GUI
+-- použitelnost ("1+1+2+3=" nebo "1+1=+2=+3=" nebo zcela nevhodně "1+1=","2+2=","4+3=")
+-- možnost nápravy překlepu (možnost smazání číslice či posledního čísla a ne jen celého výpočtu)
+-- možnost zadávat desetinná a záporná čísla
+- Ošetření chyb:
+-- Program v žádné situaci nevytuhne ani nespadne.
+-- Při korektním ošetření nedovolená operace vypíše chybu a ne nějakou nesprávnou hodnotu (0, -1, jeden z operandů apod.)
+-- Když už je kalkulačka v chybovém stavu, nelze až do vynulování dále počítat (pokud v delší sekvenci kroků uživatel udělá chybu, nepřehlédne ji a nedostane chybný výsledek).
+- Uživatelská příručka nenahrazuje nápovědu (resp. může, ale to pouze tak, že ji k programu přibalíte a lze ji zobrazit přímo z programu nějakým tlačítkem či klávesovou zkratkou - obvykle F1). Standardně se totiž příručka dodává zvlášť (někdy i tištěná, i když těch dnes z ekonomických a ekologických důvodů ubývá) a při používání programu ji uživatel nemusí mít k dispozici či při sobě (má ji někde ve skladu na papíře či na DVD/Flash apod.). Když je v příručce popis instalace a má se použít i pro nápovědu, je pro nápovědu vhodné připravit 2. verzi, protože u nainstalovaného programu popis instalace není potřeba.
+- Na generovanou dokumentaci je dobré se podívat. Chybějící položky v přehledových tabulkách a překlepy v důležitých věcech (popisy souborů, tříd, ...), které jsou vidět na 3 kliknutí, nebudí dobrý dojem. Body byly strhávány za jakékoliv chybějící popisy (někde chybí @brief a nikdo si toho nevšiml, i když je to na 2 kliknutí vidět) a za další problémy, které bylo možné během 3 min. najít a během 15 min. snadno opravit.
+- Absolutní cesty v Doxyfile jsou zcela špatně - nikdo jiný pak bez jeho úpravy dokumentaci nevygeneruje.
+- Součástí uživatelské příručky (části instalace) by měly být i závislosti na externích knihovnách a programech. Je nutné uvedení konkrétních minimálních požadovaných verzí knihoven, překladačů a běhových prostředí. Pokud nejsou uvedeny, program by měl fungovat v libovolné (od téměř historické až po nejnovější). Tedy např. pro Windows tzn. Windows 7-11, pro .NET verze 1.1-8.0, pro GTK+ verze 1.2-4.14 apod.
+- Hlavní náplní uživatelské příručky je popis ovládání programu (uživatelská příručka je pro uživatele a je o tom, jak to užít). Z příručky typicky poznám, jestli si ten program chci vůbec instalovat - tedy očekávám v ní snímek obrazovky, popis jednotlivých prvků uživatelského rozhraní a popis toho, jak se program ovládá - např. obecnou odmocninu lze u některých kalkulaček zadat jako jedno číslo, tlačítko, druhé číslo a "=" a u některých nejprve tlačítko a pak do závorek 2 čísla v nějakém pořadí).
+- U mockupů je vždy zcela zásadní, aby z nich budoucí uživatel poznal, jak bude program fungovat. Mělo by tedy být jasné, jak se přepínat mezi obrazovkami, k čemu které políčko či tlačítko slouží, jak se co zobrazí (ne "tady bude graf", ale náčrt grafu) apod.
+- U Makefile je dobré přemýšlet o použitelnosti a max. usnadnění práce (k tomu také Make slouží). Tedy např. cíle run a pack by měly být závislé na cíli pro kompilaci apod., aby bylo možné většinu věcí dělat 1 příkazem. Tam, kde nemá smysl kompilace (skriptovací jazyky), můžeme v cíli all zkontrolovat dostupnost závislostí a doinstalovat či alespoň vypsat, co je pro běh potřeba, případně pokud nejsou žádné závislosti, spustit program. K dispozici by měl být i extra cíl pro instalaci závislostí.
+- O zadání je vždy potřeba přemýšlet a ne je jen mechanicky splnit. Když byl požadován Makefile a program je pro Windows, podívám se po možnostech instalace Make pro Windows a dostupných konzolových nástrojích a zjistím, co půjde udělat a co ne. Případně půjdu konzultovat. Někteří zvládli udělat všechny cíle, někteří ani jeden. A někteří zcela nesmyslně udělali Makefile pro Linux, když program pro Linux nebyl (byl ve Visual Studiu).
+- Zdaleka ne všechny týmy odevzdaly rozumný program pro výpočet směrodatné odchylky. Některé týmy na něm splnily cíl "udělat něco na profilování" a považovaly to za splněné, i když program vracel zcela nesprávné hodnoty, které k výběrové směrodatné odchylce měly daleko. Některým programům ani nebylo možné zadat vstup (očekával se soubor s fixním názvem), nebo byla zafixovaná jeho délka. Vždy je potřeba se zamyslet nad tím, jestli vrácený výsledek může odpovídat realitě, a dělat programy použitelné více než 1x.
+- Odevzdání binárních souborů, které nebyly požadovány (např. objektové soubory apod. - obecně všechny výstupy překladu mimo instalátor), nebylo negativně hodnoceno, protože nebylo přesně specifikováno, co všechno odevzdat. V praxi se binární soubory také často distribuují (hlavně pro Microsoft Windows). Ve škole jsou však předměty, kde se to přísně penalizuje (možnost šíření virů), takže pozor na to, jaké jsou požadavky a co odevzdáváte. Obecně se ve škole binární soubory, které nebyly explicitně požadovány, v drtivé většině případů neodevzdávají, takže když nejsou uvedeny v zadání, je jejich odevzdání rizikové.
+- Celkově dost týmů nezvládlo odevzdání tak, jak bylo požadováno. Přitom byl rozpis v zadání poměrně detailní. Nabízí se otázka, zda příliš mnoho projektů nebylo řešeno na poslední chvíli v takovém časovém presu, že na kontrolu oproti zadání nebyl čas. Někteří totiž odevzdali něco jiného, než si mysleli. Rozhodně lze doporučit připravit si nějakou verzi k odevzdání s předstihem, i když v ní nebude vše funkční, některé soubory budou prázdné apod. a odevzdat. Když se pak podaří práci výrazně vylepšit, smazat ze systému starou a odevzdat novou verzi. Člověk si ujasní, jak má odevzdání vypadat, jak při něm postupovat a když to v posledních minutách nestihne, něco má odevzdané a nehrozí, že nebude mít nic.
+
+
+Hodnocení Vašeho týmu
+=====================
+
+Plán:
+-----
+stanovení termínů: 1
+rozdělení práce a přidělení úkolů: 3
+komunikační kanály: 3
+pravidla pro komunikaci: 1
+systém pro správu verzí: 1
+zamyšlení: 2
+kompletnost plánu: 1
+bonusový bod: 1
+-------------------------------------
+plán celkem (po případném oříznutí): 12
+pro Vás (člena týmu): 3
+
+Produkt:
+--------
+vytvořený a přístupný repozitář: 4
+korektní odevzdání: 8
+matematická knihovna: 12
+testy k matematické knihovně: 12
+funkční program: 23
+instalátor a odinstalátor: 8
+nápověda: 8
+komentáře a generovaná dokumentace: 16
+uživatelská příručka: 12
+Makefile: 5
+debugging: 4
+mockup: 12
+profiling: 12
+-------------------------------------
+produkt celkem: 136
+pro Vás (člena týmu): 34
+
+Vaše hodnocení v procentech: 100
+
+Hodnocení v procentech, které jste si přidělovali sami, se aplikovalo se při výpočtu celkového součtu (viz níže) na položky dle zadání.
+-------------------------------------
+
+-------------------------------------
+Vyhodnocení rozdílů mezi plánem a skutečností: 1 (pro Vás 1)
+Používání repozitáře: 2,7
+Bonusové body: -
+Zhodnocení projektu (xloginNN_problemy.txt): 2
+Obhajoby: 5
+
+Přidělení bonusových bodů bylo zdůvodněno na obhajobách, v poznámkách k hodnocení či individuálně.
+
+-------------------------------------
+
+Celkem máte: 47,7 bodů
+
+
+Poznámky (k plánu a následně k produktu, omluvte prosím možné míchání jazyků vzniklé automatizovaným vložením více souborů):
+-----------------------------------------
+- Bonusový bod za použití nástroje Github projects.
+- Pěkný plán.
+- Práce s Gitem
+-- obsah repozitáře: repozitář obsahuje vygenerovanou dokumentaci a instalátor
+-- commity a commit messages: většina vypadá logicky, několik commitů implementuje nebo opravuje stejnou funkcionalitu jako předchozí commit (tomuto se lze vyhnout použitím zvláštní větev a přepsáním historie pomocí interactive rebase před merge do master), zprávy výstižné
+-- použití branches a PR: ano
+-- pozor na použití duplicitních identit a přezdívek v commitech
+- Chyby: program se nechová validně po vyvolání chybového stavu (např. Error + 5 = Error)
+- Profiling (protokol): chybí popis metody profilování
+- Makefile (pack): cp: nelze získat informace o 'docs': Adresář nebo soubor neexistuje
+- Makefile: chybí/nefunguje pravidlo profile (cannot open test_input.txt: No such file)
+- Makefile: kompilace není bez problémů (Není uvedeno, jaká verze Node + npm je vyžadována.)
+- Makefile: neobsahuje automatické proměnné
+- Věci navíc
+-- použití závorek
+-- M+, M-, MC, MR, MS (výpočet s pamětí)
+-- Přirozený logaritmus
+-- Responzivní okno (reaguje na zvětšení/zmenšení okna)
+- Prezentace
+-- není asi úplně vhodné, že každý slide vypadá jinak
+-- slide 3: slide je zcela nečitelný
+-- slide 5: bylo by možná lepší zmenšit obrázek a zvětšit text (Javascript je btw. název, takže velké písmeno)
+-- není taktické se ptát na otázky
+
+
+
+-------------------------------------
+
+
+Pokud s hodnocením nebo některou jeho částí nesouhlasíte, nebo k němu máte nějaké dotazy, napište mi e-mail (v kopii prosím dr. Veigendovi) nebo mě navštivte v konzultačních hodinách (doporučuji cca 2 dny předtím napsat e-mail, jinak se může stát, že budu mimořádně někde pryč, budu někde na zasedání nebo že budete 2 hod. čekat, než skončí plánovaná konzultace s někým kdo řeší bakalářskou či diplomovou práci apod.). Pokud mi dokážete, že jsme body strhli neprávem či omylem, hodnocení s omluvou upravím. Je však třeba upozornit na to, že získání 0,5-1 bodu za produkt (např. za profiling), který se vydělí 3 či 4, má v drtivé většině případů nulový efekt, protože celkové výsledky jsou již zaokrouhlené nahoru.
+
+Pokud by měl ještě někdo zájem o 1-3 bonusové body pro vylepšení známky, napište mi do 3. 6. e-mail a ještě Vám něco zadám (s termínem nejpozději do 5. 6. 2024). K definitivnímu uzavření hodnocení v předmětu dojde pravděpodobně 6. 6. 2024.
+
+Pokud máte nějaké náměty ke zlepšení projektů či obecně výuky IVS, můžete mi je zaslat e-mailem, vyplnit je do dotazníků k hodnocení výuky v předmětu nebo je přijít probrat na online či osobní konzultaci. Pomůžete tak zlepšit výuku IVS do příštích let (tak jako nám ji Vaši předchůdci pomohli zlepšit pro Vás).
+
+
+Přeji pěkný den a hodně úspěchů při dalším studiu
+
+Jaroslav Dytrych

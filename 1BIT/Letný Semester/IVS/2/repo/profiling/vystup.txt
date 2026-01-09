@@ -1,0 +1,10 @@
+Standard Deviation value: 2.9154759474226504
+
+Total time spent: 0.13739999999999952ms
+
+Name                Total time spent        Time spent on average    Number of calls  
+addNumbers()        0.012599999999999056ms  0.0025199999999998115ms  5                
+substractNumbers()  0.005500000000001393ms  0.0027500000000006963ms  2                
+multiplyNumbers()   0.045999999999999375ms  0.007666666666666562ms   6                
+divideNumbers()     0.009500000000002728ms  0.004750000000001364ms   2                
+rootNumber()        0.04540000000000077ms   0.04540000000000077ms    1                

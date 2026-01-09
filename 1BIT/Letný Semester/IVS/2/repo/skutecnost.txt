@@ -1,0 +1,9 @@
+SCH Software - xjenisf00, xbohach00, xdubnis00, xklcovl00
+
+Rozdiely oproti pôvodnému plánu
+
+1. Rozdelenie častí nebolo úplne dodržané, niektorí členovia tímu sa pre časovú/technickú náročnosť podielali aj iných veciach, ako im boli pôvodne pridelené.
+
+2. Neplnenie deadlinov - pre inú časovú vyťaženosť členov tímu nebolo naplnených niekoľko mílnikov najmä v záverečnej fázi projektu.
+
+3. Niektoré testy vznikli až po implementácii matematickej knižnice.

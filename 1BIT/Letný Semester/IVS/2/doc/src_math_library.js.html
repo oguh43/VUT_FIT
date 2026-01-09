@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>src/math_library.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-ElectronMain.html">ElectronMain</a></li><li><a href="module-ForgeConfig.html">ForgeConfig</a></li><li><a href="module-MathLibrary.html">MathLibrary</a></li><li><a href="module-MathLibraryTests.html">MathLibraryTests</a></li><li><a href="module-Preload.html">Preload</a><ul class='methods'><li data-type='method'><a href="module-Preload.html#~addToHistory">addToHistory</a></li><li data-type='method'><a href="module-Preload.html#~getTop">getTop</a></li><li data-type='method'><a href="module-Preload.html#~handleKeyDown">handleKeyDown</a></li><li data-type='method'><a href="module-Preload.html#~isCollision">isCollision</a></li><li data-type='method'><a href="module-Preload.html#~isContained">isContained</a></li><li data-type='method'><a href="module-Preload.html#~process">process</a></li><li data-type='method'><a href="module-Preload.html#~processBeforeInput">processBeforeInput</a></li><li data-type='method'><a href="module-Preload.html#~processClick">processClick</a></li><li data-type='method'><a href="module-Preload.html#~repositionInput">repositionInput</a></li><li data-type='method'><a href="module-Preload.html#~showPdf">showPdf</a></li></ul></li><li><a href="module-StandardDeviation.html">StandardDeviation</a><ul class='methods'><li data-type='method'><a href="module-StandardDeviation.html#~generateTable">generateTable</a></li></ul></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">src/math_library.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/** 
+ * @module MathLibrary
+ * @description Houses all used math functions.
+ * @author Hugo Bohácsek (xbohach00) 
+ * @author Filip Jenis (xjenisf00) 
+*/
+const fs = require('fs');
+const path = require('path');
+
+const wasmFilePath = path.join(__dirname, 'math_library.wasm');
+Math.fmod = (a, b) => {return a % b}
+
+function loadWasm() {
+    const wasmBytes = fs.readFileSync(wasmFilePath);
+    const wasmModule = new WebAssembly.Module(wasmBytes);
+    const imports = { 
+        env: {
+            log: Math.log,
+            exp: Math.exp,
+            pow: Math.pow,
+            fmod: Math.fmod
+        }
+    };
+    const wasmInstance = new WebAssembly.Instance(wasmModule, imports);
+
+    return wasmInstance.exports;
+}
+
+
+const wasmFunctions = loadWasm();
+
+module.exports = {
+    /**
+     * Adds two numbers together.
+     * 
+     * @param {number} num1 - The first number.
+     * @param {number} num2 - The second number.
+     * @returns {number} The sum of num1 and num2.
+     */
+    addNumbers: wasmFunctions.addNumbers,
+    /**
+     * Subtracts two numbers.
+     * 
+     * @param {number} num1 - The first number.
+     * @param {number} num2 - The second number.
+     * @returns {number} The subtraction of num1 and num2.
+     */
+    subtractNumbers: wasmFunctions.subtractNumbers,
+    /**
+     * Multiply two numbers.
+     * 
+     * @param {number} num1 - The first number.
+     * @param {number} num2 - The second number.
+     * @returns {number} The multiplication of num1 and num2.
+     */
+    multiplyNumbers: wasmFunctions.multiplyNumbers,
+    /**
+     * Divide two numbers.
+     * 
+     * @param {number} num1 - The first number.
+     * @param {number} num2 - The second number.
+     * @returns {number} The divident of num1 and num2.
+     * @todo Division by zero should not return NaN, but should raise an error.
+     */
+    divideNumbers: wasmFunctions.divideNumbers,
+    /**
+     * Return the natural logarithm of a given number.
+     * 
+     * @param {number} num1 - Number.
+     * @returns {number} The natural logarithm of num1.
+     */
+    lnNumber: wasmFunctions.lnNumber,
+    /**
+     * Return the logarithm of a given number.
+     * 
+     * @param {number} num1 - Number.
+     * @param {number} num1 - Base.
+     * @returns {number} The logarithm of num1 at base num2.
+     */
+    logNumber: wasmFunctions.logNumber,
+    /**
+     * Return the natural exponent of a given number.
+     * 
+     * @param {number} num1 - Number.
+     * @returns {number} The natural exponent of num1.
+     */
+    expNumber: wasmFunctions.expNumber,
+    /**
+     * Return a number rounded to the closest whole number.
+     * 
+     * @param {number} num1 - Number.
+     * @returns {number} The rounded number num1.
+     */
+    roundNumber: wasmFunctions.roundNumber,
+    /**
+     * Return an absolute value of a number.
+     * 
+     * @param {number} num1 - Number.
+     * @returns {number} The absolute number num1.
+     */
+    absNumber: wasmFunctions.absNumber,
+    /**
+     * Return factorial of given number.
+     * 
+     * @param {number} num - Number.
+     * @returns {number} Factorial of num
+     */
+    factorialNumber: wasmFunctions.factorialNumber,
+    /**
+     * Return base raised to a power.
+     * 
+     * @param {number} base Base of the power 
+     * @param {number} exponent Exponent determines how many times will the base be multiplied
+     */
+    powerNumber: wasmFunctions.powerNumber,
+    /**
+     * Return index root of a number
+     * 
+     * @param {number} num Number (radicand) 
+     * @param {number} index Index of the root
+     * @returns Root of number num.
+     * @todo Division by zero should not return NaN, but should raise an error.
+     */
+    rootNumber: wasmFunctions.rootNumber
+};
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Thu Apr 25 2024 03:33:13 GMT+0200 (stredoeurópsky letný čas) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+        <meta name="author" content="Hugo Bohácsek (xbohach00)">
+		<title>Calculator</title>
+		<link rel="stylesheet" href="index.css" />
+		<style>
+            
+            
+        </style>
+		
+	</head>
+	<body>
+        <div id="history">
+            
+        </div>
+        <script type="module">
+            /** 
+             * @module ModuleImporter
+             * @description Bypasses node import limitations.
+             * @author Hugo Bohácsek (xbohach00) 
+            */
+            import {parse} from "../node_modules/@cortex-js/math-json/dist/math-json.esm.js"
+            //import {parse} from "../node_modules/@cortex-js/compute-engine/dist/math-json.esm.js"
+            window.parse = parse
+
+            import { ComputeEngine } from  "../node_modules/@cortex-js/compute-engine/dist/compute-engine.esm.js"
+            window.ComputeEngine = ComputeEngine
+        </script>
+	</body>
+
+</html>

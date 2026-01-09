@@ -1,0 +1,166 @@
+/** 
+ * @module CascadingStyleSheet
+ * @description Configures electron-forge.
+ * @author Lucia Klčová (xklcovl00), Hugo Bohácsek (xbohach00) 
+*/
+
+/* ========================================================================================== */
+
+/* colors for the whole calculator */
+:root {
+	--color1: #D3E8E8;
+	--color2: #9FC4CB;
+	--color3: #6EA3B4;
+	--colorA: #1B5165;
+}
+
+@media (prefers-color-scheme: dark) {
+	body {
+		color: var(--colorA);
+	}
+}
+
+/* ========================================================================================== */
+
+
+math-field::part(virtual-keyboard-toggle) {
+	display: none;
+}
+math-field::part(menu-toggle) {
+	display: none;
+}
+math-field {
+	position: absolute;
+	bottom: 300px;
+}
+body {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+		Arial, sans-serif;
+	margin: auto;
+	max-width: 38rem;
+	padding: 2rem;
+	background-color: var(--color1);
+	color: var(--colorA);
+}
+table, th, td {
+	border: 1px solid black;
+	user-select: none
+}
+
+/* ========================================================================================== */
+
+#history {
+	margin-top: 15px;
+}
+
+.history > * {
+    margin: 15px 0;
+}
+
+/* History overall style */
+.history {
+	margin-top: 0;
+	margin-bottom: 15px;
+	padding-top: 0.8%;
+	padding-bottom: 0.8%;
+	font-weight: bold;
+	font-size: larger;
+}
+
+/* History hover effects */
+.history:hover {
+	outline: solid white;
+	color: white;
+	cursor: pointer;
+}
+
+@keyframes slide_up {
+	0% {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Newst result in history different color */
+#history .history:first-child {
+	display: block;
+	background-color: var(--color3);
+	animation-name: slide_up;
+	animation-duration: 0.5s;
+	animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Rest of history color */
+#history p {
+	display: block;
+	background-color: var(--color2);
+	border-radius: 7px;
+}
+
+/* Addding extra space before the result */
+#history .history::before {
+	content: "   ";
+	white-space: pre;
+}
+
+/* Calculator button section background */
+.MLK__plate {
+	background-color: var(--color2);
+}
+
+/* Calculator buttons color */
+.MLK__keycap {
+	background-color: var(--color1);
+	color: var(--colorA);
+}
+
+/* Calculator buttons hover color change */
+.MLK__keycap:hover {
+	background-color: var(--color3);
+	color: var(--color1);
+}
+
+.action {
+	background-color: var(--color1);
+	color: var(--colorA);
+}
+
+/* removing separation line between history elements */
+hr {
+	display:none;
+}
+
+/* input design */
+math-field {
+
+	color: var(--colorA);
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: 3px solid var(--colorA);
+	outline: none;
+	transition: 0.5s;
+	font-weight: bold;
+	font-size: larger;
+	left: 10px;
+	cursor: text;
+}
+
+html, body {
+	max-width: 100%;
+	overflow-x: hidden;
+}
+
+/* ALternative color layout concept for the calculator buttons */
+/* .MLK__row div:last-child {
+	background-color: var(--color3);
+}
+
+.MLK__row:first-child div:nth-child(2) {
+	background-color: var(--color3);
+} */

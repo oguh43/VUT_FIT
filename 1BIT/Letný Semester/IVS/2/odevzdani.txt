@@ -1,0 +1,1 @@
+Kompletný archív sme odovzdali na server ivs.fit.vutbr.cz do zložky /ivs-proj2/odevzdane/xjenisf00 25.4.2024 4:55 a je v ňom naviac vygenerovaná dokumentácia, inštalačné balíky pre Debian a história repozitáru.

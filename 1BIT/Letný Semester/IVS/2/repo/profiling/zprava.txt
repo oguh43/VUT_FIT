@@ -1,0 +1,58 @@
+
+------ Výstup pre 10 hodnôt -------------------------------
+
+Standard Deviation value: 0.29148701841421987
+
+Total time spent: 0.17930000000000135ms
+
+Name                Total time spent        Time spent on average    Number of calls  
+addNumbers()        0.023999999999997357ms  0.0011999999999998678ms  20               
+substractNumbers()  0.00590000000000046ms   0.00295000000000023ms    2                
+multiplyNumbers()   0.06010000000000204ms   0.004292857142857288ms   14               
+divideNumbers()     0.009700000000002262ms  0.004850000000001131ms   2                
+rootNumber()        0.04790000000000205ms   0.04790000000000205ms    1                
+-----------------------------------------------------------
+
+
+------ Výstup pre 1000 hodnôt -----------------------------
+
+Standard Deviation value: 0.28762616489275744
+
+Total time spent: 2.538800000000002ms
+
+Name                Total time spent        Time spent on average     Number of calls  
+addNumbers()        0.7373999999999832ms    0.0003686999999999916ms   2000             
+substractNumbers()  0.008399999999998187ms  0.004199999999999093ms    2                
+multiplyNumbers()   0.31949999999997303ms   0.00031822709163343925ms  1004             
+divideNumbers()     0.03689999999999927ms   0.018449999999999633ms    2                
+rootNumber()        0.05299999999999727ms   0.05299999999999727ms     1                
+-----------------------------------------------------------
+
+
+------ Výstup pre 1 000 000 hodnôt ------------------------
+
+Standard Deviation value: 0.2885759887769789
+
+Total time spent: 527.2647010000001ms
+
+Name                Total time spent        Time spent on average     Number of calls  
+addNumbers()        150.47949999993835ms    0.00007523974999996918ms  2000000          
+substractNumbers()  0.008599999999887586ms  0.004299999999943793ms    2                
+multiplyNumbers()   51.016000000013264ms    0.00005101579593682952ms  1000004          
+divideNumbers()     0.04619999999988522ms   0.02309999999994261ms     2                
+rootNumber()        0.07299999999997908ms   0.07299999999997908ms     1                
+-----------------------------------------------------------
+
+
+Program trávi konzistentne najviac času na operáciách addNumbers() a multiplyNumbers(). 
+
+Vzhľadom k počtu volaní sa ale na ich výpočtoch netrávi veľa času. 
+Funkcie máme implementované v jazyku C, takže samotné operácie príliš optimalizovať nevieme, 
+ale sú volané pomocou experimentálnej knižnice, ktorá oproti bežnému C programu pridáva celkom veľké oneskorenie. 
+Lepšia alternatíva by teda bolo napísať si na toto vlastnú knižnicu.
+
+Ďalej by sme mohli pri xi^(2) ukladať hodnoty do pamäte, čím by sme pri vačších súboroch hodnôt 
+potenciálne redukovali počet volaní multiplyNumbers(), ak by nám na vstupe prišla rovnaká hodnota dvakrát.
+
+Taktiež by sa dal využiť iný vzorec na výpočet výberovej smerodajnej odchylky, ktorý ale používa logaritmy. Pri tejto
+optimalizácii by sme potom ale museli zlepšiť funkciu logaritmu, ktorý je momentálne vcelku pomalý.    

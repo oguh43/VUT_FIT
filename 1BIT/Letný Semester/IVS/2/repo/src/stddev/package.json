@@ -1,0 +1,11 @@
+{
+  "name": "stddev-cli",
+  "version": "0.0.1",
+  "description": "Command Line Application for app profiling using a standard deviation formula.",
+  "main": "./index.js",
+  "bin": {
+    "stddev": "./index.js"
+  },
+  "author": "Štefan Dubnička (xdubnis00)",
+  "license": "GPL-3.0"
+}

@@ -1,0 +1,4 @@
+xjenisf00 100 (optimalizácia matematickej knižnice, inštalátory)
+xbohach00 100 (matematická knižnicia, pokročilé funkcie GUI)
+xdubnis00 100 (testy, profiling)
+xklcovl00 100 (základ GUI, dokumentácia)

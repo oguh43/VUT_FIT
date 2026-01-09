@@ -1,0 +1,273 @@
+/** 
+ * @module MathLibraryTests
+ * @description Houses all Tests for the math library.
+ * @author Štefan Dubnička (xdubnis00)
+ * 
+ * 
+ * 
+ * 
+*/
+//Import math functions
+const { addNumbers, subtractNumbers, multiplyNumbers, divideNumbers, lnNumber, logNumber, expNumber, roundNumber, absNumber, factorialNumber, powerNumber, rootNumber } = require('./math_library.js');
+
+// Tests for edge cases in addition
+describe('Unit Tests for Addition', function () {
+    test('addNumbers(): 0.02 + -0.02 (Expected: 0)', () => {
+        expect(addNumbers(0.02, -0.02)).toBe(0);
+    });
+    
+    test('addNumbers(): -1 + 1 (Expected: 0)', () => {
+        expect(addNumbers(-1, 1)).toBe(0);
+    });
+
+    test('addNumbers(): 0 + -3 (Expected: -3)', () => {
+        expect(addNumbers(0, -3)).toBe(-3);
+    });
+
+    test('addNumbers(): 2 + 0 (Expected: 2)', () => {
+        expect(addNumbers(2, 0)).toBe(2);
+    });
+
+    test('addNumbers(): 0 + 0 (Expected: 0)', () => {
+        expect(addNumbers(0, 0)).toBe(0);
+    });
+    
+    test('addNumbers(): -1 + -1.5 (Expected: -2.5)', () => {
+        expect(addNumbers(-1, -1.5)).toBe(-2.5);
+    });
+    
+    test('addNumbers(): -1.2 + 1.789 (Expected: 0.589)', () => {
+        expect(addNumbers(-1.2, 1.789)).toBe(0.589);
+    });
+
+    test('addNumbers(): 4.2 + 3 (Expected: 7.2)', () => {
+        expect(addNumbers(4.2, 3)).toBe(7.2);
+    });
+});
+
+// Edge cases for Subtraction
+describe('Unit Tests for Subtraction', function () {
+    test('subtractNumbers(): 0.5 - 0.5 (Expected: 0)', () => {
+        expect(subtractNumbers(0.5, 0.5)).toBeCloseTo(0);
+    });
+    
+    test('subtractNumbers(): -1.2 - 1.789 (Expected: -2.989)', () => {
+        expect(subtractNumbers(-1.2, 1.789)).toBe(-2.989);
+    });
+    
+    test('subtractNumbers(): 0 - 0 (Expected: 0)', () => {
+        expect(subtractNumbers(0, 0)).toBe(0);
+    });
+
+    test('subtractNumbers(): 78.55 - 0 (Expected: 78.55)', () => {
+        expect(subtractNumbers(78.55, 0)).toBeCloseTo(78.55);
+    });
+
+    test('subtractNumbers(): 0 - 78.55 (Expected: -78.55)', () => {
+        expect(subtractNumbers(0, 78.55)).toBeCloseTo(-78.55);
+    });
+
+    test('subtractNumbers(): -2 - -2.001 (Expected: 0.001)', () => {
+        expect(subtractNumbers(-2, -2.001)).toBeCloseTo(0.001);
+    });
+
+    test('subtractNumbers(): 1.5 - -2.0 (Expected: 3.5)', () => {
+        expect(subtractNumbers(1.5, -2.0)).toBeCloseTo(3.5);
+    });
+});
+
+// Edge cases for Multiplication
+describe('Unit Tests for Multiplication', function () {
+    test('multiplyNumbers(): 0.01 * 100 (Expected: 1.0)', () => {
+        expect(multiplyNumbers(0.01, 100)).toBeCloseTo(1.0);
+    });
+
+    test('multiplyNumbers(): 50 * 0.5 (Expected: 25.0)', () => {
+        expect(multiplyNumbers(50, 0.5)).toBeCloseTo(25.0);
+    });
+
+    test('multiplyNumbers(): -2 * -10 (Expected: 20)', () => {
+        expect(multiplyNumbers(-2, -10)).toBe(20);
+    });
+
+    test('multiplyNumbers(): -2 * 0 (Expected: 0)', () => {
+        expect(multiplyNumbers(-2, 0)).toBe(-0);
+    });
+
+    test('multiplyNumbers(): 0 * 2.5 (Expected: 0)', () => {
+        expect(multiplyNumbers(0, 2.5)).toBe(0);
+    });
+    
+    test('multiplyNumbers(): 0 * 0 (Expected: 0)', () => {
+        expect(multiplyNumbers(0, 0)).toBe(0);
+    });
+});
+
+
+// Edge cases for division
+describe('Unit Tests for Division', function () {
+    test('divideNumbers(): 0 / 100 (Expected: 0)', () => {
+        expect(divideNumbers(0, 100)).toBe(0);
+    });
+
+    test('divideNumbers(): 100 / 0.5 (Expected: 200.0)', () => {
+        expect(divideNumbers(100, 0.5)).toBeCloseTo(200.0);
+    });
+
+    test('divideNumbers(): 13.56 / 0 (Expected: NaN)', () => {
+        expect(divideNumbers(13.56, 0)).toBe(NaN);
+    });
+
+    test('divideNumbers(): 1.5 / 2 (Expected: 0.75)', () => {
+        expect(divideNumbers(1.5, 2)).toBe(0.75);
+    });
+
+    test('divideNumbers(): 0 / 0 (Expected: NaN)', () => {
+        expect(divideNumbers(0, 0)).toBe(NaN);
+    });
+});
+
+// Edge cases for Natural Logarithm
+describe('Unit Tests for Natural Log', function () {
+    test('lnNumber(): ln(2.71828...) (Expected: 1.00...)', () => {
+        expect(lnNumber(2.7182818284590452353602874713527)).toBe(1.0);
+    });
+
+    test('lnNumber(): ln(1) (Expected: 0)', () => {
+        expect(lnNumber(1)).toBe(0);
+    });
+
+    test('lnNumber(): ln(20,085536923187667740928529654582) - e^(3) (Expected: 3.0...)', () => {
+        expect(lnNumber(20.085536923187667740928529654582)).toBe(3.0);
+    });
+});
+
+// Edge cases for Logarithms
+describe('Unit Tests for Logarithms', function () {
+    test('logNumber(): log(3)(243) (Expected: 5)', () => {
+        expect(logNumber(3, 243)).toBeCloseTo(5);
+    });
+
+    test('logNumber(): log(10)(100) (Expected: 2)', () => {
+        expect(logNumber(10, 100)).toBeCloseTo(2);
+    });
+
+    test('logNumber(): log(0)(10) (Expected: -0)', () => {
+        expect(logNumber(0, 10)).toBe(-0);
+    });
+
+    test('logNumber(): log(10)(0) (Expected: 0)', () => {
+        expect(logNumber(10, 0)).toBe(-Infinity);
+    });
+
+    test('logNumber(): log(-10)(10) (Expected: NaN)', () => {
+        expect(logNumber(-10, 10)).toBe(NaN);
+    });
+
+    test('logNumber(): log(10)(-10) (Expected: NaN)', () => {
+        expect(logNumber(10, -10)).toBe(NaN);
+    });
+});
+
+// Edge cases for powers of e
+describe('Unit Tests for Powers of e', function () {
+test('expNumber(): exp(3) (Expected: 20.085536923187667740928529654582)', () => {
+    expect(expNumber(3)).toBeCloseTo(20.085536923187667740928529654582);
+});
+
+test('expNumber(): exp(3) (Expected: 20.085536923187667740928529654582)', () => {
+    expect(expNumber(0)).toBe(1);
+});
+});
+
+// Tests for the rounding function
+describe('Unit Tests for Rounding', function () {
+test('roundNumber(): round(2.3) (Expected: 2.0)', () => {
+    expect(roundNumber(2.3)).toBeCloseTo(2.0);
+});
+
+test('roundNumber(): round(2.8) (Expected: 3.0)', () => {
+    expect(roundNumber(2.8)).toBeCloseTo(3.0);
+});
+
+test('roundNumber(): round(0.002) (Expected: 0)', () => {
+    expect(roundNumber(0.002)).toBe(0);
+});
+});
+
+// Tests for absolute value
+describe('Unit Tests for Absolute value', function () {
+test('absNumber(): abs(-3) (Expected: 3)', () => {
+    expect(absNumber(-3)).toBeCloseTo(3);
+});
+
+test('absNumber(): abs(0) (Expected: 0)', () => {
+    expect(absNumber(0)).toBeCloseTo(0);
+});
+
+test('absNumber(): abs(3) (Expected: 3)', () => {
+    expect(absNumber(3)).toBeCloseTo(3);
+});
+});
+
+// Test for factorial and edge case
+describe('Unit Tests for Factorials', function () {
+test('factorialNumber(): fac(3) (Expected: 6)', () => {
+    expect(factorialNumber(3)).toBeCloseTo(6);
+});
+
+test('factorialNumber(): fac(0) (Expected: 1)', () => {
+    expect(factorialNumber(0)).toBeCloseTo(1);
+});
+});
+
+// Edge cases for powers
+describe('Unit Tests for Powers', function () {
+test('powerNumber(): 10^2 (Expected: 100)', () => {
+    expect(powerNumber(10, 2)).toBeCloseTo(100);
+});
+
+test('powerNumber(): 100^(1/2) (Expected: 10)', () => {
+    expect(powerNumber(100, 0.5)).toBeCloseTo(10.0);
+});
+
+test('powerNumber(): 10^(0) (Expected: 1)', () => {
+    expect(powerNumber(10, 0)).toBe(1);
+});
+
+test('powerNumber(): 0^(0) (Expected: 1)', () => {
+    expect(powerNumber(0, 0)).toBe(1);
+});
+});
+
+// Functionality tests for roots
+describe('Unit Tests for n Root', function () {
+test('rootNumber(): nrt(27, 3) (Expected: 3.0)', () => {
+    expect(rootNumber(27, 3)).toBeCloseTo(3.0);
+});
+
+test('rootNumber(): nrt(2, 2) (Expected: 1.4142135623730951)', () => {
+    expect(rootNumber(2, 2)).toBeCloseTo(1.4142135623730951);
+});
+
+test('rootNumber(): nrt(10, 0) (Expected: NaN)', () => {
+    expect(rootNumber(10, 0)).toBe(NaN);
+});
+});
+
+// Integration Tests
+describe('Integration tests', function () {
+    // Testing multiple functions with the Quotient rule of Logarithms
+    test('Quotient rule of Logarithms: (Expected: ln(3/4) == ln(3) - ln(4))', () => {
+        expect(lnNumber(divideNumbers(3, 4))).toBeCloseTo(subtractNumbers(lnNumber(3), lnNumber(4)));
+    });
+    // Testing multiple functions with the Product of Exponents rule
+    test('Product of Exponents: (Expected: 2^(4) / 2^(3) == 2 )', () => {
+        expect( divideNumbers(powerNumber(2,4), powerNumber(2,3)) ).toBe( powerNumber(2, subtractNumbers(4,3)) );
+        expect( divideNumbers(powerNumber(2,4), powerNumber(2,3)) ).toBe(2);
+    });
+    // Testing multiple functions with the Division of Roots
+    test('Division of Square Roots: (Expected: sqrt(2)/sqrt(4) == sqrt(2/4))', () => {
+        expect( divideNumbers(rootNumber(2,2), rootNumber(4,2)) ).toBe( rootNumber( divideNumbers(2,4), 2) );
+    });
+});

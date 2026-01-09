@@ -1,0 +1,104 @@
+===================================
+IVS - projekt 2 - tímový projekt
+===================================
+Skupina: SCH Software
+Členovia: Filip Jenis (xjenisf00), Hugo Bohácsek (xbohach00), Štefan Dubnička (xdubnis00), Lucia Klčová (xklcovl00)
+
+-----------------------------------
+Komunikácia
+-----------------------------------
+Pre komunikáciu v tíme slúži Discord server, štruktúrovaný na miestnosti podľa témy komunikácie. Dostupné sú taktiež
+miestnosti na všeobecnú komunikáciu. Ako náhradný spôsob komunikácie, využitý v prípade nezastihnuteľnosti cez primárny
+kanál, bol stanovený univerzitný mail. V prípade núdze sú členovia tímu zastihnuteľní prostredníctvom svojich telefónnych čísiel. 
+
+Na komunikáciu taktiež slúžia pravidelné osobné stretnutia (aspoň raz týždenne) vopred oznámené a naplánované prostredníctvom
+vyššie spomenutých komunikačných kanálov. Na stretnutiach bude pravidlene zhodnocovaný priebeh vývoja a určenie plánu práce do najbližšieho stretnutia.
+
+Pravidlá komunikácie
+  1. Každý člen tímu musí byť v dobe aktívnej práce na projekte dostupný na komunikačnej sieti Discord.
+  2. Každý člen tímu má povinnosť aspoň raz denne kontrolovať aktuálne informácie a stav na Discord serveri.
+  3. Maximálna reakčná doba člena tímu je 24 hodín. Prípadnú dlhšiu plánovanú nezastihnuteľnosť musí člen vopred komunikovať ostatným členom tímu.
+
+Projekt bude taktiež plánovaný a sledovaný pomocou GitHub Projects v repozitári projektu na stránke GitHub.
+Tento projekt je dostupný prostredníctvom GitHub profilu ivskontrola na https://github.com/users/filipjenis/projects/3
+
+----------------------------------
+Pravidlá pre písanie kódu
+----------------------------------
+ - Odsadzovanie: Každé vnorenie bude v kóde naznačené zvýšením odsadenia o 1 TAB (4 medzery).
+ - Jazyk komentárov: angličtina
+ - Formát komentárov: JSDoc / Doxygen (pre možnosť vygenerovania programovej dokumentácie) (presný výber nástroju bude uskutočnený neskôr)
+ - Jazyk názvov premenných: angličtina
+
+----------------------------------
+Systém pre správu verzií a hosting
+----------------------------------
+VCS: Git
+Hosting: https://github.com/
+Repozitár: https://github.com/filipjenis/IVS_projekt_2
+Priebežná kontrola: Dňa 13.3.2024 bol do repozitára pozvaný profil ivskontrola.
+
+---------------------------------
+Termíny
+---------------------------------
+13.3. - návrh plánu, založenie štruktúry na GitHube, vytvorenie serveru na komunikačnej platforme Discord
+19.3. - návrh matematickej knižnice
+20.3. - vytvorenie kostry projektu na GitHube
+27.3. - napísanie testov pre matematickú knižnicu (rozhranie testov)
+27.3. - návrh GUI
+1.4. - príprava Makefile
+11.4. - dokončenie matematickej knižnice
+16.4. - vytvorenie GUI
+18.4. - testovanie aplikácie ako celku
+20.4. - vytvorenie inštalátoru
+20.4. - profiling
+21.4. - vytvorenie užívateľskej príručky
+23.4. - mockup budúcej verzie
+24.4. - kontrola projektu
+25.4. - odovzdanie projektu
+29.4.-3.5. - inštalácia u klienta
+9.5. - individuálne hodnotenie priebehu vývoja
+
+---------------------------------
+Rozdelenie práce
+---------------------------------
+Návrh práce - spoločná práca
+Vytvorenie komunikačného kanálu cez Discord, správa Discordu - xjenisf00
+  - vytvorenie serveru, nastavenie právomocí
+  - kontrola aktualizácií stavov
+Správa GitHub repozitára, kontrola priebehu vývoja - xjenisf00
+  - vytvorenie kostry repozitára
+  - nastavenie oprávnení, pozvanie profilu ivskontrola
+  - priebežná kontrola stavu repozitáru
+  - kontrola a správa GitHub projects
+Matematická knižnica - xbohach00 (výpomoc xjenisf00)
+  - návrh matematickej knižnice
+  - základné a pokročilé matematické funkcie
+  - dokumentácia kódu
+Priebežné testovanie matematickej knižnice - xdubnis00
+  - overovanie funkčnosti funkcií matematickej knižnice
+  - príprava testov
+  - konzultácia prípadných problémov s členom zodpovedným za matematickú knižnicu
+GUI - xklcovl00
+  - návrh a implementácia GUI
+  - naprogramovanie ovládacích prvkov kalkulačky
+  - komunikácia s programátormi matematickej knižnice
+Profiling - xdubnis00
+  - zostavenie spustiteľného programu pre výpočet smerodatnej odchýlky
+  - zhrnutie efektivity matematickej knižice, návrh optimalizačných riešení
+Makefile - xbohach00
+  - vytvorenie Makefilu podľa zadania projektu
+Užívateľská dokumentácia - xklcovl00
+  - návod na inštaláciu a používanie programu
+Mockup budúcej verzie - celý tím
+  - mockup GUI budúcej verzie aplikácie
+Testovanie aplikácie ako celku - celý tím so zapojením externých užívateľov
+Vytvorenie inštalátoru - xjenisf00
+  - spustiteľný inštalátor/odinštalátor aplikácie
+Inštalácia u zákazníka - celý tím
+  - inštalácia pomocou inštalačného balíka
+  - ukážka práce s aplikáciou
+
+Každý člen tímu môže požiadať o posunutie termínu dokončenia činnosti a o zmenu činnosti. Každý člen je povinný 
+požiadať o pomoc od ostatných členov tímu, pokiaľ existuje riziko, že by neúspech v jeho činnosti mohol ohroziť
+priebeh vývoja celého projektu.
