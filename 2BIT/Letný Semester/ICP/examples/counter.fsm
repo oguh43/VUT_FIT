@@ -1,0 +1,17 @@
+Name Counter
+Input alphabet is start
+Output alphabet is done
+Input pointers are default
+Output pointers are default
+Variables are
+	int count = 0
+	int limit = 5
+States are
+	Init: []
+	Counting: [count = count + 1; output count to default]
+	Done: [output done to default]
+Transitions are
+	Init-[got start from default]->Counting
+	Counting-[timeout 1000]->Counting
+	Counting-[count == limit]->Done
+Thanks

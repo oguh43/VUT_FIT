@@ -1,0 +1,30 @@
+Name VendingMachine
+Input alphabet is coin, select_item, cancel, complete_purchase
+Output alphabet is display_message, dispense_item, return_change
+Input pointers are default, coin_slot, keypad, button
+Output pointers are default, display, dispenser, change_slot
+Variables are
+	int money_inserted = 0
+	int selected_price = 0
+	int change_amount = 0
+	string selected_item = ""
+	int inventory_count = 10
+States are
+	Idle: [output "Insert coins and select item" to display]
+	ItemSelected: [output "Selected: " + selected_item + " Price: " + selected_price + " Inserted: " + money_inserted to display]
+	InsufficientFunds: [output "Need more money!" to display]
+	ReadyToPurchase: [output "Press button to confirm purchase" to display]
+	Dispensing: [output dispense_item to dispenser; inventory_count = inventory_count - 1]
+	GivingChange: [output "Returning change: " + change_amount to display; output return_change to change_slot]
+Transitions are
+	Idle-[got coin from coin_slot]->Idle
+	Idle-[got select_item from keypad]->ItemSelected
+	ItemSelected-[money_inserted != selected_price]->InsufficientFunds
+	ItemSelected-[money_inserted == selected_price]->ReadyToPurchase
+	InsufficientFunds-[got coin from coin_slot]->ItemSelected
+	InsufficientFunds-[got cancel from button]->GivingChange
+	ReadyToPurchase-[got complete_purchase from button]->Dispensing
+	ReadyToPurchase-[got cancel from button]->GivingChange
+	Dispensing-[timeout 2000]->GivingChange
+	GivingChange-[timeout 3000]->Idle
+Thanks

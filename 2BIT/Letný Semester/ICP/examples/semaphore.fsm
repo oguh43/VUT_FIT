@@ -1,0 +1,22 @@
+Name Traffic Light
+voices A simple traffic light controller
+
+Input alphabet is button_press, sensor_trigger
+Output alphabet is red, yellow, green, off
+Input pointers are pedestrian_button, car_sensor
+Output pointers are main_light, pedestrian_light
+
+Variables are
+	int time_remaining = 30
+	string message = "Wait"
+
+States are
+	Red: [time_remaining = 30; output red to main_light; output message to pedestrian_light]
+	Yellow: [output yellow to main_light; time_remaining = time_remaining - elapsed]
+	Green: [output green to main_light; time_remaining = 20]
+
+Transitions are
+	Red-[timeout 3000]->Green
+	Green-[got button_press from pedestrian_button; timeout 5000]->Yellow
+	Yellow-[timeout 2000]->Red
+Thanks

@@ -1,0 +1,20 @@
+Name TrafficLightController
+Input alphabet is pedestrian_button
+Output alphabet is red, yellow, green, walk_sign
+Input pointers are default, pedestrian
+Output pointers are default, light_status, pedestrian_status
+Variables are
+	int elapsed_time = 0
+	int cars_waiting = 0
+States are
+	Red: [output red to light_status]
+	Yellow: [output yellow to light_status]
+	Green: [output green to light_status]
+	PedestrianWalk: [output walk_sign to pedestrian_status]
+Transitions are
+	Red-[timeout 3000]->Green
+	Green-[timeout 5000]->Yellow
+	Yellow-[timeout 2000]->Red
+	Red-[got pedestrian_button from pedestrian]->PedestrianWalk
+	PedestrianWalk-[timeout 4000]->Red
+Thanks
