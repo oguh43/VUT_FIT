@@ -9,7 +9,11 @@
 | BIT / Semester | Predmet | Projekt                 |
 |----------------|---------|-------------------------|
 | 1BIT / ZS      |         |                         |
-|                | IEL     | Celosemestrálny projekt |
+|                | IEL     | [Celosemestrálny projekt](/1BIT/Zimný%20Semester/IEL/) |
+|                | IZP     | [Navigácia (1)](/1BIT/Zimný%20Semester/IZP/1/)          |
+|                | IZP     | [Bludisko (2)](/1BIT/Zimný%20Semester/IZP/2/)           |
+
+
 
 # Vysvetlivky
 | Vec              | Vysvetlenie                    |
