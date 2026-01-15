@@ -4,6 +4,7 @@
 |------|------------------|
 | 1BIT | 2023 - 2024      |
 | 2BIT | 2024 - 2025      |
+| 3BIT | 2025 - 2026      |
 
 # Odkazy po predmetoch
 | BIT / Semester | Predmet | Projekt                 |
