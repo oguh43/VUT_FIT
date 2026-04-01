@@ -1,0 +1,16 @@
+Název projektu: UX clicker
+Login autora: xbohach00
+
+Fáze I: Zadání, návrh a základ aplikace
+Recenzent: Ing. Jan Kohút
+Rozsah uživatelského průzkumu je v pořádku. Oceňuji návrh metodiky průzkumu. Samotný obsah průzkumu působí neurčitě, průzkum by měl být úzce zaměřen na návrh vašeho systému tzn. měl by mít za cíl získat co nejvíc relevantních poznatků pro návrh. Není jasné co je to měna a zisk ve shrnutí průzkumu uživatelských potřeb. Průzkum relevantních aplikací je v pořádku. Návrh hry založené na Universal Paperclicks, každý člen týmu navrhl vlastní rozhraní této hry obohacenou o jednu minihru. Návrh je v podstatě seznam produktů, které si uživatel může koupit za kredit. Kredity získává buď klikáním nebo automaticky pomocí produktů. Minihra může vést k zisku nebo ztrátě kreditů. Rozsah a interakce s uživatelem je mírně podprůměrná. Zvolené technologie a rozdělení na FE a BE je v pořádku. Z technické zprávy není patrné jak jsou minihry realizovány z hlediska API a BE.
+
+Fáze II. Výsledná aplikace (klient s GUI)
+Recenzent: Ing. David Pukanec
+Autori používajú Flutter a Dart. Každý z autorov implementuje svoje vlastné rozhranie podľa zadaného štýlu, pričom súčasťou riešenia je aj jedna minihra. Autori prehľadne a zrozumiteľne opisujú, ako je aplikácia implementovaná, vrátane toho, kde sa jednotlivé časti kódu nachádzajú. Kód je dostatočne okomentovaný a prehľadný. Autor prezentuje hlavnú obrazovku, ktorá je prehľadná a jej rozloženie je intuitívne. Na obrazovke s upgradmi však chýba informácia pre používateľa, že vykonal akciu kliknutia. Rovnako nie je ošetrený nedostatok prostriedkov na zakúpenie upgradu. Túto funkcionalitu by bolo možné realizovať napríklad pomocou vyskakovacieho okna. Samotná hra je prehľadná, aj keď jej dizajn sa odlišuje od dizajnu hlavných obrazoviek. Pri ukážke vo videu je viditeľné, že jednotlivé prvky nie vždy reagujú na kliknutie, autor musí niektoré elementy kliknúť viackrát, aby ich bolo možné presunúť pomocou funkcie drag-and-drop. Testovanie je spracované veľmi kvalitne. Je jasne definovaný subjekt testovania, ciele testovania aj samotné úlohy, ktoré boli subjektu zadané. Autor vecne a zrozumiteľne vyvodzuje dôležité poznatky z testovania.
+
+Obhajoba, závěr, poznámky (popř. penalizace)
+Komise obhajoby: Ing. David Pukanec, doc. Ing. Vítězslav Beran, Ph.D.
+
+
+Celkové bodové hodnocení: 45b.
