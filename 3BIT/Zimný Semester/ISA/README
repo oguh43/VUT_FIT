@@ -1,0 +1,291 @@
+# snmp2otel - SNMP do OpenTelemetry Exportér
+
+**Autor:** Hugo Bohácsek (xbohach00)  
+**Dátum:** November 2025  
+**Predmet:** Sieťové aplikácie a správa sietí (ISA)
+
+## Popis
+
+`snmp2otel` je ľahký, štandardom vyhovujúci C program. Periodicky sa dopytuje SNMP agentov na zadané objektové identifikátory (OID) a exportuje zozbierané metriky ako OpenTelemetry Gauge metriky cez OTLP/HTTP JSON protokol.
+
+### Kľúčové vlastnosti
+
+- **SNMPv2c implementácia protokolu** - Plné ASN.1 BER kódovanie/dekódovanie
+- **OpenTelemetry integrácia** - OTLP/HTTP JSON
+- **Robustné spracovanie chýb** - Konfigurovateľné timeouty, a opakovania
+- **Žiadne externé závislosti** - Používa iba štandardnú C knižnicu a POSIX sockety
+- **Dodržiavanie štandardov** - Prísna kompatibilita s C99 s komplexnými varovaniami prekladaču a cppcheck
+- **Pripravené na produkciu** - Rozsiahle testovanie, overenie bezpečnosti pamäte a spracovanie chýb
+
+### Podporované dátové typy
+
+- INTEGER (ASN.1 tag 0x02)
+- OCTET STRING (ASN.1 tag 0x04)
+- OBJECT IDENTIFIER (ASN.1 tag 0x06)
+- NULL (ASN.1 tag 0x05)
+- SEQUENCE (ASN.1 tag 0x30)
+
+## Zostavenie projektu
+
+### Predpoklady
+
+- GCC prekladač (4.8 alebo novší) s podporou C99
+- GNU Make alebo BSD Make
+- Štandardná C knižnica (glibc alebo ekvivalent)
+- POSIX-kompatibilný operačný systém (Linux, *BSD)
+- Voliteľné: valgrind (pre testovanie pamäte)
+- Voliteľné: cppcheck (pre statickú analýzu)
+
+### Preloženie
+
+```bash
+# Štandardné zostavenie
+make all
+
+# Debug zostavenie so symbolmi
+make debug
+
+# Spustenie všetkých jednotkových a integračných testov
+make test
+
+# Vytvorenie príkladov konfiguračných súborov
+make examples
+
+# Spustenie statickej analýzy
+make analyze
+
+# Kontrola bezpečnosti pamäte s valgrind
+make memcheck
+```
+
+### Štandardy kvality kódu
+
+Tento projekt dodržiava prísne štandardy kvality kódu:
+
+- **Kompatibilita s C99 štandardom** - Plná kompatibilita s ANSI C99
+- **Varovania prekladaču** - Prekladané s `-Wall -Wextra -std=c99 -pedantic -Werror -Wconversion -Wsign-conversion -Wdouble-promotion -Wpadded -Wpacked -Wunsafe-loop-optimizations`
+- **Statická analýza** - Čistá analýza - nástroj cppcheck
+- **Bezpečnosť pamäte** - Overené pomocou nástrojka valgrind
+- **Prenositeľnosť** - Testované na viacerých distribúciách Linuxu a architektúrach
+- **POSIX kompatibilita** - Používa iba štandardné POSIX API
+
+Použité príznaky prekladaču:
+```
+-D_XOPEN_SOURCE=700 -Wall -Wextra -std=c99 -pedantic -Werror -Wconversion -Wsign-conversion -Wdouble-promotion -Wpadded -Wpacked -Wunsafe-loop-optimizations
+```
+
+## Použitie
+
+### Syntax príkazového riadku
+
+```bash
+./snmp2otel -t target [-C community] -o oids_file -e endpoint \
+            [-i interval] [-r retries] [-T timeout] [-p port] [-v]
+```
+
+### Povinné parametre
+
+- `-t target` - IP adresa alebo DNS meno SNMP agenta
+- `-o oids_file` - Textový súbor obsahujúci zoznam OID na dopytovanie
+- `-e endpoint` - OpenTelemetry endpoint URL (OTLP/HTTP)
+
+### Voliteľné parametre
+
+- `-C community` - SNMP v2c community reťazec (predvolené: `public`)
+- `-i interval` - Interval dopytovania v sekundách (predvolené: `10`)
+- `-r retries` - Počet pokusov o opakovanie pri timeoute (predvolené: `2`)
+- `-T timeout` - Timeout SNMP požiadavky v milisekundách (predvolené: `1000`)
+- `-p port` - UDP port pre SNMP agenta (predvolené: `161`)
+- `-v` - Povoliť verbose režim logovania
+
+### Príklady použitia
+
+```bash
+# Základné použitie s localhost
+./snmp2otel -t 192.168.1.1 -o oids.txt \
+            -e http://localhost:4318/v1/metrics
+
+# Komplexnejšie použitie s vlastnými parametrami
+./snmp2otel -t router.example.com -C private \
+            -o /etc/snmp2otel/oids.txt \
+            -e http://otel-collector:4318/v1/metrics \
+            -i 30 -r 3 -T 2000 -v
+
+# Testovanie s verbose výstupom
+./snmp2otel -t 10.0.0.1 -o oids.txt \
+            -e http://localhost:4318/v1/metrics \
+            -i 5 -v
+```
+
+## Formát OID súboru
+
+OID súbor je jednoduchý textový súbor s jedným OID na riadok v numerickej bodkovanej notácii. Komentáre (riadky začínajúce `#`) a prázdne riadky sú ignorované, tak ako je dané zadaním.
+
+**Príklad `oids.txt`:**
+```
+# Systémové informácie (RFC 1213 MIB-II)
+1.3.6.1.2.1.1.1.0    # sysDescr - Popis systému
+1.3.6.1.2.1.1.3.0    # sysUpTime - Uptime systému (stotiny sekundy)
+1.3.6.1.2.1.1.5.0    # sysName - Názov systému
+1.3.6.1.2.1.1.6.0    # sysLocation - Fyzická lokácia
+
+# Štatistiky rozhrania (RFC 1213)
+1.3.6.1.2.1.2.2.1.10.1   # ifInOctets.1 - Prijaté bajty na rozhraní 1
+1.3.6.1.2.1.2.2.1.16.1   # ifOutOctets.1 - Odoslané bajty na rozhraní 1
+```
+
+## Štruktúra súborov
+
+```
+snmp2otel/
+├── snmp2otel.h          # Hlavný header s definíciami štruktúr
+├── main.c               # Hlavná logika programu a parsovanie argumentov
+├── oid.c                # Parsovanie OID a spracovanie súborov
+├── snmp.c               # SNMP protokol s ASN.1 BER kodekom
+├── http.c               # HTTP klient pre OTLP export
+├── otel.c               # OpenTelemetry JSON formátovanie
+├── utils.c              # Pomocné funkcie (logovanie, časovanie)
+├── test_oid.c           # Jednotkové testy pre OID funkcionalitu
+├── test_runner          # Spúšťa všetky testy + jednotkové testy
+├── test_snmp.c          # Jednotkové testy pre SNMP protokol
+├── test_http.c          # Integračné testy a test runner
+├── Makefile             # Konfigurácia zostavenia
+├── README               # Tento súbor
+├── manual.pdf           # Dokumentácia
+└── oids.txt             # Príklad OID konfigurácie
+```
+
+## Testovanie
+
+Projekt obsahuje komplexnú testovaciu infraštruktúru:
+
+### Jednotkové testy
+```bash
+make test
+```
+
+Testy pokrývajú:
+- Parsovanie a validáciu OID
+- ASN.1 BER kódovanie/dekódovanie
+- Konštrukciu SNMP správ
+- Parsovanie HTTP URL
+- Generovanie JSON
+- Spracovanie chýb
+
+### Jednotkové testy
+
+```bash
+# Spustenie testovacej sady
+make test
+
+# Detekcia únikov pamäte
+make memcheck
+
+# Statická analýza
+make analyze
+```
+
+### Integračné testy
+
+```bash
+# Spustenie všetkých testov - 27 Jednotkových a extra 28 integračných
+make test-all
+```
+
+### Pokrytie testami
+
+- **28 jednotkových testov** - Všetky úspešné
+- **Bezpečnosť pamäte** - Overené s valgrind (0 únikov)
+- **Statická analýza** - Čistý cppcheck report
+- **Dodržiavanie štandardov** - Prísne C99 so všetkými varovaniami povolenými
+
+## Implementácia
+
+### ASN.1 BER kódovanie
+
+Projekt implementuje ASN.1 Basic Encoding Rules:
+
+- Kódovanie premennej dĺžky pre INTEGER typy
+- Správne spracovanie znamienka a dvojkového doplnku
+- Viacbajtové kódovanie OID komponentov (base-128)
+- Špeciálne pravidlá kódovania OID (prvé dva komponenty kombinované)
+
+### SNMP protokol
+
+Kompletná implementácia SNMPv2c:
+
+- UDP socket komunikácia
+- Generovanie a sledovanie Request ID
+- Mechanizmy timeoutu a opakovania
+- Autentifikácia pomocou community reťazca
+- Parsovanie a validácia odpovedí
+
+### OpenTelemetry export
+
+Štandardom vyhovujúci OTLP/HTTP JSON:
+
+- Atribúty zdrojov a identifikácia služby
+- Gauge metriky s časovými pečiatkami
+- Správne JSON escapovanie a formátovanie
+- HTTP/1.1 klientska implementácia
+
+## Omezenia
+
+Podľa zadania projektu:
+
+- **Iba HTTP** - HTTPS nie je implementované
+- **Iba Gauge metriky** - Podporovaný iba typ Gauge
+- **Iba SNMPv2c** - Žiadna podpora SNMPv3
+- **Základné ASN.1 typy** - Iba typy požadované pre SNMPv2c Get operácie
+- **Skalárne OID** - Navrhnuté pre skalárne OID končiace na .0
+
+## Kompatibilita platforiem
+
+Testované a overené na:
+
+- **Arch Linux x86_64 (6.17.8-arch1-1)**
+- **EVA server** (eva.fit.vutbr.cz)
+- **Merlin server** (merlin.fit.vutbr.cz)
+
+Program je prenositeľný a mal by fungovať na akomkoľvek POSIX-kompatibilnom systéme s:
+- GCC 4.8+ alebo iný C99 prekladač
+- Štandardná C knižnica
+- POSIX socket API
+
+## Závislosti
+
+**Runtime:** Žiadne (používa iba štandardnú C knižnicu)  
+**Build:** GCC alebo iný C99 prekladač, Make  
+**Testovanie:** Voliteľné - valgrind, cppcheck
+
+## Spracovanie chýb
+
+Program spracováva chyby elegantne:
+
+- **Sieťové timeouty** - Konfigurovateľné opakovania s možnosťou exponenciálneho backoffu
+- **Neplatné SNMP odpovede** - Zalogované a preskočené, program pokračuje
+- **HTTP chyby** - Non-2xx stavové kódy zalogované, export pokračuje v ďalšom cykle
+- **Spracovanie signálov** - SIGINT/SIGTERM spúšťajú elegantné vypnutie
+- **Chyby súborov** - Jasné chybové správy pri problémoch s konfiguračným súborom
+
+## Referencie
+
+### Štandardy a RFC
+
+- RFC 3416 - SNMP Version 2 (SNMPv2) Protocol Operations
+- RFC 3417 - SNMP Transport Mappings
+- RFC 3418 - SNMP Management Information Base (MIB)
+- ITU-T X.690 - ASN.1 Basic Encoding Rules (BER)
+- RFC 1213 - Management Information Base for Network Management (MIB-II)
+
+### OpenTelemetry
+
+- OpenTelemetry Specification - Metrics
+- OTLP/HTTP Protocol Specification
+- OpenTelemetry Semantic Conventions
+
+### Technické zdroje
+
+- POSIX.1-2008 (IEEE Std 1003.1-2008)
+- ISO/IEC 9899:1999 (C99 Standard)
+- Stevens & Rago - "Advanced Programming in the UNIX Environment"
