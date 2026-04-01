@@ -1,0 +1,758 @@
+/* Eliška Křeménková (xkremee00) */
+
+
+/*color palette*/
+/* Color pallete
+* #E8A142 - orange
+* #9FBF5A - light green
+* #038C5A - dark green
+* #272B29 - dark
+* #FCF5EC - light
+*/
+
+/*font*/
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+    background-color: #FCF5EC;
+}
+body a{
+    text-decoration: none;
+    color: #272B29;
+}
+@font-face{
+    font-family: 'Amatic SC';
+    src: url("fonts/AmaticSC-Regular.ttf") format("truetype");
+}
+#menu, h1, h2{
+    font-family: 'Amatic SC', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+h2{
+    font-size: 3rem;
+}
+#menu a{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* general style */
+h3{
+    border-bottom: 3px solid #038C5A;
+}
+h4{
+    border-bottom: 2px solid #9FBF5A;
+    width: fit-content;
+}
+
+.flash {
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 35px;
+    font-weight: bold;
+}
+.error {
+    color: #E8A142;
+}
+.success {
+    color: #9FBF5A;
+}
+
+/*header*/
+#menu{
+    display:flex;
+    flex-wrap: nowrap;
+    justify-content:flex-end;
+    align-items: center;
+    background-color: #FCF5EC;
+    list-style-type: none;
+    margin: -10px;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.30);
+    z-index: 5;
+    -moz-column-gap: 30px;
+    column-gap: 30px;
+}
+#menu li:not(.logged_in):not(.logged_out) a{
+    transition: linear 0.5s;
+    position: relative;
+}
+#menu .logged_in button, .logged_in a {
+    color: #038C5A;
+    border: solid 1.5px #038C5A;
+    border-radius: 15px;
+    padding: 0px 20px;
+    transition: none;
+}
+#menu .logged_in form button {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: #FCF5EC;
+    color: #038C5A;
+    border: solid 1.5px #038C5A;
+    border-radius: 15px;
+    padding: 2px 20px;
+    transition: none;
+    cursor: pointer;
+}
+#menu .logged_out a {
+    color: #038C5A;
+    border: solid 1.5px #038C5A;
+    border-radius: 15px;
+    padding: 0px 20px;
+    transition: none;
+}
+#menu li:not(.logged_in):not(.logged_out) a::before{
+    transition: 300ms;
+    height: 2px;
+    content: "";
+    position: absolute;
+    background-color: #038C5A;
+    width: 0%;
+    bottom: -2px;
+}
+#menu li:not(.logged_in):not(.logged_out) a:hover::before{
+    width: 100%;
+}
+#menu a.active { /*show active tab*/
+    color: #038C5A;
+    transition: none;
+}
+#menu li.hide { /*hide tab*/
+    display: none;
+}
+
+/*footer*/
+footer {
+    background-color: #038C5A;
+    color: #FCF5EC;
+    margin: -10px;
+    padding: 30px;
+}
+
+#home_page {
+    min-height: 80vh;
+}
+#home_page h3{
+    font-size: 30px;
+}
+
+/*form page*/
+.form_page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+.form_page section {
+    background-color: #FCF5EC;
+    padding: 2rem;
+    border-radius: 10px;
+    border: solid 2px #038C5A;
+    width: 100%;
+    max-width: 400px;
+}
+.form_page h3 {
+    font-size: 1.5rem;
+    color: #038C5A;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+.form_page form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+/*register and login*/
+#register_page input[type="text"], #register_page input[type="email"], #register_page input[type="password"] {
+    padding: 0.7rem;
+    border: 2px solid #9FBF5A;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #272B29;
+}
+#login_page input[type="email"], #login_page input[type="password"] {
+    padding: 0.7rem;
+    border: 2px solid #9FBF5A;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #272B29;
+}
+#register_page input[type="submit"], #login_page input[type="submit"] {
+    padding: 0.7rem;
+    background-color: #038C5A;
+    color: #FCF5EC;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+#register_page input[type="submit"]:hover, #login_page input[type="submit"]:hover {
+    background-color: #9FBF5A;
+}
+#register_page a, #login_page a {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+    color: #038C5A;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+#register_page a:hover, #login_page a:hover {
+    color: #9FBF5A;
+}
+
+/*list page*/
+.list_page {
+    flex: 1;
+    padding: 0px 20px;
+    padding-bottom: 50px;
+    background: #FCF5EC;
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+    min-height: 80vh;
+}
+.list_page section {
+    width: 100%;
+    max-width: 800px;
+}
+.list_page h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+.list_page form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+.list_page input[type="text"] {
+    flex: 1;
+    padding: 10px 14px;
+    border: 2px solid #9FBF5A;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: white;
+}
+.list_page input[type="text"]:focus {
+    outline: none;
+    border: 2px solid #038C5A;
+}
+.list_page button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    background: #038C5A;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+.list_page button:hover {
+    background: #027347;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+}
+.list_page button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/*users list*/
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.list_elem {
+    background: white;
+    border-radius: 10px;
+    padding: 18px;
+    border-left: 5px solid #038C5A;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+#users_page .auth_user, #teams_page .auth_user, #tournaments_page .auth_user {
+    background: white;
+    border-radius: 10px;
+    padding: 18px;
+    border: 2px solid #9FBF5A;
+    border-left: 5px solid #9FBF5A;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.list_elem:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+.list_elem a {
+    color: #272B29;
+    text-decoration: none;
+}
+.list_elem p {
+    margin: 4px 0;
+    font-size: 1rem;
+}
+.list_elem p:first-child, .team_elem p span {
+    font-weight: bold;
+    color: #038C5A;
+}
+#teams_page p {
+    color: #272B29;
+}
+#teams_page p span {
+    font-weight: bold;
+    color: #038C5A;
+}
+#users_page .auth_user p:first-child, #teams_page .auth_user p span{
+    color: #9FBF5A;
+}
+
+/*detail page*/
+.detail_page {
+    flex: 1;
+    padding: 0px 20px;
+    padding-bottom: 50px;
+    background: #FCF5EC;
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+    min-height: 80vh;
+}
+.detail_page section {
+    width: 100%;
+    max-width: 900px;
+    min-width: 900px;
+    background: white;
+    padding: 30px;
+    padding-bottom: 50px;
+    border-radius: 12px;
+    border-left: 6px solid #038C5A;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+}
+.detail_page h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #272B29;
+}
+.detail_page .profile_img {
+    width: 130px;
+    height: 130px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 25px;
+    border: 3px solid #9FBF5A;
+}
+.detail_page .profile_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.detail_page ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.detail_page li {
+    display: flex;
+    gap: 30px;
+    padding: 5px 0;
+    border-bottom: 1px solid #E6E6E6;
+}
+.detail_page li:last-child {
+    border-bottom: none;
+}
+.detail_page .field_name {
+    width: 200px;
+    font-weight: bold;
+    color: #038C5A;
+}
+.detail_page .value_field {
+    color: #272B29;
+    flex: 1;
+    text-align: left;
+    display: block;
+}
+.detail_page li ul {
+    padding-left: 0;
+    margin-top: 1px;
+}
+.detail_page li ul li {
+    padding: 0;
+    border: none;
+}
+.edit_buttons {
+    margin-top: 25px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+.edit_buttons form {
+    display: inline-block;
+    margin: 0;
+}
+.edit_buttons form button {
+    background: #038C5A;
+    color: white;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+#start_button button {
+    background: #9FBF5A;
+}
+.edit_buttons button:hover {
+    background: #027347;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+}
+#start_button button:hover {
+    background: #89a64c;
+}
+.edit_buttons button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+.edit_buttons select {
+    background: #9FBF5A;
+    color: white;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+.edit_buttons select:hover {
+    background: #89a64c;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+}
+.edit_buttons select:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+/*team members edit*/
+.members_edit_button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.members_edit_button button{
+    background: #038C5A;
+    color: white;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+.members_edit_button button:hover {
+    background: #027347;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+}
+.members_edit_button button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+.members_edit_button select {
+    background: #9FBF5A;
+    color: white;
+    padding: 10px 22px;
+    margin-left: 230px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+.members_edit_button select:hover {
+    background: #89a64c;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+}
+.members_edit_button select:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/*edit user*/
+.edit_page {
+    flex: 1;
+    padding: 20px 20px;
+    padding-bottom: 50px;
+    background: #FCF5EC;
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+}
+.edit_page section {
+    width: 100%;
+    max-width: 500px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    border-left: 6px solid #038C5A;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+}
+.edit_page section form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 450px;
+    margin: 0 auto;
+}
+.edit_page h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #272B29;
+}
+.edit_page .profile_img {
+    width: 170px;
+    height: 170px;
+    margin: 0 auto;
+    border-radius: 15px;
+    border: 2px solid #9FBF5A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    overflow: hidden;
+}
+.edit_page .profile_img input[type="file"] {
+    cursor: pointer;
+    text-align: left;
+    font-size: .9rem;
+    width: 100%;
+    padding: 3rem 1rem;
+    border: none;
+}
+.edit_page ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.edit_page li {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.edit_page .field_name {
+    font-weight: bold;
+}
+.edit_page input[type="text"], #edit_user_page input[type="email"], #edit_password_page input[type="password"],
+.edit_page input[type="number"], .edit_page input[type="date"], .edit_page textarea, .edit_page select {
+    padding: .5rem .8rem;
+    border: 2px solid #9FBF5A;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+.edit_page textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+.edit_page select {
+    cursor: pointer;
+    background: white;
+}
+.edit_page > section form > div:last-child {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 10px;
+}
+.edit_page > section form > div:last-child {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 10px;
+}
+.edit_page input[type="submit"], .cancel_button {
+    background: #038C5A;
+    color: white;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+.edit_page input[type="submit"]:hover, .cancel_button:hover {
+    background: #027347;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+}
+.edit_page input[type="submit"]:active, .cancel_button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/*tournament tabs*/
+.tabs {
+    margin-top: 20px;
+}
+.tab-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.tab-button {
+    padding: 8px 15px;
+    border: 1px solid #038C5A;
+    background: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.tab-button.active {
+    background: #038C5A;
+    color: white;
+}
+.tab-content {
+    display: none;
+}
+.tab-content.active {
+    display: block;
+}
+
+/* tournament bracket */
+.bracket {
+    margin-top: 20px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+.bracket-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    min-width: max-content;
+}
+.bracket-round {
+    min-width: 220px;
+}
+.bracket-round h4 {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #038C5A;
+}
+.bracket-match {
+    background: #FCF5EC;
+    border-radius: 10px;
+    padding: 10px 14px;
+    border-left: 4px solid #038C5A;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.bracket-match:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.16);
+}
+.match-participant {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+.match-participant:last-of-type {
+    margin-bottom: 8px;
+}
+.match-participant span,
+.match-participant {
+    color: #272B29;
+}
+.match-score {
+    display: inline-block;
+    min-width: 26px;
+    text-align: center;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: #9FBF5A;
+    color: #FCF5EC;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+.match-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: #555;
+    margin-bottom: 6px;
+}
+.match-index {
+    font-weight: 600;
+    color: #272B29;
+}
+.match-status {
+    font-weight: 600;
+}
+.match-status::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 4px;
+}
+.match-status {
+    display: inline-flex;
+    align-items: center;
+}
+.match-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 4px;
+}
+.match-actions a {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.match-actions a[href*="edit"] {
+    background: #038C5A;
+    color: #FCF5EC;
+}
+.match-actions a[href*="show"] {
+    background: #9FBF5A;
+    color: #FCF5EC;
+}
+.match-actions a:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+}
+.match-actions a:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+.bracket > p {
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+
+

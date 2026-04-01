@@ -1,0 +1,30 @@
+login: xjenisf00, xbohach00, xkremee00
+
+url: https://iis.radefilu.sk
+
+technologie: PHP/Laravel, MariaDB
+
+známé problémy:
+- V riešení sú implementované všetky prípady užitia zo zadania. Pri testovaní sa občasne prejavil problém s chybnou generáciou pavúka zápasov - niektoré zápasy sa zaraďovali do zlej úrovne.
+
+dokumentace: OK
+
+zdrojové kódy: OK
+
+návrh schéma DB: OK
+- Návrh databáze dovoluje aby vítěz byl někdo, kdo nesoutěží. Vaše implementace to ale má ošetřené. Přesto bych si na podobné problémy dával pozor.
+
+funkcionalita:
+- Při zadání chybné hodnoty (např. v "Prize Pool") se mi smaže celý formulář. Tohle se děje u všech formulářů.
+- Při vytvoření nového turnaje není ošetřena maximální hodnota "Max Participants". (Bylo opraveno v průběhu opravování - nebudu za to strhávat body.)
+
+vzhled (menší vliv na hodnocení):
+- Smutně prázná homepage.
+- Vzhled poněkud strohý.
+- Tlačítko na přidání turnaje na konci stránky. Proč?
+
+---------
+
+Neregistrovaný uživatel může zobrazit osobní údaje jako e-mailovou adresu.
+
+24

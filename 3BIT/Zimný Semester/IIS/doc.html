@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta charset="UTF-8"/>
+    <title>Projekt IIS</title>
+    <style type="text/css">
+    	table { border-collapse: collapse; }
+    	td, th { border: 1px solid black; padding: 0.3em 0.5em; text-align: left; }
+    	dt { font-weight: bold; margin-top: 0.5em; }
+    </style>
+</head>
+<body>
+
+<!-- Zkontrolujte prosím nastavení kódování v hlavičce dokumentu
+     podle použitého editoru -->
+
+<h1>Studentské turnaje</h1> <!-- Nahradte názvem svého zadání -->
+
+<dl>
+	<dt>Autoři</dt>
+	<dd>Hugo Bohácsek <!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+	    <a href="mailto:xbohach00@stud.fit.vutbr.cz">xbohach00@stud.fit.vutbr.cz</a> -
+		Controllery
+	</dd>
+	<dd>Filip Jenis <!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+	    <a href="mailto:xjenisf00@stud.fit.vutbr.cz">xjenisf00@stud.fit.vutbr.cz</a> -
+		Databáza, Modely, Middleware
+	</dd>
+  <dd>Eliška Křeménková <!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+	    <a href="mailto:xkremee00@stud.fit.vutbr.cz">xkremee00@stud.fit.vutbr.cz</a> -
+		Views
+	</dd>
+	<dt>URL aplikace</dt>
+	<dd><a href="https://iis.radefilu.sk">https://iis.radefilu.sk</a></dd>
+</dl>
+
+<h2>Uživatelé systému pro testování</h2>
+<p>Uveďte prosím existující zástupce <strong>všech rolí uživatelů</strong>.</p>
+<table>
+<tr><th>Login</th><th>Heslo</th><th>Role</th></tr>
+<tr><td>admin@testing.local</td><td>password123</td><td>Administrátor</td></tr>
+<tr><td>novak@email.cz</td><td>password</td><td>Registrovaný užívateľ</td></tr>
+<tr><td>-</td><td>-</td><td>Neregistrovaný užívateľ</td></tr>
+</table>
+
+<h4>Diagram prípadov užitia</h4>
+
+<img src="doc/use_case.png" alt="Use-case diagram" />
+
+<h3>Video</h3>
+<a href="https://youtu.be/9p8F5tL0u0M">YouTube</a>
+
+<h2>Implementace</h2>
+<p>Projekt je implementovaný v PHP frameworku Laravel nad relačnou databázou MySQL/MariaDB. Nami vytvorené PHP skripty sa nachádzajú v nasledovných lokáciach:
+<ul>
+    <li>app/Http/Controllers</li>
+    <li>app/Http/Middleware</li>
+    <li>app/Models</li>
+    <li>app/Policies</li>
+    <li>database/</li>
+    <li>resources/views/</li>
+    <li>routes/web.php</li>
+    <li>public/style.css</li>
+</ul>
+
+Pri tvorbe aplikácie bol použitý návrhový vzor MVC. <br>
+<i>Model</i> vrstva definuje dátové modely a vzťahy medzi nimi. Hlavnými entitami sú <code>User</code>, <code>Team</code>, <code>Tournament</code>, <code>TournamentMatch</code> a <code>Participant</code>.
+Na mapovanie na databázu sa používa Eloquent ORM. Ku jednotlivým modelom boli vytvorené príslišné migrácie, ktoré definujú schému databázy. <br>
+<i>View</i> vrstvu tvoria views jednotlivých podstránok aplikácie. Využíva šablónovací systém Blade. Všetky stránky dedia spoločný layout <code>layouts/layout.blade.php</code>. <br>
+<i>Controller</i> vrstva je tvorená controllermi jednotlivých modelov. Slúžia na prijatie požiadavky pomocou routingu, interakciu s modelom a tvorbu výstupov, ktoré cez view následne komunikujú na klientskú stranu aplikácie.
+</p>
+
+Detailnější popis <i>views</i> <br>
+Jsou rozděleny do několika podsložek:
+<ul>
+    <li>layouts: slouží jako šablona pro ostatní views, obsahuje HTML hlavičku, uvnitř těla také obsahuje <code>header</code> a <code>footer</code>,
+        ostatní views tvoří vždy element <code>main</code> s konkrétním obsahem příslušného view</li>
+    <li>matches: pouze formulář na úpravu konkrétního zápasu</li>
+    <li>zbylé složky vždy obsahují soubory <code>index, show</code> a případně další dodatečné formuláře pro editaci, vytvoření</li>
+    <ul>
+        <li>index: zobrazuje seznam všech uživatelů, turnajů a týmů</li>
+        <li>show: ukazuje detail jednotlivého vybraného týmu</li>
+    </ul>
+</ul>
+
+<h3>Databáze</h3>
+
+<h4>ER diagram</h4>
+
+<img src="doc/er_diagram.png" alt="ER diagram" />
+
+<h4>Schéma relačnej databázy</h4>
+
+<img src="doc/db_schema.png" alt="Schema" style="width: 80%" />
+
+<h2>Instalace</h2>
+Vyžadované technológie:
+<ul>
+    <li>PHP 8.2 a novšie</li>
+    <li>Laravel 12.x</li>
+    <li>MariaDB</li>
+</ul>
+
+Projekt je možné spustiť iba ak je dostupná celá štruktúra dokumentov, ktorá bola odovzdaná cez IS VUT.
+
+<p>
+<b>Úvodná inštalácia projektu</b>
+<ul>
+    <li><code>composer install</code></li>
+    <li><code>cp .env.example .env</code></li>
+    <li><code>php artisan key:generate</code></li>
+    <li><code>php artisan storage:link</code></li>
+</ul>
+</p>
+
+<p>
+<b>Inicializácia databázy</b>
+<ul>
+    <li>Nastavenie cesty a prístupových údajov do databázy v súbore .env</li>
+    <li>Spustenie migrácií a seedovania dát - <code>php artisan migrate:fresh --seed</code></li>
+    <li><code>php artisan serve</code></li>
+</ul>
+</p>
+
+<p>
+<b>Lokálne spustenie bez webového servera</b>
+<ul>
+    <li>Vyžaduje Node.js 22.21.1</li>
+    <li>Vykonajte kroky v úvodnej inštalácii projektu a inicializácii databázy</li>
+    <li><code>npm install && npm run build</code></li>
+    <li><code>composer run dev</code></li>
+</ul>
+</p>
+
+<h2>Známé problémy</h2>
+<p>V riešení sú implementované všetky prípady užitia zo zadania. Pri testovaní sa občasne prejavil problém s chybnou generáciou pavúka zápasov - niektoré zápasy sa zaraďovali do zlej úrovne.</p>
+
+</body>
+</html>
